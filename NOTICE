@@ -1,0 +1,25 @@
+Monokai V2 (fork of loctvl842/monokai-pro.nvim)
+
+Upstream Project
+- Name: monokai-pro.nvim
+- Author: Loc (loctvl842)
+- Source: https://github.com/loctvl842/monokai-pro.nvim
+- License: MIT (see LICENSE)
+
+Fork
+- Name: monokai-v2.nvim
+- Maintainer: khoido2003
+- Source: https://github.com/khoido2003/monokai-v2.nvim
+
+Licensing Notes
+- This repository contains code originating from the upstream project listed above and
+  remains licensed under the MIT License. See LICENSE for the full text.
+- Additional changes and contributions in this fork are provided under the MIT License as well.
+
+Attributions
+- Portions of this software are derived from monokai-pro.nvim by Loc (loctvl842).
+  Copyright (c) 2023 Loc. Used under the MIT License.
+
+Trademarks
+- "Monokai" may be a trademark of its respective owners. Any such names are used for
+  identification purposes only and do not imply endorsement.
