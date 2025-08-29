@@ -69,7 +69,7 @@ M.get = function(filter)
     background = p.neutral5,
     border = p.neutral5,
     foreground = p.neutral1,
-    highlightForeground = p.foreground,
+    highlightForeground = p.yellow,
     selectedBackground = p.neutral3,
   }
 

@@ -6,8 +6,17 @@ local M = {}
 function M.get(c, config, hp)
   local float_winBackgroundClear = vim.tbl_contains(config.background_clear, "float_win")
   return {
-    BlinkCmpMenu = { fg = c.base.dimmed3 },
-    BlinkCmpMenuSelection = { fg = c.base.yellow },
+    BlinkCmpMenu = { bg = c.editorSuggestWidget.background, fg = hp.lighten(c.editorSuggestWidget.foreground, -15) },
+
+    BlinkCmpMenuSelection = float_winBackgroundClear and {
+      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.7),
+      fg = c.base.yellow,
+      bold = true,
+    } or {
+      fg = c.base.yellow,
+      bg = c.editorSuggestWidget.selectedBackground,
+      bold = true,
+    },
 
     BlinkCmpLabelDescription = { fg = hp.lighten(c.base.dimmed1, 3) },
     BlinkCmpLabelDeprecated = { fg = nil, bg = nil, strikethrough = true },
