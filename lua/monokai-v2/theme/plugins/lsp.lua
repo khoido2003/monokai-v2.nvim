@@ -7,11 +7,11 @@ function M.get(c, _, _)
     DiagnosticError = { fg = c.inputValidation.errorForeground },
     DiagnosticWarn = { fg = c.inputValidation.warningForeground },
     DiagnosticInfo = { fg = c.inputValidation.infoForeground },
-    DiagnosticHint = { fg = c.inputValidation.infoForeground },
+    DiagnosticHint = { fg = c.inputValidation.hintForeground },
     DiagnosticSignError = { fg = c.inputValidation.errorForeground },
     DiagnosticSignWarn = { fg = c.inputValidation.warningForeground },
     DiagnosticSignInfo = { fg = c.inputValidation.infoForeground },
-    DiagnosticSignHint = { fg = c.inputValidation.infoForeground },
+    DiagnosticSignHint = { fg = c.inputValidation.hintForeground },
     DiagnosticVirtualTextError = {
       bg = c.errorLens.errorBackground,
       fg = c.errorLens.errorForeground,
@@ -41,7 +41,7 @@ function M.get(c, _, _)
       undercurl = true,
     },
     DiagnosticUnderlineHint = {
-      sp = c.inputValidation.infoBorder,
+      sp = c.inputValidation.hintBorder,
       undercurl = true,
     },
     DiagnosticUnnecessary = {
