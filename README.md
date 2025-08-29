@@ -6,7 +6,6 @@ A fork of [loctvl842/monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.
 
 This is a personal fork of the excellent Monokai Pro theme for Neovim. While the original theme is already feature-rich and well-maintained, I've made some improvements to better suit my workflow and preferences.
 
-### What's Different
 
 
 ## Installation
