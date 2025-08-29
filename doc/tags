@@ -1,14 +1,21 @@
+# This is a tags file, used by the help system.
+# The name of the tag is followed by a tab character, the name of the file
+# where it is defined, a tab character, and the search pattern.
+# The search pattern can be a line number, a tag name, or a search pattern.
+# See ":help help-tags" for more information.
+# If you delete this file, it will be regenerated automatically.
 monokai-v2-classic	monokai-v2.txt	/*monokai-v2-classic*
-monokai-v2-command	monokai-v2.txt	/*monokai-v2-command*
+monokai-v2-commands	monokai-v2.txt	/*monokai-v2-commands*
 monokai-v2-configuration	monokai-v2.txt	/*monokai-v2-configuration*
 monokai-v2-installation	monokai-v2.txt	/*monokai-v2-installation*
+monokai-v2-light	monokai-v2.txt	/*monokai-v2-light*
 monokai-v2-links	monokai-v2.txt	/*monokai-v2-links*
 monokai-v2-machine	monokai-v2.txt	/*monokai-v2-machine*
 monokai-v2-octagon	monokai-v2.txt	/*monokai-v2-octagon*
+monokai-v2-palette	monokai-v2.txt	/*monokai-v2-palette*
 monokai-v2-pro	monokai-v2.txt	/*monokai-v2-pro*
 monokai-v2-ristretto	monokai-v2.txt	/*monokai-v2-ristretto*
 monokai-v2-spectrum	monokai-v2.txt	/*monokai-v2-spectrum*
 monokai-v2-table-of-contents	monokai-v2.txt	/*monokai-v2-table-of-contents*
 monokai-v2-usage	monokai-v2.txt	/*monokai-v2-usage*
-monokai-v2.txt	monokai-v2.txt	/*monokai-v2.txt*
 

@@ -1,4 +1,4 @@
-*monokai-v2.txt*        For Neovim >= 0.8.0       Last change: 2025 August 03
+*monokai-v2.txt*        For Neovim >= 0.10.0       Last change: 2025 January 03
 
 ==============================================================================
 Table of Contents                              *monokai-v2-table-of-contents*
@@ -9,328 +9,318 @@ Table of Contents                              *monokai-v2-table-of-contents*
   - Ristretto                                          |monokai-v2-ristretto|
   - Spectrum                                            |monokai-v2-spectrum|
   - Classic                                              |monokai-v2-classic|
+  - Light                                                |monokai-v2-light|
   - Palette                                              |monokai-v2-palette|
   - Installation                                    |monokai-v2-installation|
   - Configuration                                  |monokai-v2-configuration|
   - Usage                                                  |monokai-v2-usage|
-  - Command                                              |monokai-v2-command|
-1. Links                                                   |monokai-v2-links|
+  - Commands                                              |monokai-v2-commands|
+  - Links                                                   |monokai-v2-links|
 
 Find out more here monokai.pro <https://monokai.pro/>
 
-
 PRO                                                          *monokai-v2-pro*
-
 
 OCTAGON                                                  *monokai-v2-octagon*
 
-
 MACHINE                                                  *monokai-v2-machine*
-
 
 RISTRETTO                                              *monokai-v2-ristretto*
 
-
 SPECTRUM                                                *monokai-v2-spectrum*
-
 
 CLASSIC                                                  *monokai-v2-classic*
 
+LIGHT                                                    *monokai-v2-light*
 
 PLUGIN SUPPORT ~
 
 - alpha-nvim <https://github.com/goolord/alpha-nvim>
-- bufferLine.nvim <https://github.com/akinsho/bufferline.nvim>
-- Cmp <https://github.com/hrsh7th/nvim-cmp>
-- vim-illuminate <https://github.com/RRethy/vim-illuminate>
-- indent-blankline <https://github.com/lukas-reineke/indent-blankline.nvim>
+- aerial.nvim <https://github.com/stevearc/aerial.nvim>
+- beacon.nvim <https://github.com/DanilaMihailov/beacon.nvim>
+- blink.nvim <https://github.com/folke/blink.nvim>
+- breadcrumb.nvim <https://github.com/loctvl842/breadcrumb.nvim>
+- bufferline.nvim <https://github.com/akinsho/bufferline.nvim>
+- cmp <https://github.com/hrsh7th/nvim-cmp>
+- coq.nvim <https://github.com/ms-jpq/coq_nvim>
+- dashboard-nvim <https://github.com/glepnir/dashboard-nvim>
+- diffview.nvim <https://github.com/sindrets/diffview.nvim>
+- fidget.nvim <https://github.com/j-hui/fidget.nvim>
+- fzf-lua <https://github.com/ibhagwan/fzf-lua>
+- gitsigns.nvim <https://github.com/lewis6991/gitsigns.nvim>
+- illuminate <https://github.com/RRethy/vim-illuminate>
+- indent-blankline.nvim <https://github.com/lukas-reineke/indent-blankline.nvim>
+- lazy.nvim <https://github.com/folke/lazy.nvim>
+- lsp <https://github.com/neovim/nvim-lspconfig>
+- mason.nvim <https://github.com/williamboman/mason.nvim>
+- mini.nvim <https://github.com/echasnovski/mini.nvim>
 - neo-tree.nvim <https://github.com/nvim-neo-tree/neo-tree.nvim>
-- nvim-notify <https://github.com/rcarriga/nvim-notify>
+- noice.nvim <https://github.com/folke/noice.nvim>
+- notify.nvim <https://github.com/rcarriga/nvim-notify>
+- nvim-navic <https://github.com/SmiteshP/nvim-navic>
+- nvim-tree.lua <https://github.com/kyazdani42/nvim-tree.lua>
+- nvim-treesitter <https://github.com/nvim-treesitter/nvim-treesitter>
+- nvim-ts-rainbow2 <https://github.com/HiPhish/nvim-ts-rainbow2>
+- packer.nvim <https://github.com/wbthomason/packer.nvim>
+- rainbow-delimiters.nvim <https://gitlab.com/HiPhish/rainbow-delimiters.nvim>
 - renamer.nvim <https://github.com/filipdutescu/renamer.nvim>
-- lualine.nvim <https://github.com/nvim-lualine/lualine.nvim>
+- scrollbar.nvim <https://github.com/Xuyuanp/scrollbar.nvim>
+- snacks.nvim <https://github.com/m4xshen/snacks.nvim>
 - telescope.nvim <https://github.com/nvim-telescope/telescope.nvim>
 - toggleterm.nvim <https://github.com/akinsho/toggleterm.nvim>
-- nvim-treesitter <https://github.com/nvim-treesitter/nvim-treesitter>
+- ufo.nvim <https://github.com/kevinhwang91/nvim-ufo>
 - which-key.nvim <https://github.com/folke/which-key.nvim>
-- breadcrumb.nvim <https://github.com/loctvl842/breadcrumb.nvim>
-- nvim-navic <https://github.com/SmiteshP/nvim-navic>
 - wilder.nvim <https://github.com/gelguy/wilder.nvim>
-- Lightline <https://github.com/itchyny/lightline.vim>
+- lualine.nvim <https://github.com/nvim-lualine/lualine.nvim>
+- lightline.vim <https://github.com/itchyny/lightline.vim>
 - barbecue.nvim <https://github.com/utilyre/barbecue.nvim>
-- dashboard-nvim <https://github.com/glepnir/dashboard-nvim>
-- mason.nvim <https://github.com/williamboman/mason.nvim>
-- nvim-ts-rainbow2 <https://github.com/HiPhish/nvim-ts-rainbow2>
-- rainbow-delimeters.nvim <https://gitlab.com/HiPhish/rainbow-delimiters.nvim>
-
 
 PALETTE                                                  *monokai-v2-palette*
 
 >lua
     cs.base = {
-      dark = p.dark2,        -- "#19181a"
-      black = p.dark1,       -- "#221f22"
-      red = p.accent1,       -- "#ff6188"
-      green = p.accent4,     -- "#a9dc76"
-      yellow = p.accent3,    -- "#ffd866"
-      blue = p.accent2,      -- "#fc9867"
-      magenta = p.accent6,   -- "#ab9df2"
-      cyan = p.accent5,      -- "#78dce8"
-      white = p.text,        -- "#fcfcfa"
-      dimmed1 = p.dimmed1,   -- "#c1c0c0"
-      dimmed2 = p.dimmed2,   -- "#939293"
-      dimmed3 = p.dimmed3,   -- "#727072"
-      dimmed4 = p.dimmed4,   -- "#5b595c"
-      dimmed5 = p.dimmed5,   -- "#403e41"
+      dark = p.surface0,        -- "#19181a"
+      black = p.surface1,       -- "#221f22"
+      red = p.red,              -- "#ff6188"
+      green = p.green,          -- "#a9dc76"
+      yellow = p.yellow,        -- "#ffd866"
+      blue = p.cyan,            -- "#78dce8"
+      orange = p.orange,        -- "#fc9867"
+      purple = p.purple,        -- "#ab9df2"
+      cyan = p.cyan,            -- "#78dce8"
+      white = p.foreground,     -- "#fcfcfa"
+      neutral1 = p.neutral1,    -- "#c1c0c0"
+      neutral2 = p.neutral2,    -- "#939293"
+      neutral3 = p.neutral3,    -- "#727072"
+      neutral4 = p.neutral4,    -- "#5b595c"
+      neutral5 = p.neutral5,    -- "#403e41"
     }
 <
 
-- **Primary Colors:** `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white` are your vibrant accent colors.
-- **Dimmed Colors:** `dimmed1` to `dimmed5` are muted shades for less prominent elements.
+- **Primary Colors:** `red`, `green`, `yellow`, `blue`, `orange`, `purple`, `cyan`, `white` are your vibrant accent colors.
+- **Neutral Colors:** `neutral1` to `neutral5` are muted shades for less prominent elements.
 - **Background Colors:** `dark` and `black` serve as your primary and secondary background colors.
-
 
 INSTALLATION                                        *monokai-v2-installation*
 
-vim-plug <https://github.com/junegunn/vim-plug>
+Lazy.nvim (Recommended) <https://github.com/folke/lazy.nvim>
 
->vim
-    Plug 'loctvl842/monokai-v2.nvim'
+>lua
+    {
+      "khoido2003/monokai-v2.nvim",
+      priority = 1000,
+      config = function()
+        require("monokai-v2").setup()
+        vim.cmd("colorscheme monokai-v2")
+      end,
+    }
 <
 
-packer <https://github.com/wbthomason/packer.nvim>
+Packer <https://github.com/wbthomason/packer.nvim>
 
 >lua
     use {
-      "loctvl842/monokai-v2.nvim",
+      "khoido2003/monokai-v2.nvim",
       config = function()
         require("monokai-v2").setup()
+        vim.cmd("colorscheme monokai-v2")
       end
     }
 <
 
+vim-plug <https://github.com/junegunn/vim-plug>
+
+>vim
+    Plug 'khoido2003/monokai-v2.nvim'
+<
 
 CONFIGURATION                                      *monokai-v2-configuration*
 
-There are several themes included in this plugin.
+There are 7 filter variants included in this plugin:
 
-- |monokai-v2-pro| – Monokai V2 _(default)_
-- |monokai-v2-octagon| – Monokai V2 (Filter Octagon)
-- |monokai-v2-machine| – Monokai V2 (Filter Machine)
-- |monokai-v2-ristretto| – Monokai V2 (Filter Ristretto)
-- |monokai-v2-spectrum| – Monokai V2 (Filter Spectrum)
-- |monokai-v2-classic| – Monokai Classic
+- |monokai-v2-classic| – Monokai Classic _(default for dark background)_
+- |monokai-v2-light| – Monokai Light _(default for light background)_
+- |monokai-v2-machine| – Monokai Machine
+- |monokai-v2-octagon| – Monokai Octagon
+- |monokai-v2-pro| – Monokai Pro
+- |monokai-v2-ristretto| – Monokai Ristretto
+- |monokai-v2-spectrum| – Monokai Spectrum
 
 Example configuration:
 
 >lua
     require("monokai-v2").setup({
+      -- Basic settings
       transparent_background = false,
       terminal_colors = true,
-      devicons = true, -- highlight the icons of `nvim-web-devicons`
+      devicons = false,
+      
+      -- Syntax highlighting styles
       styles = {
-        comment = { italic = true },
-        keyword = { italic = true }, -- any other keyword
-        type = { italic = true }, -- (preferred) int, long, char, etc
-        storageclass = { italic = true }, -- static, register, volatile, etc
-        structure = { italic = true }, -- struct, union, enum, etc
-        parameter = { italic = true }, -- parameter pass in function
-        annotation = { italic = true },
-        tag_attribute = { italic = true }, -- attribute of tag in reactjs
+        comment = { italic = false },
+        keyword = { italic = false },
+        type = { italic = false },
+        storageclass = { italic = false },
+        structure = { italic = false },
+        parameter = { italic = false },
+        annotation = { italic = false },
+        tag_attribute = { italic = false },
       },
-      filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
-      -- Enable this will disable filter option
+      
+      -- Treesitter settings
+      treesitter = {
+        italic = false,
+      },
+      
+      -- Filter selection
+      filter = "classic", -- classic | light | machine | octagon | pro | ristretto | spectrum
+      
+      -- Day/night mode
       day_night = {
-        enable = false, -- turn off by default
-        day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
-        night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+        enable = false,
+        day_filter = "pro",
+        night_filter = "spectrum",
       },
+      
+      -- Incremental search style
       inc_search = "background", -- underline | background
+      
+      -- Background clearing for floating windows
       background_clear = {
-        -- "float_win",
         "toggleterm",
         "telescope",
-        -- "which-key",
         "renamer",
         "notify",
-        -- "nvim-tree",
-        -- "neo-tree",
-        -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
-      },-- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
+      },
+      
+      -- Plugin-specific settings
       plugins = {
         bufferline = {
           underline_selected = false,
           underline_visible = false,
+          underline_fill = false,
+          bold = true,
         },
         indent_blankline = {
           context_highlight = "default", -- default | pro
           context_start_underline = false,
         },
       },
-      ---@param c Colorscheme
-      override = function(c) end,
-      ---@param cs Colorscheme
-      ---@param p ColorschemeOptions
-      ---@param Config monokaiv2Options
-      ---@param hp Helper
-      override = function(cs: Colorscheme, p: ColorschemeOptions, Config: monokaiv2Options, hp: Helper) end,
     })
 <
 
-- Check my nvim <https://github.com/loctvl842/nvim> to see my plugins setup for `border` if you want to set `background_clear`
+Background Clearing Examples ~
 
-For example:
-
-float_win ~
+Float Windows ~
 
 >lua
     require("monokai-v2").setup({
-        -- ... your config
         background_clear = { "float_win" }
-        -- ... your config
     })
     
     require("cmp").setup({
-        -- ... your config
         window = {
           border = "rounded",
         }
-        completion = {
-            border = "rounded",
-        }
-        -- ... your config
     })
 <
-
-- With the above config:
-- With the default config:
 
 Telescope ~
 
 >lua
     require("monokai-v2").setup({
-        -- ... your config
-        background_clear = {}
-        -- ... your config
+        background_clear = { "telescope" }
     })
     
     require("telescope").setup({
-        -- ... your config
         defaults = {
           borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
         }
-        -- ... your config
     })
 <
 
-- With the above config:
-
-- With the default config:
-
-
 USAGE                                                      *monokai-v2-usage*
 
-- Enable this colorscheme by using the following command after `setup`
+Enable the colorscheme:
 
 >vim
-    " Vim Script
     colorscheme monokai-v2
 <
 
 >lua
-    require("monokai-v2").setup({
-      -- ... your config
-    })
-    -- lua
     vim.cmd([[colorscheme monokai-v2]])
 <
 
-- Toenable `monokai-v2` for `Lualine`
+Statusline Integration ~
+
+Lualine ~
 
 >lua
-    require('lualine').setup {
+    require('lualine').setup({
       options = {
-        -- ...
         theme = 'monokai-v2'
-        -- ...
       }
-    }
+    })
 <
 
-- Toenable `monokai-v2` for `barbecue`
+Barbecue ~
 
 >lua
-    require('barbecue').setup {
-      -- ...
+    require('barbecue').setup({
       theme = 'monokai-v2'
-      -- ...
-    }
+    })
 <
 
-- Toenable `monokai-v2` for `lightline`
+Lightline ~
 
 >vim
-    " Vim Script
     let g:lightline = {'colorscheme': 'monokaiv2'}
 <
 
-- Overridefunction for customizing the final color scheme:
+Customization ~
+
+Override specific highlight groups:
 
 >lua
     require("monokai-v2").setup({
-        -- ...
-        override = function()
-          return {
-              Normal = { bg = "#000000" }
-            }
-        end
-        -- ...
-      })
-<
-
-- Customize your own palette:
-
-This is a sample config to use `Tokyonight` as the palette:
-
->lua
-    require("monokai-v2").setup({
-        -- ...
-        --- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
         override = function(c)
           return {
-            IndentBlanklineChar = { fg = c.base.dimmed4 },
-          }
-        end,
-        overridePalette = function(filter)
-          return {
-            dark2 = "#101014",
-            dark1 = "#16161E",
-            background = "#1A1B26",
-            text = "#C0CAF5",
-            accent1 = "#f7768e",
-            accent2 = "#7aa2f7",
-            accent3 = "#e0af68",
-            accent4 = "#9ece6a",
-            accent5 = "#0DB9D7",
-            accent6 = "#9d7cd8",
-            dimmed1 = "#737aa2",
-            dimmed2 = "#787c99",
-            dimmed3 = "#363b54",
-            dimmed4 = "#363b54",
-            dimmed5 = "#16161e",
+              Normal = { bg = "#000000" }
           }
         end
-        -- ...
-      })
+    })
 <
 
-- Customize the scheme:
-
-This is a sample config to use a darker background for almost all supported
-plugins:
+Override palette colors:
 
 >lua
     require("monokai-v2").setup({
-        -- ...
+        overridePalette = function(filter)
+          return {
+            surface0 = "#101014",
+            surface1 = "#16161E",
+            background = "#1A1B26",
+            foreground = "#C0CAF5",
+            red = "#f7768e",
+            orange = "#7aa2f7",
+            yellow = "#e0af68",
+            green = "#9ece6a",
+            cyan = "#0DB9D7",
+            purple = "#9d7cd8",
+            neutral1 = "#737aa2",
+            neutral2 = "#787c99",
+            neutral3 = "#363b54",
+            neutral4 = "#363b54",
+            neutral5 = "#16161e",
+          }
+        end
+    })
+<
+
+Override the entire scheme:
+
+>lua
+    require("monokai-v2").setup({
         overrideScheme = function(cs, p, config, hp)
           local cs_override = {}
           local calc_bg = hp.blend(p.background, 0.75, '#000000')
@@ -340,31 +330,22 @@ plugins:
           }
           return cs_override
         end
-        -- ...
-      })
+    })
 <
 
+COMMANDS                                              *monokai-v2-commands*
 
-COMMAND                                                  *monokai-v2-command*
+- `MonokaiThemeSelect` - Launch interactive menu to choose theme filter
+- `MonokaiChoose <filter>` - Direct filter selection (e.g., `MonokaiChoose pro`)
 
-- run command `Monokaiv2Select` to launch a menu to choose theme filter (required: nui.nvim <https://github.com/MunifTanjim/nui.nvim>)
-- or we can run command `Monokaiv2` with parameter to change theme filter: For example:
-    > `Monokaiv2 classic`
+Available filters: classic, light, machine, octagon, pro, ristretto, spectrum
 
 ==============================================================================
-1. Links                                                   *monokai-v2-links*
+Links                                                   *monokai-v2-links*
 
-1. *monokai-v2-macbook*: https://user-images.githubusercontent.com/80513079/218453999-87c957f1-658d-49a6-bf67-291d3e46fa9a.png
-2. *pro*: https://user-images.githubusercontent.com/80513079/209659184-ed5a28c3-cb7f-4de7-8f7c-5d206dc11540.png
-3. *octagon*: https://user-images.githubusercontent.com/80513079/209659175-97db9a95-edd0-4b6e-8087-7fb1aee45c52.png
-4. *machine*: https://user-images.githubusercontent.com/80513079/209659194-d9fe09f5-ea35-4130-b2e8-d854b7b6fb72.png
-5. *ristretto*: https://user-images.githubusercontent.com/80513079/209659205-90200c24-d302-4b70-811a-36e6e7845f6b.png
-6. *spectrum*: https://user-images.githubusercontent.com/80513079/209659126-9df0d401-020f-4b0c-963d-5a930d0a6974.png
-7. *classic*: https://user-images.githubusercontent.com/80513079/209659153-9362a05f-2b7f-4b36-acf1-d13bef6a9118.png
-8. *bg_clear_cmp*: https://user-images.githubusercontent.com/80513079/218801625-a2b43cb0-175c-4463-9290-a361deb41f6a.png
-9. *default_cmp*: https://user-images.githubusercontent.com/80513079/218804686-834c624d-d9bf-45a1-a1bd-a6d05e70e1b8.png
-10. *removed_border_telescope*: https://user-images.githubusercontent.com/80513079/218804055-a5cbf9d4-5c0f-4c0f-9cfe-5362af3714e8.png
-11. *default_telescope*: https://user-images.githubusercontent.com/80513079/218803566-56852087-8d3c-410c-854a-89bb49f8d981.png
+- Repository: https://github.com/khoido2003/monokai-v2.nvim
+- Original theme: https://github.com/loctvl842/monokai-pro.nvim
+- Monokai Pro: https://monokai.pro/
 
 Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
 

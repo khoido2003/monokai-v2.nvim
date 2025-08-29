@@ -1,46 +1,81 @@
-# **Best Practices and Tips**
+# Plugin Support
 
-## **a. Consistency is Key**
+This directory contains theme configurations for various Neovim plugins. Each file defines how the Monokai V2 colorscheme integrates with specific plugins.
 
-Ensure that similar elements maintain consistent styling across different parts of your code. This helps in quicker recognition and reduces cognitive load.
+## Supported Plugins
 
-## **b. Use Modifier Attributes Wisely**
+### UI & Navigation
+- **alpha-nvim** - Startup screen
+- **bufferline.nvim** - Tab/buffer line
+- **dashboard-nvim** - Dashboard
+- **neo-tree.nvim** - File explorer
+- **nvim-tree.lua** - File explorer
+- **telescope.nvim** - Fuzzy finder
+- **which-key.nvim** - Key binding helper
 
-- **Italic**: Great for annotations, escape sequences, and parameters.
-- **Bold**: Effective for functions and certain keywords to make them stand out.
-- **Underline**: Consider using for errors or warnings (not used in current assignments but useful for future additions).
+### Completion & LSP
+- **cmp** - Completion menu
+- **blink.nvim** - Enhanced completion
+- **coc.nvim** - Language server
+- **lsp** - Language server protocol
+- **mason.nvim** - LSP installer
+- **nvim-navic** - Breadcrumbs
+- **aerial.nvim** - Code outline
 
-## **c. Maintain Sufficient Contrast**
+### Git & Version Control
+- **gitsigns.nvim** - Git signs in gutter
+- **diffview.nvim** - Git diff viewer
 
-Ensure that all foreground colors have adequate contrast against the `background` (`dark` and `black`) to maintain readability. Your current assignments appear to follow this principle, but always verify using contrast checking tools.
+### Syntax & Highlighting
+- **nvim-treesitter** - Syntax highlighting
+- **indent-blankline.nvim** - Indent guides
+- **rainbow-delimiters.nvim** - Rainbow parentheses
+- **nvim-ts-rainbow2** - Rainbow parentheses (alternative)
+- **illuminate** - Word highlighting
 
-## **d. Limit the Use of Bright Colors**
+### Terminal & UI Elements
+- **toggleterm.nvim** - Terminal
+- **notify.nvim** - Notifications
+- **noice.nvim** - UI improvements
+- **scrollbar.nvim** - Scrollbar
+- **ufo.nvim** - Folding
+- **beacon.nvim** - Cursor highlighting
 
-While vibrant colors like `red`, `green`, and `cyan` are effective, overusing them can lead to visual fatigue. Use dimmed colors for less critical elements to create a balanced palette.
+### Package Managers
+- **lazy.nvim** - Plugin manager
+- **packer.nvim** - Plugin manager
 
-## **e. Accessibility Considerations**
+### Utilities
+- **fidget.nvim** - LSP progress
+- **fzf-lua** - Fuzzy finder
+- **mini.nvim** - Mini plugins
+- **renamer.nvim** - File renaming
+- **snacks.nvim** - Quick actions
+- **wilder.nvim** - Command line completion
 
-- **Color Blindness**: Avoid relying solely on color to convey meaning. Use italics or bold styles in conjunction with color to ensure accessibility for color-blind users.
-- **Testing**: Utilize tools like [Coblis](https://www.color-blindness.com/coblis-color-blindness-simulator/) to simulate how your colorscheme appears to individuals with different types of color vision deficiencies.
+### Statuslines
+- **lualine.nvim** - Statusline
+- **lightline.vim** - Statusline
+- **barbecue.nvim** - Breadcrumbs
 
-## **f. Iterate and Refine**
+## Development Guidelines
 
-# Plugins
+### Color Usage
+- Use `c.base.*` colors for consistent theming
+- Use `c.editor.*` colors for editor-specific elements
+- Use `c.syntax.*` colors for syntax highlighting
+- Use `c.plugin.*` colors for plugin-specific elements
 
-## Treesitter
+### Best Practices
+1. **Consistency**: Maintain consistent styling across similar elements
+2. **Contrast**: Ensure adequate contrast for readability
+3. **Moderation**: Use bright colors sparingly to avoid visual fatigue
+4. **Accessibility**: Consider color-blind users when choosing color combinations
 
-### Categorizing Highlight Groups\*\*
-
-#### **Categories:**
-
-1. **Annotations & Attributes**
-2. **Booleans & Constants**
-3. **Constructors & Fields**
-4. **Functions & Methods**
-5. **Keywords**
-6. **Numbers & Operators**
-7. **Parameters & Variables**
-8. **Punctuation**
-9. **Strings & Tags**
-10. **Utility Groups**
+### Adding New Plugins
+1. Create a new `.lua` file in this directory
+2. Follow the existing naming convention
+3. Use the standard function signature: `function M.get(c, config, hp)`
+4. Return a table of highlight group definitions
+5. Test with the actual plugin to ensure proper integration
 
