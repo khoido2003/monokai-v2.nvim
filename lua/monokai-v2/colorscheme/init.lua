@@ -208,6 +208,18 @@ M.get = function(filter)
     dimmed5 = p.neutral5,
   }
 
+  cs.punctuation = {
+    delimiter = {
+      orange = p.delimiter_orange,
+      yellow = p.delimiter_yellow,
+      green = p.delimiter_green,
+      cyan = p.delimiter_cyan,
+      purple = p.delimiter_purple,
+      pink = p.delimiter_pink,
+      blue = p.delimiter_blue,
+    },
+  }
+
   cs = vim.tbl_deep_extend("force", cs, Config.overrideScheme and Config.overrideScheme(cs, p, Config, hp) or {})
 
   return cs

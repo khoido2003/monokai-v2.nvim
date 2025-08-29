@@ -76,6 +76,13 @@
 ---@field green HexColor
 ---@field cyan HexColor
 ---@field magenta HexColor
+---@field delimiter_orange HexColor
+---@field delimiter_yellow HexColor
+---@field delimiter_green HexColor
+---@field delimiter_cyan HexColor
+---@field delimiter_purple HexColor
+---@field delimiter_pink HexColor
+---@field delimiter_blue HexColor
 ---@field neutral1 HexColor
 ---@field neutral2 HexColor
 ---@field neutral3 HexColor
