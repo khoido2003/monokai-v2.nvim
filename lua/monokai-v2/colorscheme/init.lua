@@ -43,194 +43,169 @@ M.get = function(filter)
 
   cs.editor = {
     background = Config.transparent_background and "NONE" or p.background,
-    foreground = p.text,
-    lineHighlightBackground = hp.blend(p.text, 0.05, p.background), -- "#fcfcfa0c", -- background: background
-    selectionBackground = hp.blend(p.dimmed1, 0.15, p.background), --"#c1c0c027", -- background: background
-    findMatchBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- background: background
-    findMatchBorder = p.accent3,
-    findMatchHighlightBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- background: background
-    foldBackground = hp.blend(p.text, 0.1, p.background), -- "#fcfcfa0c", -- background: background
-    wordHighlightBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- illuminateRead
-    selectionHighlightBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- illuminateText
-    wordHighlightStrongBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- illuminateWrite
+    foreground = p.foreground,
+    lineHighlightBackground = hp.blend(p.foreground, 0.05, p.background),
+    selectionBackground = hp.blend(p.neutral1, 0.15, p.background),
+    findMatchBackground = hp.blend(p.foreground, 0.15, p.background),
+    findMatchBorder = p.yellow,
+    findMatchHighlightBackground = hp.blend(p.foreground, 0.15, p.background),
+    foldBackground = hp.blend(p.foreground, 0.1, p.background),
+    wordHighlightBackground = hp.blend(p.foreground, 0.15, p.background),
+    selectionHighlightBackground = hp.blend(p.foreground, 0.15, p.background),
+    wordHighlightStrongBackground = hp.blend(p.foreground, 0.15, p.background),
   }
 
   cs.editorLineNumber = {
-    foreground = p.dimmed4,
-    activeForeground = p.dimmed1,
+    foreground = p.neutral4,
+    activeForeground = p.neutral1,
   }
 
   cs.editorHoverWidget = {
-    background = p.dimmed5,
+    background = p.neutral5,
     border = p.background,
   }
 
   cs.editorSuggestWidget = {
-    background = p.dimmed5, -- "#403e41",
-    border = p.dimmed5, -- "#403e41",
-    foreground = p.dimmed1, -- "#c1c0c0",
-    highlightForeground = p.text, -- "#fcfcfa",
-    selectedBackground = p.dimmed3, -- "#727072",
+    background = p.neutral5,
+    border = p.neutral5,
+    foreground = p.neutral1,
+    highlightForeground = p.foreground,
+    selectedBackground = p.neutral3,
   }
 
   cs.editorIndentGuide = {
-    background = p.dimmed5, -- "#403e41",
-    activeBackground = p.dimmed3, -- "#5b595c",
+    background = p.neutral5,
+    activeBackground = p.neutral3,
   }
 
   cs.editorInlayHint = {
-    background = p.dimmed5,
-    foreground = p.dimmed2,
+    background = p.neutral5,
+    foreground = p.neutral2,
   }
 
   cs.editorGutter = {
-    addedBackground = p.accent4, -- "#a9dc76",
-    deletedBackground = p.accent1, -- "#ff6188",
-    modifiedBackground = p.accent2, -- "#fc9867",
+    addedBackground = p.green,
+    deletedBackground = p.red,
+    modifiedBackground = p.orange,
   }
 
   cs.sideBar = {
-    background = p.dark1, -- "#221f22",
-    foreground = p.dimmed2, -- "#939293",
+    background = p.surface1,
+    foreground = p.neutral2, -- "#939293",
   }
 
   cs.sideBarTitle = {
-    foreground = p.dimmed4, -- "#5b595c",
+    foreground = p.neutral4, -- "#5b595c",
   }
 
-  cs.list = {
-    activeSelectionBackground = hp.blend(p.text, 0.11, cs.sideBar.background), -- "#fcfcfa1c", -- background: sideBarBackground,
-  }
+  cs.list = { activeSelectionBackground = hp.blend(p.foreground, 0.11, cs.sideBar.background) }
 
-  cs.sideBarSectionHeader = {
-    background = p.dark1, -- "#221f22",
-    foreground = p.dimmed1, -- "#c1c0c0",
-  }
+  cs.sideBarSectionHeader = { background = p.surface1, foreground = p.neutral1 }
 
   cs.breadcrumb = {
-    foreground = p.dimmed2, -- "#939293",
+    foreground = p.neutral2, -- "#939293",
   }
 
   cs.button = {
-    background = p.dimmed5, -- "#403e41",
-    foreground = p.dimmed1, -- "#c1c0c0",
-    hoverBackground = p.dimmed4, -- "#5b595c",
-    separator = p.background, -- "#272822",
+    background = p.neutral5, -- "#403e41",
+    foreground = p.neutral1, -- "#c1c0c0",
+    hoverBackground = p.neutral4, -- "#5b595c",
+    separator = p.background,
   }
 
   cs.scrollbarSlider = {
-    hoverBackground = hp.blend(p.dimmed1, 0.15, p.background), -- "#c1c0c026", -- background: background
+    hoverBackground = hp.blend(p.neutral1, 0.15, p.background),
   }
 
   cs.gitDecoration = {
-    addedResourceForeground = p.accent4, -- "#a9dc76",
-    conflictingResourceForeground = p.accent2, -- "#fc9867",
-    deletedResourceForeground = p.accent1, -- "#ff6188",
-    ignoredResourceForeground = p.dimmed4, -- "#5b595c",
-    modifiedResourceForeground = p.accent3, -- "#ffd866",
-    stageDeletedResourceForeground = p.accent1, -- "#ff6188",
-    stageModifiedResourceForeground = p.accent3, -- "#ffd866",
-    untrackedResourceForeground = p.dimmed2, -- "#c1c0c0",
+    addedResourceForeground = p.green,
+    conflictingResourceForeground = p.orange,
+    deletedResourceForeground = p.red,
+    ignoredResourceForeground = p.neutral4, -- "#5b595c",
+    modifiedResourceForeground = p.yellow,
+    stageDeletedResourceForeground = p.red,
+    stageModifiedResourceForeground = p.yellow,
+    untrackedResourceForeground = p.neutral2, -- "#c1c0c0",
   }
 
   cs.inputValidation = {
-    errorBackground = p.dimmed5, -- "#403e41",
-    errorBorder = p.accent1, -- "#ff6188",
-    errorForeground = p.accent1, --"#ff6188",
-    infoBackground = p.dimmed5, -- "#403e41",
-    infoBorder = p.accent5, --"#78dce8",
-    infoForeground = p.accent5, --"#78dce8",
-    warningBackground = p.dimmed5, --"#403e41",
-    warningBorder = p.accent2, --"#fc9867",
-    warningForeground = p.accent2, --"#fc9867",
+    errorBackground = p.neutral5,
+    errorBorder = p.red,
+    errorForeground = p.red,
+    infoBackground = p.neutral5,
+    infoBorder = p.cyan,
+    infoForeground = p.cyan,
+    warningBackground = p.neutral5,
+    warningBorder = p.orange,
+    warningForeground = p.orange,
   }
 
   cs.errorLens = {
-    errorBackground = hp.blend(p.accent1, 0.1),
-    errorForeground = p.accent1,
-    warningBackground = hp.blend(p.accent2, 0.1),
-    warningForeground = p.accent2,
-    infoBackground = hp.blend(p.accent5, 0.1),
-    infoForeground = p.accent5,
-    hintBackground = hp.blend(p.accent5, 0.1),
-    hintForeground = p.accent5,
+    errorBackground = hp.blend(p.red, 0.1),
+    errorForeground = p.red,
+    warningBackground = hp.blend(p.orange, 0.1),
+    warningForeground = p.orange,
+    infoBackground = hp.blend(p.cyan, 0.1),
+    infoForeground = p.cyan,
+    hintBackground = hp.blend(p.cyan, 0.1),
+    hintForeground = p.cyan,
   }
 
-  cs.terminal = {
-    background = p.dimmed5, -- "#403e41",
-    foreground = p.text, -- "#fcfcfa",
-  }
+  cs.terminal = { background = p.neutral5, foreground = p.foreground }
 
-  cs.terminalCursor = {
-    background = "#ffffff", -- "#00000000",
-    foreground = p.text, -- "#fcfcfa",
-  }
+  cs.terminalCursor = { background = "#ffffff", foreground = p.foreground }
 
-  cs.editorGroupHeader = {
-    tabsBackground = p.dark1, -- "#221f22",
-    tabsBorder = p.dark1, -- "#221f22",
-  }
+  cs.editorGroupHeader = { tabsBackground = p.surface1, tabsBorder = p.surface1 }
 
   cs.tab = {
-    activeBackground = Config.transparent_background and "NONE" or p.background, -- "#272822",
-    activeBorder = p.accent3, -- "#ffd866",
-    activeForeground = p.accent3, -- "#ffd866",
+    activeBackground = Config.transparent_background and "NONE" or p.background,
+    activeBorder = p.yellow,
+    activeForeground = p.yellow,
     inactiveBackground = hp.lighten(p.background, 15),
-    inactiveForeground = p.dimmed2, -- "#939293",
-    unfocusedActiveBackground = p.background, -- "#272822",
-    unfocusedActiveBorder = p.dimmed2, -- "#939293",
-    unfocusedActiveForeground = p.dimmed1, -- "#c1c0c0",
+    inactiveForeground = p.neutral2, -- "#939293",
+    unfocusedActiveBackground = p.background,
+    unfocusedActiveBorder = p.neutral2,
+    unfocusedActiveForeground = p.neutral1, -- "#c1c0c0",
   }
 
   cs.statusBar = {
-    -- background = p.dark1,
-    background = p.dark2,
-    foreground = p.dimmed3,
-    activeForeground = p.dimmed1,
+    background = p.surface0,
+    foreground = p.neutral3,
+    activeForeground = p.neutral1,
   }
 
   cs.diffEditor = {
-    insertedLineBackground = hp.blend(p.accent4, 0.1, p.dark1), -- #a9dc7619
-    removedLineBackground = hp.blend(p.accent1, 0.1, p.dark1), -- #ff618819
-    modifiedLineBackground = hp.blend(p.accent2, 0.1, p.dark1), -- #fc986719
+    insertedLineBackground = hp.blend(p.green, 0.1, p.surface1),
+    removedLineBackground = hp.blend(p.red, 0.1, p.surface1),
+    modifiedLineBackground = hp.blend(p.orange, 0.1, p.surface1),
   }
 
   cs.diffEditorOverview = {
-    insertedForeground = hp.blend(p.accent4, 0.65, cs.diffEditor.insertedLineBackground), -- #a9dc76a5
-    removedForeground = hp.blend(p.accent1, 0.65, cs.diffEditor.removedLineBackground), -- #ff6188a5
-    modifiedForeground = hp.blend(p.accent2, 0.65, cs.diffEditor.modifiedLineBackground), -- #fc9867a5
+    insertedForeground = hp.blend(p.green, 0.65, cs.diffEditor.insertedLineBackground),
+    removedForeground = hp.blend(p.red, 0.65, cs.diffEditor.removedLineBackground),
+    modifiedForeground = hp.blend(p.orange, 0.65, cs.diffEditor.modifiedLineBackground),
   }
 
-  cs.notifications = {
-    background = p.dimmed5,
-    border = p.dimmed5,
-    foreground = p.dimmed1,
-  }
-  cs.notificationsErrorIcon = {
-    foreground = p.accent1,
-  }
-  cs.notificationsInfoIcon = {
-    foreground = p.accent5,
-  }
-  cs.notificationsWarningIcon = {
-    foreground = p.accent2,
-  }
+  cs.notifications = { background = p.neutral5, border = p.neutral5, foreground = p.neutral1 }
+  cs.notificationsErrorIcon = { foreground = p.red }
+  cs.notificationsInfoIcon = { foreground = p.cyan }
+  cs.notificationsWarningIcon = { foreground = p.orange }
 
   cs.base = {
-    dark = p.dark2, -- "#19181a"
-    black = p.dark1, --"#221f22",
-    red = p.accent1, -- "#ff6188",
-    green = p.accent4, -- "#a9dc76",
-    yellow = p.accent3, -- "#ffd866",
-    blue = p.accent2, -- "#fc9867",
-    magenta = p.accent6, -- "#ab9df2",
-    cyan = p.accent5, -- "#78dce8",
-    white = p.text, -- "#fcfcfa",
-    dimmed1 = p.dimmed1, -- "#c1c0c0",
-    dimmed2 = p.dimmed2, -- "#939293",
-    dimmed3 = p.dimmed3, -- "#727072",
-    dimmed4 = p.dimmed4, -- "#5b595c",
-    dimmed5 = p.dimmed5, -- "#403e41",
+    dark = p.surface0,
+    black = p.surface1,
+    red = p.red,
+    green = p.green,
+    yellow = p.yellow,
+    blue = p.orange,
+    magenta = p.magenta,
+    cyan = p.cyan,
+    white = p.foreground,
+    dimmed1 = p.neutral1,
+    dimmed2 = p.neutral2,
+    dimmed3 = p.neutral3,
+    dimmed4 = p.neutral4,
+    dimmed5 = p.neutral5,
   }
 
   cs = vim.tbl_deep_extend("force", cs, Config.overrideScheme and Config.overrideScheme(cs, p, Config, hp) or {})

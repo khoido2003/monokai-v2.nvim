@@ -66,21 +66,21 @@
 ---@alias HexColorAlpha integer A number between 0 and 1
 
 ---@class Palette
----@field dark2 HexColor
----@field dark1 HexColor
+---@field surface0 HexColor
+---@field surface1 HexColor
 ---@field background HexColor
----@field text HexColor
----@field accent1 HexColor
----@field accent2 HexColor
----@field accent3 HexColor
----@field accent4 HexColor
----@field accent5 HexColor
----@field accent6 HexColor
----@field dimmed1 HexColor
----@field dimmed2 HexColor
----@field dimmed3 HexColor
----@field dimmed4 HexColor
----@field dimmed5 HexColor
+---@field foreground HexColor
+---@field red HexColor
+---@field orange HexColor
+---@field yellow HexColor
+---@field green HexColor
+---@field cyan HexColor
+---@field magenta HexColor
+---@field neutral1 HexColor
+---@field neutral2 HexColor
+---@field neutral3 HexColor
+---@field neutral4 HexColor
+---@field neutral5 HexColor
 
 ---@class RGB
 ---@field r number A number between 0 and 255
