@@ -11,10 +11,10 @@ function M.get(c, config, _)
     ["@attribute"]                        = { fg = c.base.green }, -- `@` in decorator. E.g. `@checked`
 
     -- Booleans & Constants
-    ["@boolean"]                          = { fg = c.base.magenta },
-    ["@constant"]                         = { fg = c.base.magenta },
-    ["@constant.builtin"]                 = { fg = c.base.magenta },
-    ["@constant.macro"]                   = { fg = c.base.magenta },
+    ["@boolean"]                          = { fg = c.base.purple },
+    ["@constant"]                         = { fg = c.base.purple },
+    ["@constant.builtin"]                 = { fg = c.base.purple },
+    ["@constant.macro"]                   = { fg = c.base.purple },
 
     -- Constructors & Fields
     ["@constructor"]                      = { fg = c.base.green },
@@ -50,16 +50,16 @@ function M.get(c, config, _)
     ["@keyword.type"]                     = { fg = c.base.cyan, italic = true },
 
     -- Numbers & Operators
-    ["@number"]                           = { fg = c.base.magenta },
-    ["@number.float"]                     = { fg = c.base.magenta },
+    ["@number"]                           = { fg = c.base.purple },
+    ["@number.float"]                     = { fg = c.base.purple },
     ["@operator"]                         = { fg = c.base.red }, -- `==`, `*`, `+`, `-`
 
     -- Parameters & Variables
     ["@variable"]                         = { fg = c.base.white },
     ["@variable.builtin"]                 = { fg = c.base.dimmed1, italic = true },
     ["@variable.member"]                  = { fg = c.base.white },
-    ["@variable.parameter"]               = { fg = c.base.blue, italic = true },
-    ["@variable.parameter.builtin"]       = { fg = c.base.blue, italic = true },
+    ["@variable.parameter"]               = { fg = c.base.orange, italic = true },
+    ["@variable.parameter.builtin"]       = { fg = c.base.orange, italic = true },
 
     -- Punctuation
     ["@punctuation.bracket"]              = { fg = c.base.red },
@@ -69,7 +69,7 @@ function M.get(c, config, _)
     -- Strings & Characters
     ["@string"]                           = { fg = c.base.yellow },
     ["@string.documentation"]             = { fg = c.base.dimmed3 },
-    ["@string.escape"]                    = { fg = c.base.magenta },
+    ["@string.escape"]                    = { fg = c.base.purple },
     ["@string.regexp"]                    = { fg = c.base.yellow },
     ["@character"]                        = { fg = c.base.yellow },
     ["@character.printf"]                 = { fg = c.base.yellow },
@@ -88,10 +88,10 @@ function M.get(c, config, _)
     ["@markup.environment.name"]          = { fg = c.base.white },
     ["@markup.heading"]                   = { fg = c.base.green, bold = true },
     ["@markup.italic"]                    = { fg = c.base.white, italic = true },
-    ["@markup.link"]                      = { fg = c.base.blue, underline = true },
-    ["@markup.link.label"]                = { fg = c.base.blue, underline = true },
-    ["@markup.link.label.symbol"]         = { fg = c.base.blue, underline = true },
-    ["@markup.link.url"]                  = { fg = c.base.blue, underline = true },
+    ["@markup.link"]                      = { fg = c.base.orange, underline = true },
+    ["@markup.link.label"]                = { fg = c.base.orange, underline = true },
+    ["@markup.link.label.symbol"]         = { fg = c.base.orange, underline = true },
+    ["@markup.link.url"]                  = { fg = c.base.orange, underline = true },
     ["@markup.list"]                      = { fg = c.base.white },
     ["@markup.list.checked"]              = { fg = c.base.white },
     ["@markup.list.markdown"]             = { fg = c.base.white },
@@ -122,7 +122,7 @@ function M.get(c, config, _)
     ["@namespace.cpp"]                     = { fg = c.base.green },
     ["@operator.cpp"]                      = { fg = c.base.red },
     ["@punctuation.delimiter.cpp"]         = { fg = c.sideBar.foreground },
-    ["@type.cpp"]                          = { fg = c.base.blue, italic = styles.type.italic },
+    ["@type.cpp"]                          = { fg = c.base.orange, italic = styles.type.italic },
     ["@variable.cpp"]                      = { fg = c.base.white },
 
     -- Dockerfile
@@ -134,7 +134,7 @@ function M.get(c, config, _)
     -- Golang
     ["@keyword.function.go"]               = { fg = c.base.red },
     ["@module.go"]                         = { fg = c.base.white },
-    ["@string.escape.go"]                  = { fg = c.base.magenta },
+    ["@string.escape.go"]                  = { fg = c.base.purple },
 
     -- Latex
     ["@function.macro.latex"]              = { fg = c.base.green },
@@ -142,8 +142,8 @@ function M.get(c, config, _)
     ["@string.latex"]                      = { fg = c.base.cyan },
     ["@text.emphasis.latex"]               = { italic = true },
     ["@text.environment.latex"]            = { fg = c.base.green },
-    ["@text.environment.name.latex"]       = { fg = c.base.blue, italic = true },
-    ["@text.math.latex"]                   = { fg = c.base.magenta },
+    ["@text.environment.name.latex"]       = { fg = c.base.orange, italic = true },
+    ["@text.math.latex"]                   = { fg = c.base.purple },
     ["@text.strong.latex"]                 = { bold = true },
 
     -- Markdown
@@ -167,9 +167,9 @@ function M.get(c, config, _)
     -- SCSS
     ["@function.scss"]                     = { fg = c.base.cyan },
     ["@keyword.scss"]                      = { fg = c.base.red },
-    ["@number.scss"]                       = { fg = c.base.magenta },
+    ["@number.scss"]                       = { fg = c.base.purple },
     ["@property.scss"]                     = { fg = c.base.green },
-    ["@string.scss"]                       = { fg = c.base.blue, italic = true },
+    ["@string.scss"]                       = { fg = c.base.orange, italic = true },
     ["@type.scss"]                         = { fg = c.base.cyan },
 
     -- Lua
@@ -180,11 +180,11 @@ function M.get(c, config, _)
     ["@keyword.function.lua"]             = { fg = c.base.red },
     ["@keyword.lua"]                      = { fg = c.base.red, italic = styles.keyword.italic },
     ["@namespace.lua"]                    = { fg = c.base.red },
-    ["@parameter.lua"]                    = { fg = c.base.blue, italic = true },
+    ["@parameter.lua"]                    = { fg = c.base.orange, italic = true },
     ["@variable.lua"]                     = { fg = c.base.white },
 
     -- Yaml
-    ["@number.yaml"]                      = { fg = c.base.magenta },
+    ["@number.yaml"]                      = { fg = c.base.purple },
     ["@property.yaml"]                    = { fg = c.base.red },
     ["@punctuation.special.yaml"]         = { fg = c.base.white },
     ["@string.yaml"]                      = { fg = c.base.yellow },
@@ -197,4 +197,3 @@ function M.get(c, config, _)
 end
 
 return M
-

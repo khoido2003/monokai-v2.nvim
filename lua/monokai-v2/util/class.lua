@@ -19,4 +19,3 @@ function M.typeof(instance)
 end
 
 return M
-

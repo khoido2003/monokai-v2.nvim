@@ -336,4 +336,3 @@ M.setup_bufferline_icon = function(icon_hl_name, icon_color)
 end
 
 return M
-

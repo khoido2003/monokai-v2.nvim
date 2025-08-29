@@ -51,4 +51,3 @@ function M.try(fn, opts)
 end
 
 return M
-

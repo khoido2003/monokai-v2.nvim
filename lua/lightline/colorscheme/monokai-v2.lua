@@ -4,29 +4,29 @@ local M = {}
 
 M.normal = {
   left = {
-    { colors.base.black, colors.base.yellow },
-    { colors.base.yellow, colors.editorSuggestWidget.background },
+    { colors.base.black, colors.base.green },
+    { colors.base.green, colors.editorSuggestWidget.background },
   },
   middle = { { colors.base.black, colors.base.black } },
   right = {
-    { colors.base.black, colors.base.yellow },
-    { colors.base.yellow, colors.editorSuggestWidget.background },
+    { colors.base.black, colors.base.green },
+    { colors.base.green, colors.editorSuggestWidget.background },
   },
   error = { { colors.base.black, colors.base.red } },
-  warning = { { colors.base.black, colors.base.blue } },
+  warning = { { colors.base.black, colors.base.orange } },
 }
 
 M.insert = {
   left = {
-    { colors.base.black, colors.base.green },
-    { colors.base.green, colors.editorSuggestWidget.background },
+    { colors.base.black, colors.base.yellow },
+    { colors.base.yellow, colors.editorSuggestWidget.background },
   },
 }
 
 M.visual = {
   left = {
-    { colors.base.black, colors.base.magenta },
-    { colors.base.magenta, colors.editorSuggestWidget.background },
+    { colors.base.black, colors.base.purple },
+    { colors.base.purple, colors.editorSuggestWidget.background },
   },
 }
 
@@ -39,7 +39,7 @@ M.replace = {
 
 M.inactive = {
   left = {
-    { colors.base.yellow, colors.base.black },
+    { colors.base.green, colors.base.black },
     { colors.base.black, colors.base.black },
   },
   middle = {
@@ -50,4 +50,3 @@ M.inactive = {
 package.loaded["colors"] = nil
 
 return M
-

@@ -34,25 +34,25 @@ M.setup = function(c)
     },
     [".gitattributes"] = {
       icon = "󰊢",
-      color = c.base.blue,
+      color = c.base.orange,
       cterm_color = "59",
       name = "GitAttributes",
     },
     [".gitconfig"] = {
       icon = "󰊢",
-      color = c.base.blue,
+      color = c.base.orange,
       cterm_color = "59",
       name = "GitConfig",
     },
     [".gitignore"] = {
       icon = "󰊢",
-      color = c.base.blue,
+      color = c.base.orange,
       cterm_color = "59",
       name = "GitIgnore",
     },
     [".gitmodules"] = {
       icon = "󰊢",
-      color = c.base.blue,
+      color = c.base.orange,
       cterm_color = "59",
       name = "GitModules",
     },
@@ -70,7 +70,7 @@ M.setup = function(c)
     },
     [".settings.json"] = {
       icon = "",
-      color = c.base.magenta,
+      color = c.base.purple,
       cterm_color = "98",
       name = "SettingsJson",
     },
@@ -130,7 +130,7 @@ M.setup = function(c)
     },
     ["bmp"] = {
       icon = "",
-      color = c.base.magenta,
+      color = c.base.purple,
       cterm_color = "140",
       name = "Bmp",
     },
@@ -184,7 +184,7 @@ M.setup = function(c)
     },
     ["desktop"] = {
       icon = "",
-      color = c.base.magenta,
+      color = c.base.purple,
       cterm_color = "60",
       name = "DesktopEntry",
     },
@@ -202,7 +202,7 @@ M.setup = function(c)
     },
     ["json"] = {
       icon = "",
-      color = c.base.magenta,
+      color = c.base.purple,
       cterm_color = "185",
       name = "Json",
     },
@@ -238,19 +238,19 @@ M.setup = function(c)
     },
     ["sql"] = {
       icon = "",
-      color = c.base.magenta,
+      color = c.base.purple,
       cterm_color = "188",
       name = "Sql",
     },
     ["sqlite"] = {
       icon = "",
-      color = c.base.magenta,
+      color = c.base.purple,
       cterm_color = "188",
       name = "Sql",
     },
     ["sqlite3"] = {
       icon = "",
-      color = c.base.magenta,
+      color = c.base.purple,
       cterm_color = "188",
       name = "Sql",
     },
@@ -262,7 +262,7 @@ M.setup = function(c)
     },
     ["xml"] = {
       icon = "󰅴",
-      color = c.base.blue,
+      color = c.base.orange,
       cterm_color = "173",
       name = "Xml",
     },
@@ -286,7 +286,7 @@ M.setup = function(c)
     },
     ["go.mod"] = {
       icon = "",
-      color = c.base.blue,
+      color = c.base.orange,
       cterm_color = "197",
       name = "GoMod",
     },
@@ -301,4 +301,3 @@ M.setup = function(c)
 end
 
 return M
-

@@ -75,7 +75,7 @@
 ---@field yellow HexColor
 ---@field green HexColor
 ---@field cyan HexColor
----@field magenta HexColor
+---@field purple HexColor
 ---@field delimiter_orange HexColor
 ---@field delimiter_yellow HexColor
 ---@field delimiter_green HexColor
@@ -117,4 +117,3 @@
 ---@alias HighlightGroup string
 
 ---@class HighlightGroupTbl: { [HighlightGroup]: HighlightGroupOpt }
-

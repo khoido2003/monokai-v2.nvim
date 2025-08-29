@@ -91,11 +91,11 @@ M.get = function(filter)
 
   cs.sideBar = {
     background = p.surface1,
-    foreground = p.neutral2, -- "#939293",
+    foreground = p.neutral2,
   }
 
   cs.sideBarTitle = {
-    foreground = p.neutral4, -- "#5b595c",
+    foreground = p.neutral4,
   }
 
   cs.list = { activeSelectionBackground = hp.blend(p.foreground, 0.11, cs.sideBar.background) }
@@ -103,13 +103,13 @@ M.get = function(filter)
   cs.sideBarSectionHeader = { background = p.surface1, foreground = p.neutral1 }
 
   cs.breadcrumb = {
-    foreground = p.neutral2, -- "#939293",
+    foreground = p.neutral2,
   }
 
   cs.button = {
-    background = p.neutral5, -- "#403e41",
-    foreground = p.neutral1, -- "#c1c0c0",
-    hoverBackground = p.neutral4, -- "#5b595c",
+    background = p.neutral5,
+    foreground = p.neutral1,
+    hoverBackground = p.neutral4,
     separator = p.background,
   }
 
@@ -121,11 +121,11 @@ M.get = function(filter)
     addedResourceForeground = p.green,
     conflictingResourceForeground = p.orange,
     deletedResourceForeground = p.red,
-    ignoredResourceForeground = p.neutral4, -- "#5b595c",
+    ignoredResourceForeground = p.neutral4,
     modifiedResourceForeground = p.yellow,
     stageDeletedResourceForeground = p.red,
     stageModifiedResourceForeground = p.yellow,
-    untrackedResourceForeground = p.neutral2, -- "#c1c0c0",
+    untrackedResourceForeground = p.neutral2,
   }
 
   cs.inputValidation = {
@@ -197,8 +197,8 @@ M.get = function(filter)
     red = p.red,
     green = p.green,
     yellow = p.yellow,
-    blue = p.orange,
-    magenta = p.magenta,
+    orange = p.orange,
+    purple = p.purple,
     cyan = p.cyan,
     white = p.foreground,
     dimmed1 = p.neutral1,
@@ -226,4 +226,3 @@ M.get = function(filter)
 end
 
 return M
-

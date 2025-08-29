@@ -36,4 +36,3 @@ function M.get(c, _, hp)
 end
 
 return M
-

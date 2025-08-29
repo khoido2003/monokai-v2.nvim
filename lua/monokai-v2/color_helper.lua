@@ -92,4 +92,3 @@ function M.extend_hex(hexColor, base)
 end
 
 return M
-

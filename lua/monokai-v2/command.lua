@@ -45,4 +45,3 @@ M.create_filter_command = function()
 end
 
 return M
-

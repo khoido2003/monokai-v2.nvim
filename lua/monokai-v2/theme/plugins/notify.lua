@@ -10,17 +10,17 @@ function M.get(c, config, hp)
     NotifyWARNBorder = { fg = hp.blend(c.inputValidation.warningBorder, 0.3) },
     NotifyINFOBorder = { fg = hp.blend(c.inputValidation.infoBorder, 0.3) },
     NotifyDEBUGBorder = { fg = hp.blend(c.base.dimmed2, 0.3) },
-    NotifyTRACEBorder = { fg = hp.blend(c.base.magenta, 0.3) },
+    NotifyTRACEBorder = { fg = hp.blend(c.base.purplea, 0.3) },
     NotifyERRORIcon = { fg = c.inputValidation.errorForeground },
     NotifyWARNIcon = { fg = c.inputValidation.warningForeground },
     NotifyINFOIcon = { fg = c.inputValidation.infoForeground },
     NotifyDEBUGIcon = { fg = c.base.white },
-    NotifyTRACEIcon = { fg = c.base.magenta },
+    NotifyTRACEIcon = { fg = c.base.purplea },
     NotifyERRORTitle = { link = "NotifyERRORIcon" },
     NotifyWARNTitle = { link = "NotifyWARNIcon" },
     NotifyINFOTitle = { link = "NotifyINFOIcon" },
     NotifyDEBUGTitle = { fg = c.base.dimmed2 },
-    NotifyTRACETitle = { fg = c.base.magenta },
+    NotifyTRACETitle = { fg = c.base.purplea },
     NotifyERRORBody = { link = "Normal" },
     NotifyWARNBody = { link = "Normal" },
     NotifyINFOBody = { link = "Normal" },
@@ -57,4 +57,3 @@ function M.get(c, config, hp)
 end
 
 return M
-

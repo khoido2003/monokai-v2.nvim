@@ -9,14 +9,13 @@ function M.get(c, _, _)
     -- Doome theme
     DashboardKey = { fg = c.base.cyan },
     DashboardDesc = { fg = c.base.dimmed1 },
-    DashboardIcon = { fg = c.base.blue },
+    DashboardIcon = { fg = c.base.orange },
     -- Hyper theme
     DashboardProjectTitle = { fg = c.base.yellow },
     DashboardMruTitle = { fg = c.base.yellow },
-    DashboardFiles = { fg = c.base.blue },
-    DashboardShortcut = { fg = c.base.magenta },
+    DashboardFiles = { fg = c.base.orange },
+    DashboardShortcut = { fg = c.base.purple },
   }
 end
 
 return M
-

@@ -10,9 +10,9 @@ function M.get(c, _, _)
     },
     NoiceCmdlinePopupBorderSearch = {
       bg = c.editor.background,
-      fg = c.base.blue,
+      fg = c.base.orange,
     },
-    NoiceCmdlineIconSearch = { fg = c.base.blue },
+    NoiceCmdlineIconSearch = { fg = c.base.orange },
     NoiceFormatProgressDone = { bg = c.base.yellow, fg = c.base.black, bold = true },
     NoiceFormatProgressTodo = { bg = c.base.dimmed3, fg = c.base.dimmed5 },
     NoiceLspProgressTitle = { fg = c.base.dimmed2 },
@@ -27,4 +27,3 @@ function M.get(c, _, _)
 end
 
 return M
-

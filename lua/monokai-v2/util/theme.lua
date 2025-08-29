@@ -84,4 +84,3 @@ function M.load(hl_group_tbl)
 end
 
 return M
-

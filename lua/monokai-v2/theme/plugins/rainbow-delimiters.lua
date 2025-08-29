@@ -8,10 +8,9 @@ function M.get(c, _, _)
     RainbowDelimiterBlue = { fg = c.punctuation.delimiter.blue or c.base.cyan },
     RainbowDelimiterOrange = { fg = c.punctuation.delimiter.orange or c.base.yellow },
     RainbowDelimiterGreen = { fg = c.punctuation.delimiter.green or c.base.green },
-    RainbowDelimiterViolet = { fg = c.punctuation.delimiter.purple or c.base.magenta },
+    RainbowDelimiterViolet = { fg = c.punctuation.delimiter.purple or c.base.purplea },
     RainbowDelimiterCyan = { fg = c.punctuation.delimiter.cyan or c.base.cyan },
   }
 end
 
 return M
-

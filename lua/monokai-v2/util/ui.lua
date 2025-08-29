@@ -61,4 +61,3 @@ function M.create_menu(title, items, handler)
 end
 
 return M
-

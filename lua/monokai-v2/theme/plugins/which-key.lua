@@ -8,9 +8,9 @@ function M.get(c, config, _)
   local transparent_bg = c.editor.background
   local transparent_bg_border = c.base.dimmed2
   return {
-    WhichKey = { fg = c.base.blue },
+    WhichKey = { fg = c.base.orange },
     WhichKeySeperator = { fg = c.base.red },
-    WhichKeyGroup = { fg = c.base.magenta },
+    WhichKeyGroup = { fg = c.base.purple },
     WhichKeyDesc = { fg = c.base.yellow },
     WhichKeyNormal = { bg = isBackgroundClear and transparent_bg or whichkey_bg },
     WhichKeyBorder = isBackgroundClear and {
@@ -24,4 +24,3 @@ function M.get(c, config, _)
 end
 
 return M
-

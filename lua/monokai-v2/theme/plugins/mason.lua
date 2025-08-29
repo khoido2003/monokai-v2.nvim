@@ -13,13 +13,13 @@ function M.get(c, _, _)
     MasonHighlight = { fg = c.base.cyan },
     MasonHighlightBlock = { bg = c.base.yellow, fg = "#222222" },
     MasonHighlightBlockBold = { link = "LazyH1" },
-    MasonHighlightSecondary = { fg = c.base.blue },
+    MasonHighlightSecondary = { fg = c.base.orange },
     MasonHighlightBlockSecondary = {
-      bg = c.base.blue,
+      bg = c.base.orange,
       fg = c.base.black,
     },
     MasonHighlightBlockBoldSecondary = {
-      bg = c.base.blue,
+      bg = c.base.orange,
       fg = c.base.black,
       bold = true,
     },
@@ -37,4 +37,3 @@ function M.get(c, _, _)
 end
 
 return M
-

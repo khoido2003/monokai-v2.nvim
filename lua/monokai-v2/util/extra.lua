@@ -21,11 +21,11 @@ function M.terminal(colors)
   vim.g.terminal_color_3 = colors.base.yellow
   vim.g.terminal_color_11 = colors.base.yellow
 
-  vim.g.terminal_color_4 = colors.base.blue
-  vim.g.terminal_color_12 = colors.base.blue
+  vim.g.terminal_color_4 = colors.base.orange
+  vim.g.terminal_color_12 = colors.base.orange
 
-  vim.g.terminal_color_5 = colors.base.magenta
-  vim.g.terminal_color_13 = colors.base.magenta
+  vim.g.terminal_color_5 = colors.base.purple
+  vim.g.terminal_color_13 = colors.base.purple
 
   vim.g.terminal_color_6 = colors.base.cyan
   vim.g.terminal_color_14 = colors.base.cyan
@@ -38,4 +38,3 @@ function M.is_daytime()
 end
 
 return M
-

@@ -6,15 +6,15 @@ M.setup = function(c, config, _)
   local styles = config.styles
   return {
     Comment = { fg = c.base.dimmed3, italic = styles.comment.italic }, -- Comments
-    Constant = { fg = c.base.magenta }, -- (preferred) any constant
+    Constant = { fg = c.base.purple }, -- (preferred) any constant
     String = { fg = c.base.yellow }, --   a string constant: "this is a string"
-    Character = { fg = c.base.magenta }, -- a character constant: 'c', '\n'
-    Number = { fg = c.base.magenta }, -- a number constant: 234, 0xff
-    Boolean = { fg = c.base.magenta }, -- a boolean constant: TRUE, false
-    Float = { fg = c.base.magenta }, -- a floating point constant: 2.3e10
+    Character = { fg = c.base.purple }, -- a character constant: 'c', '\n'
+    Number = { fg = c.base.purple }, -- a number constant: 234, 0xff
+    Boolean = { fg = c.base.purple }, -- a boolean constant: TRUE, false
+    Float = { fg = c.base.purple }, -- a floating point constant: 2.3e10
     Identifier = { fg = c.base.white }, -- (preferred) any variable name
     Function = { fg = c.base.green }, -- function name (also: methods for classes)
-    Statement = { fg = c.base.magenta }, -- (preferred) any statement
+    Statement = { fg = c.base.purple }, -- (preferred) any statement
     Conditional = { fg = c.base.red }, --  if, then, else, endif, switch, etc
     Repeat = { fg = c.base.red }, -- for, do, while, etc
     Label = { fg = c.base.red }, -- case, default, etc
@@ -30,8 +30,8 @@ M.setup = function(c, config, _)
     StorageClass = { fg = c.base.red, italic = styles.type.italic }, -- static, register, volatile, etc
     Structure = { fg = c.base.cyan, italic = styles.type.italic }, -- struct, union, enum, etc
     Typedef = { fg = c.base.red }, -- A typedef
-    Special = { fg = c.base.blue }, -- (preferred) any special symbol
-    SpecialChar = { fg = c.base.blue }, -- special character in a constant
+    Special = { fg = c.base.orange }, -- (preferred) any special symbol
+    SpecialChar = { fg = c.base.orange }, -- special character in a constant
     -- Tag = {}, -- you can use CTRL-] on this
     Delimiter = { fg = c.base.white }, -- character that needs attention
     SpecialComment = { fg = c.base.dimmed3 }, -- special things inside a comment
@@ -43,7 +43,7 @@ M.setup = function(c, config, _)
     Error = { fg = c.inputValidation.errorForeground }, -- (preferred) any erroneous construct
     Todo = {
       bg = c.editor.background,
-      fg = c.base.magenta,
+      fg = c.base.purple,
       bold = true,
     }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     javaAnnotation = { fg = c.base.dimmed2 },
@@ -51,4 +51,3 @@ M.setup = function(c, config, _)
 end
 
 return M
-
