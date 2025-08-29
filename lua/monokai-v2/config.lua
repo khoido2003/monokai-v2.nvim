@@ -18,6 +18,9 @@ local config = {
     annotation = { italic = false },
     tag_attribute = { italic = false }, -- attribute of tag in reactjs
   },
+  treesitter = {
+    italic = false,
+  },
   filter = vim.o.background == "light" and "classic" or "pro", -- classic | octagon | pro | machine | ristretto | spectrum
   day_night = {
     enable = false,

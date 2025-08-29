@@ -4,6 +4,8 @@ local M = {}
 --- @param config Config
 function M.get(c, config, _)
   local styles = config.styles
+  local treesitter_options = config.treesitter
+
   -- stylua: ignore
   local spec = {
     -- Annotations & Attributes
@@ -19,7 +21,6 @@ function M.get(c, config, _)
     -- Constructors & Fields
     ["@constructor"]                      = { fg = c.base.green },
     ["@field"]                            = { fg = c.base.red },
-    ["@property"]                         = { fg = c.base.white_dim },
 
     -- Diff Changes
     ["@diff.delta"]                       = { fg = c.base.yellow },
@@ -42,13 +43,13 @@ function M.get(c, config, _)
     ["@keyword.directive"]                = { fg = c.base.red },
     ["@keyword.directive.define"]         = { fg = c.base.red },
     ["@keyword.exception"]                = { fg = c.base.red },
-    ["@keyword.function"]                 = { fg = c.base.cyan, italic = true },
+    ["@keyword.function"]                 = { fg = c.base.cyan, italic = treesitter_options.italic },
     ["@keyword.import"]                   = { fg = c.base.red },
     ["@keyword.operator"]                 = { fg = c.base.red },
     ["@keyword.repeat"]                   = { fg = c.base.red },
     ["@keyword.return"]                   = { fg = c.base.red },
     ["@keyword.storage"]                  = { fg = c.base.red },
-    ["@keyword.type"]                     = { fg = c.base.cyan, italic = true },
+    ["@keyword.type"]                     = { fg = c.base.cyan, italic = treesitter_options.italic },
 
     -- Numbers & Operators
     ["@number"]                           = { fg = c.base.purple },
@@ -57,10 +58,10 @@ function M.get(c, config, _)
 
     -- Parameters & Variables
     ["@variable"]                         = { fg = c.base.white },
-    ["@variable.builtin"]                 = { fg = c.base.dimmed1, italic = true },
+    ["@variable.builtin"]                 = { fg = c.base.white_dim, italic = treesitter_options.italic },
     ["@variable.member"]                  = { fg = c.base.white_dim },
-    ["@variable.parameter"]               = { fg = c.base.orange, italic = true },
-    ["@variable.parameter.builtin"]       = { fg = c.base.orange, italic = true },
+    ["@variable.parameter"]               = { fg = c.base.orange, italic = treesitter_options.italic },
+    ["@variable.parameter.builtin"]       = { fg = c.base.orange, italic = treesitter_options.italic },
 
     -- Punctuation
     ["@punctuation.bracket"]              = { fg = c.base.red },
@@ -78,17 +79,17 @@ function M.get(c, config, _)
 
     -- Tags & Markup
     ["@tag"]                              = { fg = c.base.red },
-    ["@tag.attribute"]                    = { fg = c.base.cyan, italic = true },
+    ["@tag.attribute"]                    = { fg = c.base.cyan, italic = treesitter_options.italic },
     ["@tag.builtin"]                      = { fg = c.base.red },
     ["@tag.delimiter"]                    = { fg = c.base.dimmed2 },
 
     -- Markup Highlight Groups
     ["@markup"]                           = { fg = c.base.white },
-    ["@markup.emphasis"]                  = { fg = c.base.white, italic = true },
+    ["@markup.emphasis"]                  = { fg = c.base.white, italic = treesitter_options.italic },
     ["@markup.environment"]               = { fg = c.base.white },
     ["@markup.environment.name"]          = { fg = c.base.white },
     ["@markup.heading"]                   = { fg = c.base.green, bold = true },
-    ["@markup.italic"]                    = { fg = c.base.white, italic = true },
+    ["@markup.italic"]                    = { fg = c.base.white, italic = treesitter_options.italic },
     ["@markup.link"]                      = { fg = c.base.orange, underline = true },
     ["@markup.link.label"]                = { fg = c.base.orange, underline = true },
     ["@markup.link.label.symbol"]         = { fg = c.base.orange, underline = true },
@@ -106,7 +107,7 @@ function M.get(c, config, _)
 
     -- Types
     ["@type"]                             = { fg = c.base.cyan },
-    ["@type.builtin"]                     = { fg = c.base.cyan, italic = true },
+    ["@type.builtin"]                     = { fg = c.base.cyan, italic = treesitter_options.italic },
     ["@type.definition"]                  = { fg = c.base.green },
     ["@type.qualifier"]                   = { fg = c.base.cyan },
     ["@module"]                           = { fg = c.base.cyan },
@@ -149,7 +150,7 @@ function M.get(c, config, _)
 
     -- Markdown
     ["@conceal.markdown"]                  = { bg = c.base.black },
-    ["@markup.italic.markdown_inline"]     = { italic = true },
+    ["@markup.italic.markdown_inline"]     = { italic = treesitter_options.italic },
     ["@markup.link.label.markdown_inline"] = { fg = c.base.red },
     ["@markup.link.url.markdown_inline"]   = { fg = c.base.green, underline = true },
     ["@markup.raw.block.markdown"]         = { bg = c.base.black },
@@ -157,7 +158,7 @@ function M.get(c, config, _)
     ["@markup.strong.markdown_inline"]     = { bold = true },
     ["@none.markdown"]                     = { bg = c.base.black },
     ["@punctuation.special.markdown"]      = { fg = c.base.dimmed2 },
-    ["@text.emphasis.markdown_inline"]     = { fg = c.base.white, italic = true },
+    ["@text.emphasis.markdown_inline"]     = { fg = c.base.white, italic = treesitter_options.italic },
     ["@text.literal.block.markdown"]       = { bg = c.editor.background },
     ["@text.literal.markdown_inline"]      = { bg = c.base.dimmed4, fg = c.base.white },
     ["@text.quote.markdown"]               = { bg = c.base.dimmed5, fg = c.base.white },
@@ -170,7 +171,7 @@ function M.get(c, config, _)
     ["@keyword.scss"]                      = { fg = c.base.red },
     ["@number.scss"]                       = { fg = c.base.purple },
     ["@property.scss"]                     = { fg = c.base.green },
-    ["@string.scss"]                       = { fg = c.base.orange, italic = true },
+    ["@string.scss"]                       = { fg = c.base.orange, italic = treesitter_options.italic },
     ["@type.scss"]                         = { fg = c.base.cyan },
 
     -- Lua
@@ -181,7 +182,7 @@ function M.get(c, config, _)
     ["@keyword.function.lua"]             = { fg = c.base.red },
     ["@keyword.lua"]                      = { fg = c.base.red, italic = styles.keyword.italic },
     ["@namespace.lua"]                    = { fg = c.base.red },
-    ["@parameter.lua"]                    = { fg = c.base.orange, italic = true },
+    ["@parameter.lua"]                    = { fg = c.base.orange, italic = treesitter_options.italic },
     ["@variable.lua"]                     = { fg = c.base.white },
 
     -- Yaml

@@ -39,7 +39,7 @@ function M.get(c, config, hp)
       fg = common_fg,
     },
     TelescopePromptCounter = {
-      fg = c.base.red,
+      fg = c.base.white,
       bold = true,
     },
     TelescopeBorder = isBackgroundClear and {
@@ -50,7 +50,7 @@ function M.get(c, config, hp)
       fg = c.editorHoverWidget.background,
     },
     TelescopeMatching = {
-      fg = c.base.orange,
+      fg = c.base.yellow,
       bold = true,
     },
 
@@ -76,7 +76,7 @@ function M.get(c, config, hp)
       bg = transparent_bg,
       fg = prompt_bg,
     },
-    TelescopePromptPrefix = { fg = c.base.cyan },
+    TelescopePromptPrefix = { fg = c.base.yellow },
 
     -- preview
     TelescopePreviewTitle = {
