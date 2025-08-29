@@ -1,1 +1,2 @@
-require("monokai-pro")._load("light")
+require("monokai-v2")._load("light")
+

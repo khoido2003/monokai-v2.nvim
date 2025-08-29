@@ -1,1 +1,2 @@
-require("monokai-pro")._load("classic")
+require("monokai-v2")._load("classic")
+

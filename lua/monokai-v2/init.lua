@@ -1,9 +1,9 @@
-local config = require("monokai-pro.config")
-local util = require("monokai-pro.util")
-local theme = require("monokai-pro.theme")
-local command = require("monokai-pro.command")
+local config = require("monokai-v2.config")
+local util = require("monokai-v2.util")
+local theme = require("monokai-v2.theme")
+local command = require("monokai-v2.command")
 
----@class MonokaiPro
+---@class monokaiv2
 local M = {}
 
 M.load = function()
@@ -22,3 +22,4 @@ M.setup = function(options)
 end
 
 return M
+

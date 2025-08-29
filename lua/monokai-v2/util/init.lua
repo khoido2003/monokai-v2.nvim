@@ -1,14 +1,14 @@
 ---@class Util
----@field class monokai-pro.util.class
----@field devicons monokai-pro.util.devicons
----@field extra monokai-pro.util.extra
----@field theme monokai-pro.util.theme
----@field ui monokai-pro.util.ui
+---@field class monokai-v2.util.class
+---@field devicons monokai-v2.util.devicons
+---@field extra monokai-v2.util.extra
+---@field theme monokai-v2.util.theme
+---@field ui monokai-v2.util.ui
 local M = {}
 
 setmetatable(M, {
   __index = function(_, k)
-    local mod = require("monokai-pro.util." .. k)
+    local mod = require("monokai-v2.util." .. k)
     return mod
   end,
 })
@@ -23,7 +23,7 @@ function M.log(msg, level, opts)
   if type(msg) == "table" then
     msg = table.concat(msg, "\n")
   end
-  local nopts = { title = "Monokai-pro" }
+  local nopts = { title = "monokai-v2" }
   if opts.once then
     return vim.schedule(function()
       vim.notify_once(msg, log_level, nopts)
@@ -51,3 +51,4 @@ function M.try(fn, opts)
 end
 
 return M
+

@@ -1,40 +1,40 @@
-*monokai-pro.txt*        For Neovim >= 0.8.0       Last change: 2025 August 03
+*monokai-v2.txt*        For Neovim >= 0.8.0       Last change: 2025 August 03
 
 ==============================================================================
-Table of Contents                              *monokai-pro-table-of-contents*
+Table of Contents                              *monokai-v2-table-of-contents*
 
-  - Pro                                                      |monokai-pro-pro|
-  - Octagon                                              |monokai-pro-octagon|
-  - Machine                                              |monokai-pro-machine|
-  - Ristretto                                          |monokai-pro-ristretto|
-  - Spectrum                                            |monokai-pro-spectrum|
-  - Classic                                              |monokai-pro-classic|
-  - Palette                                              |monokai-pro-palette|
-  - Installation                                    |monokai-pro-installation|
-  - Configuration                                  |monokai-pro-configuration|
-  - Usage                                                  |monokai-pro-usage|
-  - Command                                              |monokai-pro-command|
-1. Links                                                   |monokai-pro-links|
+  - Pro                                                      |monokai-v2-pro|
+  - Octagon                                              |monokai-v2-octagon|
+  - Machine                                              |monokai-v2-machine|
+  - Ristretto                                          |monokai-v2-ristretto|
+  - Spectrum                                            |monokai-v2-spectrum|
+  - Classic                                              |monokai-v2-classic|
+  - Palette                                              |monokai-v2-palette|
+  - Installation                                    |monokai-v2-installation|
+  - Configuration                                  |monokai-v2-configuration|
+  - Usage                                                  |monokai-v2-usage|
+  - Command                                              |monokai-v2-command|
+1. Links                                                   |monokai-v2-links|
 
 Find out more here monokai.pro <https://monokai.pro/>
 
 
-PRO                                                          *monokai-pro-pro*
+PRO                                                          *monokai-v2-pro*
 
 
-OCTAGON                                                  *monokai-pro-octagon*
+OCTAGON                                                  *monokai-v2-octagon*
 
 
-MACHINE                                                  *monokai-pro-machine*
+MACHINE                                                  *monokai-v2-machine*
 
 
-RISTRETTO                                              *monokai-pro-ristretto*
+RISTRETTO                                              *monokai-v2-ristretto*
 
 
-SPECTRUM                                                *monokai-pro-spectrum*
+SPECTRUM                                                *monokai-v2-spectrum*
 
 
-CLASSIC                                                  *monokai-pro-classic*
+CLASSIC                                                  *monokai-v2-classic*
 
 
 PLUGIN SUPPORT ~
@@ -63,7 +63,7 @@ PLUGIN SUPPORT ~
 - rainbow-delimeters.nvim <https://gitlab.com/HiPhish/rainbow-delimiters.nvim>
 
 
-PALETTE                                                  *monokai-pro-palette*
+PALETTE                                                  *monokai-v2-palette*
 
 >lua
     cs.base = {
@@ -89,41 +89,41 @@ PALETTE                                                  *monokai-pro-palette*
 - **Background Colors:** `dark` and `black` serve as your primary and secondary background colors.
 
 
-INSTALLATION                                        *monokai-pro-installation*
+INSTALLATION                                        *monokai-v2-installation*
 
 vim-plug <https://github.com/junegunn/vim-plug>
 
 >vim
-    Plug 'loctvl842/monokai-pro.nvim'
+    Plug 'loctvl842/monokai-v2.nvim'
 <
 
 packer <https://github.com/wbthomason/packer.nvim>
 
 >lua
     use {
-      "loctvl842/monokai-pro.nvim",
+      "loctvl842/monokai-v2.nvim",
       config = function()
-        require("monokai-pro").setup()
+        require("monokai-v2").setup()
       end
     }
 <
 
 
-CONFIGURATION                                      *monokai-pro-configuration*
+CONFIGURATION                                      *monokai-v2-configuration*
 
 There are several themes included in this plugin.
 
-- |monokai-pro-pro| – Monokai Pro _(default)_
-- |monokai-pro-octagon| – Monokai Pro (Filter Octagon)
-- |monokai-pro-machine| – Monokai Pro (Filter Machine)
-- |monokai-pro-ristretto| – Monokai Pro (Filter Ristretto)
-- |monokai-pro-spectrum| – Monokai Pro (Filter Spectrum)
-- |monokai-pro-classic| – Monokai Classic
+- |monokai-v2-pro| – Monokai V2 _(default)_
+- |monokai-v2-octagon| – Monokai V2 (Filter Octagon)
+- |monokai-v2-machine| – Monokai V2 (Filter Machine)
+- |monokai-v2-ristretto| – Monokai V2 (Filter Ristretto)
+- |monokai-v2-spectrum| – Monokai V2 (Filter Spectrum)
+- |monokai-v2-classic| – Monokai Classic
 
 Example configuration:
 
 >lua
-    require("monokai-pro").setup({
+    require("monokai-v2").setup({
       transparent_background = false,
       terminal_colors = true,
       devicons = true, -- highlight the icons of `nvim-web-devicons`
@@ -170,9 +170,9 @@ Example configuration:
       override = function(c) end,
       ---@param cs Colorscheme
       ---@param p ColorschemeOptions
-      ---@param Config MonokaiProOptions
+      ---@param Config monokaiv2Options
       ---@param hp Helper
-      override = function(cs: Colorscheme, p: ColorschemeOptions, Config: MonokaiProOptions, hp: Helper) end,
+      override = function(cs: Colorscheme, p: ColorschemeOptions, Config: monokaiv2Options, hp: Helper) end,
     })
 <
 
@@ -183,7 +183,7 @@ For example:
 float_win ~
 
 >lua
-    require("monokai-pro").setup({
+    require("monokai-v2").setup({
         -- ... your config
         background_clear = { "float_win" }
         -- ... your config
@@ -207,7 +207,7 @@ float_win ~
 Telescope ~
 
 >lua
-    require("monokai-pro").setup({
+    require("monokai-v2").setup({
         -- ... your config
         background_clear = {}
         -- ... your config
@@ -227,56 +227,56 @@ Telescope ~
 - With the default config:
 
 
-USAGE                                                      *monokai-pro-usage*
+USAGE                                                      *monokai-v2-usage*
 
 - Enable this colorscheme by using the following command after `setup`
 
 >vim
     " Vim Script
-    colorscheme monokai-pro
+    colorscheme monokai-v2
 <
 
 >lua
-    require("monokai-pro").setup({
+    require("monokai-v2").setup({
       -- ... your config
     })
     -- lua
-    vim.cmd([[colorscheme monokai-pro]])
+    vim.cmd([[colorscheme monokai-v2]])
 <
 
-- Toenable `monokai-pro` for `Lualine`
+- Toenable `monokai-v2` for `Lualine`
 
 >lua
     require('lualine').setup {
       options = {
         -- ...
-        theme = 'monokai-pro'
+        theme = 'monokai-v2'
         -- ...
       }
     }
 <
 
-- Toenable `monokai-pro` for `barbecue`
+- Toenable `monokai-v2` for `barbecue`
 
 >lua
     require('barbecue').setup {
       -- ...
-      theme = 'monokai-pro'
+      theme = 'monokai-v2'
       -- ...
     }
 <
 
-- Toenable `monokai-pro` for `lightline`
+- Toenable `monokai-v2` for `lightline`
 
 >vim
     " Vim Script
-    let g:lightline = {'colorscheme': 'monokaipro'}
+    let g:lightline = {'colorscheme': 'monokaiv2'}
 <
 
 - Overridefunction for customizing the final color scheme:
 
 >lua
-    require("monokai-pro").setup({
+    require("monokai-v2").setup({
         -- ...
         override = function()
           return {
@@ -292,7 +292,7 @@ USAGE                                                      *monokai-pro-usage*
 This is a sample config to use `Tokyonight` as the palette:
 
 >lua
-    require("monokai-pro").setup({
+    require("monokai-v2").setup({
         -- ...
         --- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
         override = function(c)
@@ -329,7 +329,7 @@ This is a sample config to use a darker background for almost all supported
 plugins:
 
 >lua
-    require("monokai-pro").setup({
+    require("monokai-v2").setup({
         -- ...
         overrideScheme = function(cs, p, config, hp)
           local cs_override = {}
@@ -345,16 +345,16 @@ plugins:
 <
 
 
-COMMAND                                                  *monokai-pro-command*
+COMMAND                                                  *monokai-v2-command*
 
-- run command `MonokaiProSelect` to launch a menu to choose theme filter (required: nui.nvim <https://github.com/MunifTanjim/nui.nvim>)
-- or we can run command `MonokaiPro` with parameter to change theme filter: For example:
-    > `MonokaiPro classic`
+- run command `monokaiv2Select` to launch a menu to choose theme filter (required: nui.nvim <https://github.com/MunifTanjim/nui.nvim>)
+- or we can run command `monokaiv2` with parameter to change theme filter: For example:
+    > `monokaiv2 classic`
 
 ==============================================================================
-1. Links                                                   *monokai-pro-links*
+1. Links                                                   *monokai-v2-links*
 
-1. *monokai-pro-macbook*: https://user-images.githubusercontent.com/80513079/218453999-87c957f1-658d-49a6-bf67-291d3e46fa9a.png
+1. *monokai-v2-macbook*: https://user-images.githubusercontent.com/80513079/218453999-87c957f1-658d-49a6-bf67-291d3e46fa9a.png
 2. *pro*: https://user-images.githubusercontent.com/80513079/209659184-ed5a28c3-cb7f-4de7-8f7c-5d206dc11540.png
 3. *octagon*: https://user-images.githubusercontent.com/80513079/209659175-97db9a95-edd0-4b6e-8087-7fb1aee45c52.png
 4. *machine*: https://user-images.githubusercontent.com/80513079/209659194-d9fe09f5-ea35-4130-b2e8-d854b7b6fb72.png
@@ -369,3 +369,4 @@ COMMAND                                                  *monokai-pro-command*
 Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
 
 vim:tw=78:ts=8:noet:ft=help:norl:
+

@@ -1,4 +1,4 @@
-local c = require("monokai-pro.colorscheme")
+local c = require("monokai-v2.colorscheme")
 c = c or c()
 
 local M = {
@@ -38,3 +38,4 @@ local M = {
 }
 
 return M
+

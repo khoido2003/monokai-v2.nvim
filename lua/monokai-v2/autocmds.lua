@@ -1,10 +1,10 @@
-local util = require("monokai-pro.util")
+local util = require("monokai-v2.util")
 
 local function augroup(name)
-  return vim.api.nvim_create_augroup("MonokaiPro$" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("monokaiv2$" .. name, { clear = true })
 end
 
-local bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
+local bufferline_icon_group = require("monokai-v2.theme.plugins.bufferline").setup_bufferline_icon()
 -- draw bufferline icons
 vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
   group = augroup("bufferline"),
@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
             return
           end
           bufferline_icon_group =
-            require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon(icon.hl_name, icon.color)
+            require("monokai-v2.theme.plugins.bufferline").setup_bufferline_icon(icon.hl_name, icon.color)
           util.theme.draw(bufferline_icon_group)
         end
       end, {
@@ -35,3 +35,4 @@ vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
     end
   end,
 })
+

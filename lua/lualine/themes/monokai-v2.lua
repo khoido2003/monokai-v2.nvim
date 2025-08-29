@@ -1,4 +1,4 @@
-local colors = require("monokai-pro.colorscheme")
+local colors = require("monokai-v2.colorscheme")
 
 local M = {}
 
@@ -42,3 +42,4 @@ M.inactive = {
 }
 
 return M
+

@@ -1,4 +1,4 @@
-local colors = require("monokai-pro.colorscheme")
+local colors = require("monokai-v2.colorscheme")
 
 local M = {}
 
@@ -50,3 +50,4 @@ M.inactive = {
 package.loaded["colors"] = nil
 
 return M
+

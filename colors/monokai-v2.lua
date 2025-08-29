@@ -1,1 +1,2 @@
-require("monokai-pro").load()
+require("monokai-v2").load()
+

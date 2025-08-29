@@ -16,3 +16,4 @@ return {
   dimmed4 = "#535763",
   dimmed5 = "#3a3d4b",
 }
+

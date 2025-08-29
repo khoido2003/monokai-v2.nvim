@@ -1,4 +1,4 @@
----@class monokai-pro.util.extra
+---@class monokai-v2.util.extra
 local M = {}
 
 ---@param colors Colorscheme
@@ -38,3 +38,4 @@ function M.is_daytime()
 end
 
 return M
+

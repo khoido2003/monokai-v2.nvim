@@ -7,9 +7,9 @@ local function get_blend_background(background)
     return background
   end
 
-  local filter = require("monokai-pro.colorscheme").filter
+  local filter = require("monokai-v2.colorscheme").filter
   ---@type Palette
-  local c = require("monokai-pro.colorscheme.palette." .. filter)
+  local c = require("monokai-v2.colorscheme.palette." .. filter)
   return c.background
 end
 
@@ -92,3 +92,4 @@ function M.extend_hex(hexColor, base)
 end
 
 return M
+

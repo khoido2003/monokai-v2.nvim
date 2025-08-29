@@ -1,4 +1,4 @@
----@class MonokaiProIcon
+---@class monokaiv2Icon
 ---@field hl_name string
 ---@field color string
 
@@ -110,3 +110,4 @@
 ---@alias HighlightGroup string
 
 ---@class HighlightGroupTbl: { [HighlightGroup]: HighlightGroupOpt }
+

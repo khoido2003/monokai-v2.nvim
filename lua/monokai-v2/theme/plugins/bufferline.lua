@@ -1,6 +1,6 @@
 local M = {}
 
----@class monokai-pro.theme.plugins.bufferline
+---@class monokai-v2.theme.plugins.bufferline
 local options = {
   underline_selected = false,
   underline_visible = false,
@@ -336,3 +336,4 @@ M.setup_bufferline_icon = function(icon_hl_name, icon_color)
 end
 
 return M
+

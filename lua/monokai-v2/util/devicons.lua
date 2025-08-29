@@ -1,9 +1,9 @@
----@class monokai-pro.util.devicons
+---@class monokai-v2.util.devicons
 local M = {}
 
 --- Get the web-devicon
 ---@param extension string example: "txt", "lua", "python"
----@return MonokaiProIcon?
+---@return monokaiv2Icon?
 function M.get(filename, extension)
   local icon_ok, web_devicons = pcall(require, "nvim-web-devicons")
   if not icon_ok then
@@ -19,3 +19,4 @@ function M.get(filename, extension)
 end
 
 return M
+

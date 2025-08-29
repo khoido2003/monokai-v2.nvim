@@ -1,4 +1,4 @@
----@class monokai-pro.util.ui
+---@class monokai-v2.util.ui
 local M = {}
 
 function M.create_menu(title, items, handler)
@@ -61,3 +61,4 @@ function M.create_menu(title, items, handler)
 end
 
 return M
+

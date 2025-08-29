@@ -1,1 +1,2 @@
-require("monokai-pro")._load("spectrum")
+require("monokai-v2")._load("spectrum")
+

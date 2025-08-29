@@ -1,1 +1,2 @@
-require("monokai-pro")._load("octagon")
+require("monokai-v2")._load("octagon")
+

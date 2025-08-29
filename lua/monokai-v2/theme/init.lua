@@ -1,15 +1,15 @@
-local Helper = require("monokai-pro.color_helper")
-local Util = require("monokai-pro.util")
-local Config = require("monokai-pro.config")
-local Colorscheme = require("monokai-pro.colorscheme")
+local Helper = require("monokai-v2.color_helper")
+local Util = require("monokai-v2.util")
+local Config = require("monokai-v2.config")
+local Colorscheme = require("monokai-v2.colorscheme")
 
----@class MonokaiProTheme
----@field mini monokai-pro.theme.plugins.mini
+---@class monokaiv2Theme
+---@field mini monokai-v2.theme.plugins.mini
 local M = {}
 
 setmetatable(M, {
   __index = function(_, k)
-    local plugin = require("monokai-pro.theme.plugins" .. k)
+    local plugin = require("monokai-v2.theme.plugins" .. k)
     return plugin
   end,
 })
@@ -62,10 +62,10 @@ local PLUGINS = {
 ---@param colorscheme Colorscheme
 ---@return HighlightGroupTbl
 local function get_hl_group_tbl(colorscheme)
-  local editor = require("monokai-pro.theme.editor").setup(colorscheme, Config, Helper)
-  local syntax = require("monokai-pro.theme.syntax").setup(colorscheme, Config, Helper)
-  local semantic_tokens = require("monokai-pro.theme.semantic_tokens").setup(colorscheme, Config, Helper)
-  local extra = require("monokai-pro.theme.extra").setup(colorscheme, Config, Helper)
+  local editor = require("monokai-v2.theme.editor").setup(colorscheme, Config, Helper)
+  local syntax = require("monokai-v2.theme.syntax").setup(colorscheme, Config, Helper)
+  local semantic_tokens = require("monokai-v2.theme.semantic_tokens").setup(colorscheme, Config, Helper)
+  local extra = require("monokai-v2.theme.extra").setup(colorscheme, Config, Helper)
   --  The HlGroups class represents a collection of highlighter groups.
   --  Each group is identified by a string key (e.g. "editor") and holds the result of calling the `setup` function of a corresponding highlighter module (e.g. `editor.setup`).
   --  The class has a single field, `hl_groups`, which is a table containing the highlighter groups.
@@ -76,7 +76,7 @@ local function get_hl_group_tbl(colorscheme)
     local config_ok, plugin = xpcall(require, function(...)
       Util.log("Failed to load highlight group: " .. name .. "\n" .. debug.traceback(...), "error")
       return ...
-    end, "monokai-pro.theme.plugins." .. name)
+    end, "monokai-v2.theme.plugins." .. name)
     if config_ok then
       hl_group_tbl = vim.tbl_deep_extend("force", hl_group_tbl, plugin.get(colorscheme, Config, Helper))
     end
@@ -87,7 +87,7 @@ end
 
 ---@return HighlightGroupTbl
 M.setup = function()
-  local devicons = require("monokai-pro.devicons")
+  local devicons = require("monokai-v2.devicons")
 
   local colorscheme = Colorscheme(Config.filter)
   -- print(colorscheme.editor.background)
@@ -113,3 +113,4 @@ M.setup = function()
 end
 
 return M
+

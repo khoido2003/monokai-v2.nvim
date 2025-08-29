@@ -1,4 +1,4 @@
----@class monokai-pro.theme.plugins.mini
+---@class monokai-v2.theme.plugins.mini
 local M = {}
 
 --- @param c Colorscheme The color palette
@@ -17,3 +17,4 @@ function M.get(c, _, _)
 end
 
 return M
+

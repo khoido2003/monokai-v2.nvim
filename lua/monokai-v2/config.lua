@@ -1,9 +1,9 @@
-local util = require("monokai-pro.util")
----@class MonokaiProOptions
+local util = require("monokai-v2.util")
+---@class monokaiv2Options
 ---@field plugins? PluginConfig
 ---@field override? fun(c: Colorscheme)
 ---@field overridePalette? fun(filter: Filter) A function to override palette
----@field overrideScheme? fun(cs: Colorscheme, p: ColorschemeOptions, Config: MonokaiProOptions, hp: Helper) A function to override scheme
+---@field overrideScheme? fun(cs: Colorscheme, p: ColorschemeOptions, Config: monokaiv2Options, hp: Helper) A function to override scheme
 local config = {
   transparent_background = false,
   terminal_colors = true,
@@ -45,14 +45,14 @@ local config = {
   },
 }
 
----@class Config: MonokaiProOptions
+---@class Config: monokaiv2Options
 local M = setmetatable({}, {
   __index = function(_, k)
     return rawget(config or {}, k)
   end,
   __newindex = function(t, k, v)
     if rawget(config or {}, k) ~= nil then
-      error("monokai-pro.nvim: Attempt to change option " .. k .. " directly, use `setup` instead")
+      error("monokai-v2.nvim: Attempt to change option " .. k .. " directly, use `setup` instead")
     else
       rawset(t, k, v)
     end
@@ -62,7 +62,7 @@ local M = setmetatable({}, {
   end,
 })
 
----@param options? MonokaiProOptions
+---@param options? monokaiv2Options
 M.setup = function(options)
   config = vim.tbl_deep_extend("force", config, options or {})
   local day_night = config.day_night
@@ -71,7 +71,7 @@ M.setup = function(options)
   end
 end
 
----@param options? MonokaiProOptions
+---@param options? monokaiv2Options
 M.extend = function(options)
   config = vim.tbl_deep_extend("force", {}, config or options, options or {})
 end
@@ -79,3 +79,4 @@ end
 M.setup()
 
 return M
+

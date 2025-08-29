@@ -1,1 +1,2 @@
-require("monokai-pro")._load("machine")
+require("monokai-v2")._load("machine")
+

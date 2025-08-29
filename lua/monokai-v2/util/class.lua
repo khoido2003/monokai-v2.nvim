@@ -1,4 +1,4 @@
----@class monokai-pro.util.class
+---@class monokai-v2.util.class
 local M = {}
 
 ---Checks if an instance is an instance of a class
@@ -19,3 +19,4 @@ function M.typeof(instance)
 end
 
 return M
+

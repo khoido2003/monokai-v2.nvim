@@ -1,5 +1,5 @@
-local Util = require("monokai-pro.util")
-local Config = require("monokai-pro.config")
+local Util = require("monokai-v2.util")
+local Config = require("monokai-v2.config")
 
 ---@class ColorschemeOptions
 local cs = {}
@@ -20,7 +20,7 @@ local M = setmetatable({
   end,
 })
 
-local hp = require("monokai-pro.color_helper")
+local hp = require("monokai-v2.color_helper")
 
 ---@param filter Filter
 ---@return ColorschemeOptions
@@ -36,8 +36,8 @@ M.get = function(filter)
 
   M.filter = filter
 
-  ---@module "monokai-pro.colorscheme.palette.pro"
-  local monokai_palette = require("monokai-pro.colorscheme.palette." .. M.filter)
+  ---@module "monokai-v2.colorscheme.palette.pro"
+  local monokai_palette = require("monokai-v2.colorscheme.palette." .. M.filter)
   local p =
     vim.tbl_deep_extend("force", monokai_palette, Config.overridePalette and Config.overridePalette(filter) or {})
 
@@ -239,3 +239,4 @@ M.get = function(filter)
 end
 
 return M
+

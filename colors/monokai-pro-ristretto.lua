@@ -1,1 +1,2 @@
-require("monokai-pro")._load("ristretto")
+require("monokai-v2")._load("ristretto")
+

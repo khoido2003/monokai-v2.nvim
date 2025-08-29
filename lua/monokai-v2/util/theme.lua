@@ -1,13 +1,13 @@
-local Util = require("monokai-pro.util")
-local Helper = require("monokai-pro.color_helper")
+local Util = require("monokai-v2.util")
+local Helper = require("monokai-v2.color_helper")
 
----@class monokai-pro.util.theme
+---@class monokai-v2.util.theme
 local M = {}
 
 local function load_autocmds()
-  local ok, _ = pcall(require, "monokai-pro.autocmds")
+  local ok, _ = pcall(require, "monokai-v2.autocmds")
   if not ok then
-    Util.log("Failed to load monokai-pro.autocmds", "error")
+    Util.log("Failed to load monokai-v2.autocmds", "error")
   end
 end
 
@@ -19,9 +19,9 @@ local function get_real_color(hex_color, base)
     return hex_color
   end
 
-  local filter = require("monokai-pro.colorscheme").filter
-  ---@module "monokai-pro.colorscheme.palette.pro"
-  local c = require("monokai-pro.colorscheme.palette." .. filter)
+  local filter = require("monokai-v2.colorscheme").filter
+  ---@module "monokai-v2.colorscheme.palette.pro"
+  local c = require("monokai-v2.colorscheme.palette." .. filter)
   if base == nil then
     base = c.background
   end
@@ -74,13 +74,14 @@ function M.load(hl_group_tbl)
   end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "monokai-pro"
+  vim.g.colors_name = "monokai-v2"
 
   M.draw(hl_group_tbl)
 
-  local bufferline_icon_hl_group_tbl = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
+  local bufferline_icon_hl_group_tbl = require("monokai-v2.theme.plugins.bufferline").setup_bufferline_icon()
   M.draw(bufferline_icon_hl_group_tbl)
   load_autocmds()
 end
 
 return M
+
