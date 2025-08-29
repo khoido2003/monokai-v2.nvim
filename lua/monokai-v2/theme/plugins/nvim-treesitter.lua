@@ -20,7 +20,8 @@ function M.get(c, config, _)
 
     -- Constructors & Fields
     ["@constructor"]                      = { fg = c.base.green },
-    ["@field"]                            = { fg = c.base.red },
+    ["@field"]                            = { fg = c.base.white },
+    ["@property"]                         = { fg = c.base.white_dim },
 
     -- Diff Changes
     ["@diff.delta"]                       = { fg = c.base.yellow },
@@ -59,7 +60,7 @@ function M.get(c, config, _)
     -- Parameters & Variables
     ["@variable"]                         = { fg = c.base.white },
     ["@variable.builtin"]                 = { fg = c.base.white_dim, italic = treesitter_options.italic },
-    ["@variable.member"]                  = { fg = c.base.white_dim },
+    ["@variable.member"]                  = { fg = c.base.white },
     ["@variable.parameter"]               = { fg = c.base.orange, italic = treesitter_options.italic },
     ["@variable.parameter.builtin"]       = { fg = c.base.orange, italic = treesitter_options.italic },
 
@@ -142,9 +143,9 @@ function M.get(c, config, _)
     ["@function.macro.latex"]              = { fg = c.base.green },
     ["@punctuation.special.latex"]         = { fg = c.base.red },
     ["@string.latex"]                      = { fg = c.base.cyan },
-    ["@text.emphasis.latex"]               = { italic = true },
+    ["@text.emphasis.latex"]               = { italic = treesitter_options.italic },
     ["@text.environment.latex"]            = { fg = c.base.green },
-    ["@text.environment.name.latex"]       = { fg = c.base.orange, italic = true },
+    ["@text.environment.name.latex"]       = { fg = c.base.orange, italic = treesitter_options.italic },
     ["@text.math.latex"]                   = { fg = c.base.purple },
     ["@text.strong.latex"]                 = { bold = true },
 
