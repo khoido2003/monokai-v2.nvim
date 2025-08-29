@@ -4,6 +4,7 @@ return {
   surface1 = "#ede7e5",
   background = "#faf4f2",
   foreground = "#29242a",
+  foreground_dark = "#5a5359",
   red = "#e14775",
   orange = "#e16032",
   yellow = "#cc7a0a",

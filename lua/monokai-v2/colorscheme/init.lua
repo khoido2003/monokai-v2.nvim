@@ -201,6 +201,7 @@ M.get = function(filter)
     purple = p.purple,
     cyan = p.cyan,
     white = p.foreground,
+    white_dim = p.foreground_dark,
     dimmed1 = p.neutral1,
     dimmed2 = p.neutral2,
     dimmed3 = p.neutral3,

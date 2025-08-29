@@ -21,8 +21,8 @@ function M.get(c, config, _)
     },
 
     NvimTreeFolderName = { fg = c.sideBar.foreground },
-    NvimTreeOpenedFolderName = { fg = c.sideBar.foreground, italic = true },
-    NvimTreeEmptyFolderName = { fg = c.sideBar.foreground, italic = true },
+    NvimTreeOpenedFolderName = { fg = c.sideBar.foreground, bold = true },
+    NvimTreeEmptyFolderName = { fg = c.sideBar.foreground },
     NvimTreeImageFile = { fg = c.base.white },
     NvimTreeSpecialFile = { fg = c.base.white },
     NvimTreeCursorLine = {

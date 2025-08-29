@@ -19,6 +19,7 @@ function M.get(c, config, _)
     -- Constructors & Fields
     ["@constructor"]                      = { fg = c.base.green },
     ["@field"]                            = { fg = c.base.red },
+    ["@property"]                         = { fg = c.base.white_dim },
 
     -- Diff Changes
     ["@diff.delta"]                       = { fg = c.base.yellow },
@@ -57,7 +58,7 @@ function M.get(c, config, _)
     -- Parameters & Variables
     ["@variable"]                         = { fg = c.base.white },
     ["@variable.builtin"]                 = { fg = c.base.dimmed1, italic = true },
-    ["@variable.member"]                  = { fg = c.base.white },
+    ["@variable.member"]                  = { fg = c.base.white_dim },
     ["@variable.parameter"]               = { fg = c.base.orange, italic = true },
     ["@variable.parameter.builtin"]       = { fg = c.base.orange, italic = true },
 
