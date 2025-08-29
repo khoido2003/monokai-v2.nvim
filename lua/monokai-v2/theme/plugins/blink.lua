@@ -9,12 +9,12 @@ function M.get(c, config, hp)
     BlinkCmpMenu = { bg = c.editorSuggestWidget.background, fg = hp.lighten(c.editorSuggestWidget.foreground, -15) },
 
     BlinkCmpMenuSelection = float_winBackgroundClear and {
-      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.7),
+      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.5),
       fg = c.base.yellow,
       bold = true,
     } or {
       fg = c.base.yellow,
-      bg = c.editorSuggestWidget.selectedBackground,
+      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.85, c.editor.background),
       bold = true,
     },
 
