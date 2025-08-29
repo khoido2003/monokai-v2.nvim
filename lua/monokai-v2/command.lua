@@ -6,7 +6,7 @@ local M = {}
 M.create_filter_command = function()
   local cmd = vim.api.nvim_create_user_command
 
-  cmd("monokaiv2Select", function()
+  cmd("Monokaiv2Select", function()
     local menu = util.ui.create_menu("Set monokai filter", {
       "classic",
       "light",
@@ -24,7 +24,7 @@ M.create_filter_command = function()
     menu:mount()
   end, { nargs = 0 })
 
-  cmd("monokaiv2", function(opts)
+  cmd("Monokaiv2", function(opts)
     local filter = opts.args
     config.extend({ filter = filter })
     vim.cmd([[colorscheme monokai-v2]])

@@ -5,7 +5,7 @@ A small, personal fork of `loctvl842/monokai-pro.nvim`, renamed to `monokai-v2` 
 
 Requirements
 ------------
-- Neovim >= 0.8.0
+- Neovim >= 0.10.0
 
 Install (Lazy.nvim)
 -------------------

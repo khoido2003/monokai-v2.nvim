@@ -347,9 +347,9 @@ plugins:
 
 COMMAND                                                  *monokai-v2-command*
 
-- run command `monokaiv2Select` to launch a menu to choose theme filter (required: nui.nvim <https://github.com/MunifTanjim/nui.nvim>)
-- or we can run command `monokaiv2` with parameter to change theme filter: For example:
-    > `monokaiv2 classic`
+- run command `Monokaiv2Select` to launch a menu to choose theme filter (required: nui.nvim <https://github.com/MunifTanjim/nui.nvim>)
+- or we can run command `Monokaiv2` with parameter to change theme filter: For example:
+    > `Monokaiv2 classic`
 
 ==============================================================================
 1. Links                                                   *monokai-v2-links*
