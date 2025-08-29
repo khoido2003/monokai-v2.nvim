@@ -59,7 +59,7 @@ function M.get(c, config, _)
 
     -- Parameters & Variables
     ["@variable"]                         = { fg = c.base.white },
-    ["@variable.builtin"]                 = { fg = c.base.white_dim, italic = treesitter_options.italic },
+    ["@variable.builtin"]                 = { fg = c.base.dimmed1, italic = treesitter_options.italic },
     ["@variable.member"]                  = { fg = c.base.white },
     ["@variable.parameter"]               = { fg = c.base.orange, italic = treesitter_options.italic },
     ["@variable.parameter.builtin"]       = { fg = c.base.orange, italic = treesitter_options.italic },
@@ -186,6 +186,14 @@ function M.get(c, config, _)
     ["@parameter.lua"]                    = { fg = c.base.orange, italic = treesitter_options.italic },
     ["@variable.lua"]                     = { fg = c.base.white },
 
+    -- LSP semantic tokens
+    ["@lsp.type.class"]       = { fg = c.base.cyan },
+    ["@lsp.type.namespace"]   = { fg = c.base.cyan },
+    ["@lsp.type.struct"]      = { fg = c.base.cyan },
+    ["@lsp.type.enum"]        = { fg = c.base.cyan },
+    ["@lsp.type.parameter"]   = { fg = c.base.orange, italic = treesitter_options.italic },
+    ["@lsp.type.property"]    = { fg = c.base.white_dim },
+    ["@lsp.type.variable"]    = { fg = c.base.white },
     -- Yaml
     ["@number.yaml"]                      = { fg = c.base.purple },
     ["@property.yaml"]                    = { fg = c.base.red },
