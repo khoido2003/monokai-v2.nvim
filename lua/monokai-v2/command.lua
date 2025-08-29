@@ -7,7 +7,7 @@ M.create_filter_command = function()
   local cmd = vim.api.nvim_create_user_command
 
   cmd("Monokaiv2Select", function()
-    local menu = util.ui.create_menu("Set monokai filter", {
+    local filters = {
       "classic",
       "light",
       "machine",
@@ -15,13 +15,22 @@ M.create_filter_command = function()
       "pro",
       "ristretto",
       "spectrum",
-    }, function(item)
-      local filter = item.value
-      config.extend({ filter = filter })
+    }
+    local menu = util.ui.create_menu("Set monokai filter", filters, function(item)
+      local value = item and (item.value or item)
+      if not value then return end
+      config.extend({ filter = value })
       vim.cmd([[colorscheme monokai-v2]])
     end)
-    assert(menu, "Error: Fail to create menu")
-    menu:mount()
+    if menu then
+      menu:mount()
+    else
+      vim.ui.select(filters, { prompt = "Monokai V2 filter" }, function(choice)
+        if not choice then return end
+        config.extend({ filter = choice })
+        vim.cmd([[colorscheme monokai-v2]])
+      end)
+    end
   end, { nargs = 0 })
 
   cmd("Monokaiv2", function(opts)
