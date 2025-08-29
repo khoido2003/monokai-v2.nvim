@@ -5,7 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.0] - 2025-01-03
+## [0.1.1] - 2025-08-30
+
+### Added
+- Custom `NvimTreeGitNewIcon`, `NvimTreeGitFileNewHL`, and `NvimTreeGitFolderNewHL` highlights for better visibility of new/untracked files
+- Git highlight refinements for NvimTree (new, staged, dirty, deleted, ignored, renamed, merge) to better match Monokai Pro palette
+- Documentation notes on customizing sidebar (`NvimTree`) colors
+
+### Changed
+- Adjusted `surface0` and `surface1` values to ensure they are darker than `background` for improved contrast in statuslines (e.g., lualine)
+- Refined `neutral3` to match Monokai Pro’s exact comment color across all variants
+- Improved consistency of delimiter colors with official Monokai Pro variants
+- Fine-tuned sidebar foreground and cursor line highlights for better readability
+
+### Fixed
+- Fixed missing highlight for newly added files in NvimTree (star icon now displays in green as intended)
+- Corrected mismatched background logic for sidebar when using `background_clear`
+
+## [0.1.0] - 2025-08-29
 
 ### Added
 - Initial fork of loctvl842/monokai-pro.nvim
