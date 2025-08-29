@@ -20,6 +20,10 @@ function M.get(c, config, _)
       fg = isBackgroundClear and c.base.black or c.editor.background,
     },
 
+    NvimTreeGitNewIcon = { fg = c.base.green },
+    NvimTreeGitFileNewHL = { fg = c.base.green },
+    NvimTreeGitFolderNewHL = { fg = c.base.green },
+
     NvimTreeFolderName = { fg = c.sideBar.foreground },
     NvimTreeOpenedFolderName = { fg = c.sideBar.foreground, bold = true },
     NvimTreeEmptyFolderName = { fg = c.sideBar.foreground },
