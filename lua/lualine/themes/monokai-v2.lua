@@ -27,7 +27,7 @@ M.command = {
 
 M.visual = {
   a = { bg = colors.base.purple, fg = colors.base.black },
-  b = { bg = colors.base.dimmed5, fg = colors.base.orange },
+  b = { bg = colors.base.dimmed5, fg = colors.base.purple },
 }
 
 M.replace = {
