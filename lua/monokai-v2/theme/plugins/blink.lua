@@ -22,7 +22,7 @@ function M.get(c, config, hp)
     BlinkCmpLabelDeprecated = { fg = nil, bg = nil, strikethrough = true },
     BlinkCmpGhostText = { link = "Comment" },
     BlinkCmpLabel = { fg = hp.lighten(c.editorSuggestWidget.foreground, -15) },
-    BlinkCmpLabelMatch = { fg = c.editorSuggestWidget.highlightForeground, bold = true },
+    BlinkCmpLabelMatch = { fg = c.base.white, bold = true },
     BlinkCmpSource = { fg = c.editorSuggestWidget.foreground },
     BlinkCmpKind = { fg = hp.lighten(c.editorSuggestWidget.foreground, -15) },
     BlinkCmpKindArray = { fg = c.base.red },

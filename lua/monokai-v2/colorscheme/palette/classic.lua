@@ -1,9 +1,9 @@
 ---@type Palette
 return {
-  surface0 = "#161613",
-  surface1 = "#1d1e19",
+  surface0 = "#1e1f1c",
+  surface1 = "#21211d",
   background = "#272822",
-  foreground = "#fdfff1",
+  foreground = "#F8F8F2",
   red = "#f92672",
   orange = "#fd971f",
   yellow = "#e6db74",
@@ -19,7 +19,7 @@ return {
   delimiter_blue = "#94e4f4",
   neutral1 = "#c0c1b5",
   neutral2 = "#919288",
-  neutral3 = "#6e7066",
+  neutral3 = "#75715E",
   neutral4 = "#57584f",
   neutral5 = "#3b3c35",
 }
