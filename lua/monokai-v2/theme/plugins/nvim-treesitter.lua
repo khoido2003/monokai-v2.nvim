@@ -187,13 +187,14 @@ function M.get(c, config, _)
     ["@variable.lua"]                     = { fg = c.base.white },
 
     -- LSP semantic tokens
-    ["@lsp.type.class"]       = { fg = c.base.cyan },
-    ["@lsp.type.namespace"]   = { fg = c.base.cyan },
-    ["@lsp.type.struct"]      = { fg = c.base.cyan },
-    ["@lsp.type.enum"]        = { fg = c.base.cyan },
-    ["@lsp.type.parameter"]   = { fg = c.base.orange, italic = treesitter_options.italic },
-    ["@lsp.type.property"]    = { fg = c.base.white_dim },
-    ["@lsp.type.variable"]    = { fg = c.base.white },
+    ["@lsp.type.class"]                   = { fg = c.base.cyan },
+    ["@lsp.type.namespace"]               = { fg = c.base.cyan },
+    ["@lsp.type.struct"]                  = { fg = c.base.cyan },
+    ["@lsp.type.enum"]                    = { fg = c.base.cyan },
+    ["@lsp.type.parameter"]               = { fg = c.base.orange, italic = treesitter_options.italic },
+    ["@lsp.type.property"]                = { fg = c.base.white_dim },
+    ["@lsp.type.variable"]                = { fg = c.base.white },
+
     -- Yaml
     ["@number.yaml"]                      = { fg = c.base.purple },
     ["@property.yaml"]                    = { fg = c.base.red },
