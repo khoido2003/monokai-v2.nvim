@@ -1,7 +1,7 @@
 ---@type Palette
 return {
-  surface0 = "#1d2427",
-  surface1 = "#232a2e",
+  surface0 = "#1d2528",
+  surface1 = "#1d2427",
   background = "#273136",
   foreground = "#f2fffc",
   foreground_dark = "#aeb9b6",
