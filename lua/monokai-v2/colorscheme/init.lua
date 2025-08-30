@@ -135,6 +135,9 @@ M.get = function(filter)
     infoBackground = p.neutral5,
     infoBorder = p.cyan,
     infoForeground = p.cyan,
+    hintBackground = p.neutral5,
+    hintForeground = p.green,
+    hintBorder = p.green,
     warningBackground = p.neutral5,
     warningBorder = p.orange,
     warningForeground = p.orange,
@@ -147,8 +150,8 @@ M.get = function(filter)
     warningForeground = p.orange,
     infoBackground = hp.blend(p.cyan, 0.1),
     infoForeground = p.cyan,
-    hintBackground = hp.blend(p.cyan, 0.1),
-    hintForeground = p.cyan,
+    hintBackground = hp.blend(p.green, 0.1),
+    hintForeground = p.green,
   }
 
   cs.terminal = { background = p.neutral5, foreground = p.foreground }

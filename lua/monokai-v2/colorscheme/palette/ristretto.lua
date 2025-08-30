@@ -1,6 +1,6 @@
 ---@type Palette
 return {
-  surface0 = "#191515",
+  surface0 = "#1e1919",
   surface1 = "#211c1c",
   background = "#2c2525",
   foreground = "#fff1f3",

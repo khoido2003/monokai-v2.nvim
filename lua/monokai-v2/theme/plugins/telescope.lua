@@ -6,7 +6,7 @@ local M = {}
 function M.get(c, config, hp)
   local isBackgroundClear = vim.tbl_contains(config.background_clear, "telescope")
 
-  local transparent_bg = c.editor.background
+  local transparent_bg = c.base.black
   local transparent_bg_border = c.base.dimmed2
   -- background
   local preview_bg = c.base.dimmed5
@@ -32,7 +32,7 @@ function M.get(c, config, hp)
     },
 
     TelescopeNormal = isBackgroundClear and {
-      bg = c.editor.background,
+      bg = transparent_bg,
       fg = common_fg,
     } or {
       bg = c.editorHoverWidget.background,
@@ -43,7 +43,7 @@ function M.get(c, config, hp)
       bold = true,
     },
     TelescopeBorder = isBackgroundClear and {
-      bg = c.editor.background,
+      bg = transparent_bg,
       fg = c.tab.unfocusedActiveBorder,
     } or {
       bg = c.editor.background,
