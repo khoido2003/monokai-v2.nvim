@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [0.1.2] - 2025-08-30
+
+### Changed
+- **Blink.nvim:** Made selection line text darker for better visibility.
+- **Blink.nvim:** Adjusted selection line intensity for improved readability.
+- **Telescope:** Updated background to distinguish Telescope panel from main background.
+- **General Colors:** Darkened `surface1` for enhanced contrast and readability in various UI elements.
+
+### Fixed
+- Minor visual inconsistencies in sidebar and selection highlights.
+- Wrong date in docs
+
 ## [0.1.1] - 2025-08-30
 
 ### Added
