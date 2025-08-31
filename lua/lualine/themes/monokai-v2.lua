@@ -36,7 +36,7 @@ M.replace = {
 }
 
 M.inactive = {
-  a = { bg = colors.base.black, fg = colors.base.yellow },
+  a = { bg = colors.base.black, fg = colors.base.green },
   b = { bg = colors.base.black, fg = colors.base.black },
 }
 
