@@ -51,10 +51,10 @@ M.setup = function(c, config, _)
     FloatBorder = { fg = c.base.dimmed2, bg = c.base.dark },
     NormalFloat = { bg = c.base.dark },
 
-    DiagnosticFloatingError = { fg = c.inputValidation.errorBorder },
-    DiagnosticFloatingWarn = { fg = c.inputValidation.warningBorder },
-    DiagnosticFloatingInfo = { fg = c.inputValidation.infoBorder },
-    DiagnosticFloatingHint = { fg = c.inputValidation.hintBorder },
+    DiagnosticFloatingError = { fg = c.inputValidation.errorBorder, bg = c.base.dark },
+    DiagnosticFloatingWarn = { fg = c.inputValidation.warningBorder, bg = c.base.dark },
+    DiagnosticFloatingInfo = { fg = c.inputValidation.infoBorder, bg = c.base.dark },
+    DiagnosticFloatingHint = { fg = c.inputValidation.hintBorder, bg = c.base.dark },
   }
 end
 
