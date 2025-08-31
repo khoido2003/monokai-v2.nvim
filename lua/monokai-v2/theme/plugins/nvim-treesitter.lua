@@ -172,7 +172,7 @@ function M.get(c, config, _)
     ["@keyword.scss"]                     = { fg = c.base.red },
     ["@number.scss"]                      = { fg = c.base.purple },
     ["@property.scss"]                    = { fg = c.base.white_dim },
-    ["@string.scss"]                      = { fg = c.base.orange, italic = treesitter_options.italic },
+    ["@string.scss"]                      = { fg = c.base.yellow, italic = treesitter_options.italic },
     ["@type.scss"]                        = { fg = c.base.cyan },
 
     -- Lua
