@@ -10,7 +10,7 @@ function M.get(c, config, _)
   local spec = {
     -- Annotations & Attributes
     ["@annotation"]                       = { fg = c.base.cyan, italic = styles.annotation.italic },
-    ["@attribute"]                        = { fg = c.base.green }, -- `@` in decorator. E.g. `@checked`
+    ["@attribute"]                        = { fg = c.base.cyan }, -- decorator/annotation meta
 
     -- Booleans & Constants
     ["@boolean"]                          = { fg = c.base.purple },
@@ -32,7 +32,7 @@ function M.get(c, config, _)
     ["@function"]                         = { fg = c.base.green },
     ["@function.builtin"]                 = { fg = c.base.green },
     ["@function.call"]                    = { fg = c.base.green },
-    ["@function.macro"]                   = { fg = c.base.green },
+    ["@function.macro"]                   = { fg = c.base.purple }, -- macros treated like constants
     ["@function.method"]                  = { fg = c.base.green },
     ["@function.method.call"]             = { fg = c.base.green },
 
@@ -65,7 +65,7 @@ function M.get(c, config, _)
     ["@variable.parameter.builtin"]       = { fg = c.base.orange, italic = treesitter_options.italic },
 
     -- Punctuation
-    ["@punctuation.bracket"]              = { fg = c.base.red },
+    ["@punctuation.bracket"]              = { fg = c.base.dimmed2 },
     ["@punctuation.delimiter"]            = { fg = c.base.dimmed2 },
     ["@punctuation.special"]              = { fg = c.base.dimmed2 },
 
@@ -89,7 +89,7 @@ function M.get(c, config, _)
     ["@markup.emphasis"]                  = { fg = c.base.white, italic = treesitter_options.italic },
     ["@markup.environment"]               = { fg = c.base.white },
     ["@markup.environment.name"]          = { fg = c.base.white },
-    ["@markup.heading"]                   = { fg = c.base.green, bold = true },
+    ["@markup.heading"]                   = { fg = c.base.yellow, bold = true },
     ["@markup.italic"]                    = { fg = c.base.white, italic = treesitter_options.italic },
     ["@markup.link"]                      = { fg = c.base.orange, underline = true },
     ["@markup.link.label"]                = { fg = c.base.orange, underline = true },
@@ -109,7 +109,7 @@ function M.get(c, config, _)
     -- Types
     ["@type"]                             = { fg = c.base.cyan },
     ["@type.builtin"]                     = { fg = c.base.cyan, italic = treesitter_options.italic },
-    ["@type.definition"]                  = { fg = c.base.green },
+    ["@type.definition"]                  = { fg = c.base.cyan },
     ["@type.qualifier"]                   = { fg = c.base.cyan },
     ["@module"]                           = { fg = c.base.cyan },
     ["@module.builtin"]                   = { fg = c.base.cyan },
@@ -119,61 +119,61 @@ function M.get(c, config, _)
     ["@label"]                            = { fg = c.base.cyan },
 
     -- C++
-    ["@constant.cpp"]                      = { fg = c.base.cyan },
-    ["@constant.macro.cpp"]                = { fg = c.base.red },
-    ["@keyword.cpp"]                       = { fg = c.base.cyan, italic = styles.keyword.italic },
-    ["@namespace.cpp"]                     = { fg = c.base.green },
-    ["@operator.cpp"]                      = { fg = c.base.red },
-    ["@punctuation.delimiter.cpp"]         = { fg = c.sideBar.foreground },
-    ["@type.cpp"]                          = { fg = c.base.orange, italic = styles.type.italic },
-    ["@variable.cpp"]                      = { fg = c.base.white },
+    ["@constant.cpp"]                     = { fg = c.base.purple },
+    ["@constant.macro.cpp"]               = { fg = c.base.purple },
+    ["@keyword.cpp"]                      = { fg = c.base.red, italic = styles.keyword.italic },
+    ["@namespace.cpp"]                    = { fg = c.base.cyan },
+    ["@operator.cpp"]                     = { fg = c.base.red },
+    ["@punctuation.delimiter.cpp"]        = { fg = c.base.dimmed2 },
+    ["@type.cpp"]                         = { fg = c.base.cyan, italic = styles.type.italic },
+    ["@variable.cpp"]                     = { fg = c.base.white },
 
-    -- Dockerfile
-    ["@function.call.bash"]                = { fg = c.base.green },
-    ["@keyword.dockerfile"]                = { fg = c.base.red },
-    ["@lsp.type.class.dockerfile"]         = { fg = c.base.cyan },
-    ["@parameter.bash"]                    = { fg = c.base.white },
+    -- Dockerfile / Shell
+    ["@function.call.bash"]               = { fg = c.base.green },
+    ["@keyword.dockerfile"]               = { fg = c.base.red },
+    ["@lsp.type.class.dockerfile"]        = { fg = c.base.cyan },
+    ["@parameter.bash"]                   = { fg = c.base.orange, italic = treesitter_options.italic },
 
     -- Golang
-    ["@keyword.function.go"]               = { fg = c.base.red },
-    ["@module.go"]                         = { fg = c.base.white },
-    ["@string.escape.go"]                  = { fg = c.base.purple },
+    ["@keyword.function.go"]              = { fg = c.base.red },
+    ["@module.go"]                        = { fg = c.base.cyan },
+    ["@string.escape.go"]                 = { fg = c.base.purple },
 
     -- Latex
-    ["@function.macro.latex"]              = { fg = c.base.green },
-    ["@punctuation.special.latex"]         = { fg = c.base.red },
-    ["@string.latex"]                      = { fg = c.base.cyan },
-    ["@text.emphasis.latex"]               = { italic = treesitter_options.italic },
-    ["@text.environment.latex"]            = { fg = c.base.green },
-    ["@text.environment.name.latex"]       = { fg = c.base.orange, italic = treesitter_options.italic },
-    ["@text.math.latex"]                   = { fg = c.base.purple },
-    ["@text.strong.latex"]                 = { bold = true },
+    ["@function.macro.latex"]             = { fg = c.base.green },
+    ["@punctuation.special.latex"]        = { fg = c.base.red },
+    ["@string.latex"]                     = { fg = c.base.yellow },
+    ["@text.emphasis.latex"]              = { italic = treesitter_options.italic },
+    ["@text.environment.latex"]           = { fg = c.base.green },
+    ["@text.environment.name.latex"]      = { fg = c.base.cyan, italic = treesitter_options.italic },
+    ["@text.math.latex"]                  = { fg = c.base.purple },
+    ["@text.strong.latex"]                = { bold = true },
 
     -- Markdown
-    ["@conceal.markdown"]                  = { bg = c.base.black },
-    ["@markup.italic.markdown_inline"]     = { italic = treesitter_options.italic },
-    ["@markup.link.label.markdown_inline"] = { fg = c.base.red },
-    ["@markup.link.url.markdown_inline"]   = { fg = c.base.green, underline = true },
-    ["@markup.raw.block.markdown"]         = { bg = c.base.black },
-    ["@markup.raw.delimiter.markdown"]     = { bg = c.base.black, fg = c.base.dimmed2 },
-    ["@markup.strong.markdown_inline"]     = { bold = true },
-    ["@none.markdown"]                     = { bg = c.base.black },
-    ["@punctuation.special.markdown"]      = { fg = c.base.dimmed2 },
-    ["@text.emphasis.markdown_inline"]     = { fg = c.base.white, italic = treesitter_options.italic },
-    ["@text.literal.block.markdown"]       = { bg = c.editor.background },
-    ["@text.literal.markdown_inline"]      = { bg = c.base.dimmed4, fg = c.base.white },
-    ["@text.quote.markdown"]               = { bg = c.base.dimmed5, fg = c.base.white },
-    ["@text.reference.markdown_inline"]    = { fg = c.base.red },
-    ["@text.strong.markdown_inline"]       = { bold = true },
-    ["@text.uri.markdown_inline"]          = { fg = c.base.green, sp = c.base.green, underline = true },
+    ["@conceal.markdown"]                 = { bg = c.base.black },
+    ["@markup.italic.markdown_inline"]    = { italic = treesitter_options.italic },
+    ["@markup.link.label.markdown_inline"]= { fg = c.base.red },
+    ["@markup.link.url.markdown_inline"]  = { fg = c.base.green, underline = true },
+    ["@markup.raw.block.markdown"]        = { bg = c.base.black },
+    ["@markup.raw.delimiter.markdown"]    = { bg = c.base.black, fg = c.base.dimmed2 },
+    ["@markup.strong.markdown_inline"]    = { bold = true },
+    ["@none.markdown"]                    = { bg = c.base.black },
+    ["@punctuation.special.markdown"]     = { fg = c.base.dimmed2 },
+    ["@text.emphasis.markdown_inline"]    = { fg = c.base.white, italic = treesitter_options.italic },
+    ["@text.literal.block.markdown"]      = { bg = c.editor.background },
+    ["@text.literal.markdown_inline"]     = { bg = c.base.dimmed4, fg = c.base.white },
+    ["@text.quote.markdown"]              = { bg = c.base.dimmed5, fg = c.base.white },
+    ["@text.reference.markdown_inline"]   = { fg = c.base.red },
+    ["@text.strong.markdown_inline"]      = { bold = true },
+    ["@text.uri.markdown_inline"]         = { fg = c.base.green, sp = c.base.green, underline = true },
 
     -- SCSS
-    ["@function.scss"]                     = { fg = c.base.cyan },
-    ["@keyword.scss"]                      = { fg = c.base.red },
-    ["@number.scss"]                       = { fg = c.base.purple },
-    ["@property.scss"]                     = { fg = c.base.green },
-    ["@string.scss"]                       = { fg = c.base.orange, italic = treesitter_options.italic },
-    ["@type.scss"]                         = { fg = c.base.cyan },
+    ["@function.scss"]                    = { fg = c.base.green },
+    ["@keyword.scss"]                     = { fg = c.base.red },
+    ["@number.scss"]                      = { fg = c.base.purple },
+    ["@property.scss"]                    = { fg = c.base.white_dim },
+    ["@string.scss"]                      = { fg = c.base.orange, italic = treesitter_options.italic },
+    ["@type.scss"]                        = { fg = c.base.cyan },
 
     -- Lua
     ["@comment.documentation.lua"]        = { fg = c.base.cyan },
@@ -182,18 +182,60 @@ function M.get(c, config, _)
     ["@function.builtin.lua"]             = { fg = c.base.green },
     ["@keyword.function.lua"]             = { fg = c.base.red },
     ["@keyword.lua"]                      = { fg = c.base.red, italic = styles.keyword.italic },
-    ["@namespace.lua"]                    = { fg = c.base.red },
+    ["@namespace.lua"]                    = { fg = c.base.cyan },
     ["@parameter.lua"]                    = { fg = c.base.orange, italic = treesitter_options.italic },
     ["@variable.lua"]                     = { fg = c.base.white },
 
+    -- C# (Treesitter captures) — fallback syntax coloring for C# when LSP not active
+    ["@namespace.csharp"]                 = { fg = c.base.cyan },
+    ["@type.csharp"]                      = { fg = c.base.cyan },
+    ["@class.csharp"]                     = { fg = c.base.cyan },
+    ["@enum.csharp"]                      = { fg = c.base.cyan },
+    ["@enumMember.csharp"]                = { fg = c.base.purple },
+    ["@attribute.csharp"]                 = { fg = c.base.cyan, italic = treesitter_options.italic },
+    ["@property.csharp"]                  = { fg = c.base.white_dim },
+    ["@method.csharp"]                    = { fg = c.base.green },
+    ["@function.csharp"]                  = { fg = c.base.green },
+    ["@variable.csharp"]                  = { fg = c.base.white },
+    ["@parameter.csharp"]                 = { fg = c.base.orange, italic = treesitter_options.italic },
+    ["@constant.csharp"]                  = { fg = c.base.purple },
+    ["@keyword.csharp"]                   = { fg = c.base.red },
+    ["@preproc.csharp"]                   = { fg = c.base.purple }, -- preprocessor / macros
+
     -- LSP semantic tokens
     ["@lsp.type.class"]                   = { fg = c.base.cyan },
-    ["@lsp.type.namespace"]               = { fg = c.base.cyan },
-    ["@lsp.type.struct"]                  = { fg = c.base.cyan },
     ["@lsp.type.enum"]                    = { fg = c.base.cyan },
+    ["@lsp.type.enumMember"]              = { fg = c.base.purple },
+    ["@lsp.type.interface"]               = { fg = c.base.cyan },
+    ["@lsp.type.struct"]                  = { fg = c.base.cyan },
+    ["@lsp.type.type"]                    = { fg = c.base.cyan },
+    ["@lsp.type.typeParameter"]           = { fg = c.base.cyan, italic = treesitter_options.italic },
+
     ["@lsp.type.parameter"]               = { fg = c.base.orange, italic = treesitter_options.italic },
     ["@lsp.type.property"]                = { fg = c.base.white_dim },
     ["@lsp.type.variable"]                = { fg = c.base.white },
+
+    ["@lsp.type.function"]                = { fg = c.base.green },
+    ["@lsp.type.method"]                  = { fg = c.base.green },
+    ["@lsp.type.macro"]                   = { fg = c.base.purple },
+
+    ["@lsp.type.namespace"]               = { fg = c.base.cyan },
+    ["@lsp.type.module"]                  = { fg = c.base.cyan },
+
+    ["@lsp.type.keyword"]                 = { fg = c.base.red },
+    ["@lsp.type.operator"]                = { fg = c.base.red },
+
+    ["@lsp.type.constant"]                = { fg = c.base.purple },
+    ["@lsp.type.decorator"]               = { fg = c.base.cyan },
+    ["@lsp.type.event"]                   = { fg = c.base.orange },
+    ["@lsp.type.label"]                   = { fg = c.base.cyan },
+
+    ["@lsp.type.string"]                  = { fg = c.base.yellow },
+    ["@lsp.type.number"]                  = { fg = c.base.purple },
+    ["@lsp.type.boolean"]                 = { fg = c.base.purple },
+
+    ["@lsp.type.comment"]                 = { fg = c.base.dimmed3, italic = styles.comment.italic },
+    ["@lsp.type.text"]                    = { fg = c.base.white },
 
     -- Yaml
     ["@number.yaml"]                      = { fg = c.base.purple },
@@ -201,10 +243,12 @@ function M.get(c, config, _)
     ["@punctuation.special.yaml"]         = { fg = c.base.white },
     ["@string.yaml"]                      = { fg = c.base.yellow },
   }
+
   for i = 1, 9 do
     spec["@markup.heading." .. i .. ".markdown"] = { fg = c.base.yellow }
     spec["@markup.heading." .. i .. ".marker.markdown"] = { fg = c.base.dimmed2 }
   end
+
   return spec
 end
 
