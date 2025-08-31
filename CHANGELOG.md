@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.1.4] - 2025-08-31
+
+### Added
+- Enhanced **Treesitter syntax highlighting** with more precise captures. 
+- Updated **README** to include a detailed “Differences from original Monokai Pro” section.
+- Added a **gallery section** showcasing main filter variants (`classic`, `pro`, `machine`, `octagon`, `spectrum`) with example C# / Unity screenshots.
+
+### Changed
+- Treesitter integration improved to **respect LSP semantic token rules** more accurately.
+- Updated README examples and documentation for better clarity and usage guidance.
+- Minor adjustments to highlight groups to better align with Monokai V2 aesthetic.
+
+### Fixed
+- Corrected minor inconsistencies in Treesitter group mappings.
+- README formatting issues fixed for gallery and configuration sections.
+
 ## [0.1.3] - 2025-08-31
 
 ### Changed
