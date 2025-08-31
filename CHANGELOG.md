@@ -6,6 +6,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.1.5] - 2025-09-01
+
+### Added
+- Extended **plugin support** with new integrations:
+  - **UI & Navigation**: `symbols-outline.nvim`, `dropbar.nvim`, `breadcrumb.nvim`, `outline.nvim`
+  - **Completion & LSP**: `lspsaga.nvim`, `trouble.nvim`
+  - **Syntax & Highlighting**: `vim-matchup`
+  - **Git & Version Control**: `git-conflict.nvim`, `neogit`, `lazygit.nvim`, `octo.nvim`
+  - **Debugging & Testing**: `nvim-dap`, `nvim-dap-ui`, `neotest`
+  - **Editing & Productivity**: `nvim-surround`, `nvim-autopairs`, `leap.nvim`, `flash.nvim`, `harpoon`, `marks.nvim`, `yanky.nvim`, `todo-comments.nvim`, `rest.nvim`, `overseer.nvim`, `spectre.nvim`
+  - **UI Elements**: `incline.nvim`, `glow.nvim`, `zen-mode.nvim`
+
+### Changed
+- Documentation in **Plugin Support** updated with a categorized and expanded list of supported plugins.
+
+### Fixed
+- None
+
+
 ## [0.1.4] - 2025-08-31
 
 ### Added
@@ -95,3 +114,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Credits
 - Original theme by [Loc](https://github.com/loctvl842/monokai-pro.nvim)
 - Monokai Pro by [monokai.pro](https://monokai.pro/)
+
+---
+
+[0.1.5]: https://github.com/khoido2003/monokai-v2.nvim/compare/v0.1.4...v0.1.5
+[0.1.4]: https://github.com/khoido2003/monokai-v2.nvim/compare/v0.1.3...v0.1.4
+[0.1.3]: https://github.com/khoido2003/monokai-v2.nvim/compare/v0.1.2...v0.1.3
+[0.1.2]: https://github.com/khoido2003/monokai-v2.nvim/compare/v0.1.1...v0.1.2
+[0.1.1]: https://github.com/khoido2003/monokai-v2.nvim/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/khoido2003/monokai-v2.nvim/releases/tag/v0.1.0
