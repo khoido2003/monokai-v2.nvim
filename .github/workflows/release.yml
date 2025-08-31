@@ -1,4 +1,4 @@
-name: Release Please
+name: Release
 
 on:
   push:
@@ -6,13 +6,15 @@ on:
       - main
 
 jobs:
-  release-please:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      - uses: actions/checkout@v5
+      - name: Release Please
+        uses: google-github-actions/release-please-action@v4
         with:
           release-type: simple
           package-name: monokai-v2.nvim
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
-
+          token: ${{ secrets.GITHUB_TOKEN }}
