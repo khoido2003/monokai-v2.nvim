@@ -63,6 +63,26 @@ local PLUGINS = {
   "dap",
   "lspsaga",
   "trouble",
+
+  "dapui",
+  "diffview",
+  "dropbar",
+  "git_conflict",
+  "glow",
+  "harpoon",
+  "hlslens",
+  "incline",
+  "lazygit",
+  "marks",
+  "neorg",
+  "neotest",
+  "octo",
+  "overseer",
+  "rest",
+  "spectre",
+  "todo-comments",
+  "yanky",
+  "outline",
 }
 
 -- Get highlight group dictionary
