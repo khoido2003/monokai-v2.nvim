@@ -165,6 +165,8 @@ Each filter provides a unique take on the Monokai Pro theme:
 | **Octagon** | ![Octagon Filter](images/octagon.png) |
 | **Ristretto** | ![Octagon Filter](images/ristretto.png) |
 | **Spectrum** | ![Spectrum Filter](images/spectrum.png) |
+| **Light** | ![Spectrum Filter](images/light.png) |
+
 
 ## Contributing
 
