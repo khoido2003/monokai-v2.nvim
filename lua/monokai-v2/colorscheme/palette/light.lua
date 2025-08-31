@@ -19,7 +19,7 @@ return {
   delimiter_pink = "#f75ca8",
   delimiter_blue = "#3399ff",
   neutral1 = "#706b6e",
-  neutral2 = "#918c8e",
+  neutral2 = "#837e80",
   neutral3 = "#a59fa0",
   neutral4 = "#bfb9ba",
   neutral5 = "#d3cdcc",
