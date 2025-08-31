@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.1.3] - 2025-08-31
+
+### Changed
+- Light mode neutral colors updated to be darker for better visibility (`neutral1–5` adjusted).  
+- `neutral2` specifically darkened for improved contrast.  
+- `surface0` lightened slightly for better balance with panels and UI.  
+- Inactive `lualine` elements updated to use green foreground.  
+- Floating window backgrounds (`FloatBorder`, diagnostic floats) updated to a darker shade for clarity.  
+- Diagnostics floating window backgrounds aligned with border background for consistency.  
+
+### Fixed
+- Minor visual inconsistencies in floating windows and diagnostic highlights corrected.  
+- Colors for borders, diagnostics, and floating windows adjusted for improved clarity and readability.
+
 ## [0.1.2] - 2025-08-30
 
 ### Changed
