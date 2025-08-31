@@ -51,6 +51,18 @@ local PLUGINS = {
   "ufo",
   "which-key",
   "wilder",
+
+  "symbols_outline",
+  "neogit",
+  "zen_mode",
+  "leap",
+  "flash",
+  "nvim_surround",
+  "nvim_autopairs",
+  "vim_matchup",
+  "dap",
+  "lspsaga",
+  "trouble",
 }
 
 -- Get highlight group dictionary
