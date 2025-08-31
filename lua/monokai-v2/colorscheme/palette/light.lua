@@ -3,7 +3,7 @@ return {
   surface0 = "#d7d2d1",
   surface1 = "#ede7e5",
   background = "#faf4f2",
-  foreground = "#29242a",
+  foreground = "#3c353a",
   foreground_dark = "#5a5359",
   red = "#e14775",
   orange = "#e16032",
