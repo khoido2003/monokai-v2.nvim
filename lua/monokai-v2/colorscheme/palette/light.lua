@@ -1,7 +1,7 @@
 ---@type Palette
 return {
-  surface0 = "#d7d2d1",
-  surface1 = "#ede7e5",
+  surface0 = "#e2dcda",
+  surface1 = "#f3efed",
   background = "#faf4f2",
   foreground = "#3c353a",
   foreground_dark = "#5a5359",
@@ -18,11 +18,11 @@ return {
   delimiter_purple = "#9b59b6",
   delimiter_pink = "#f75ca8",
   delimiter_blue = "#3399ff",
-  neutral1 = "#6b6267",
-  neutral2 = "#7d7579",
-  neutral3 = "#91888b",
-  neutral4 = "#a79e9f",
-  neutral5 = "#bfb7b8",
+  neutral1 = "#5a5359",
+  neutral2 = "#72696f",
+  neutral3 = "#93888d",
+  neutral4 = "#b5acb0",
+  neutral5 = "#d8d1d3",
   panel = "#fefaf9",
   light = "#ffffff",
 }
