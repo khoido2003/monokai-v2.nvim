@@ -13,8 +13,8 @@ function M.get(c, config, hp)
       fg = hp.lighten(c.base.yellow, -15),
       bold = true,
     } or {
-      fg = hp.lighten(c.base.yellow, -20),
-      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.85, c.editor.background),
+      fg = hp.lighten(c.base.yellow, -10),
+      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.55, c.editor.background),
       bold = true,
     },
 
