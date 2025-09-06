@@ -50,7 +50,7 @@ function M.get(c, config, hp)
       fg = c.editorHoverWidget.background,
     },
     TelescopeMatching = {
-      fg = c.base.yellow,
+      fg = config.filter == "light" and c.base.red or c.base.yellow,
       bold = true,
     },
 
@@ -58,7 +58,7 @@ function M.get(c, config, hp)
 
     -- prompt
     TelescopePromptTitle = {
-      bg = c.base.yellow,
+      bg = config.filter == "light" and c.base.red or c.base.yellow,
       fg = c.base.black,
       bold = true,
     },
@@ -76,11 +76,11 @@ function M.get(c, config, hp)
       bg = transparent_bg,
       fg = prompt_bg,
     },
-    TelescopePromptPrefix = { fg = c.base.yellow },
+    TelescopePromptPrefix = { fg = c.base.white },
 
     -- preview
     TelescopePreviewTitle = {
-      bg = c.base.yellow,
+      bg = config.filter == "light" and c.base.red or c.base.yellow,
       fg = c.base.black,
       bold = true,
     },
@@ -101,7 +101,7 @@ function M.get(c, config, hp)
 
     -- result
     TelescopeResultsTitle = {
-      bg = c.base.yellow,
+      bg = config.filter == "light" and c.base.red or c.base.yellow,
       fg = c.base.black,
       bold = true,
     },

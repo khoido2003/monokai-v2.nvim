@@ -8,15 +8,18 @@ function M.get(c, config, hp)
   return {
     BlinkCmpMenu = { bg = c.editorSuggestWidget.background, fg = hp.lighten(c.editorSuggestWidget.foreground, -15) },
 
-    BlinkCmpMenuSelection = float_winBackgroundClear and {
-      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.5),
-      fg = hp.lighten(c.base.yellow, -15),
-      bold = true,
-    } or {
-      fg = hp.lighten(c.base.yellow, -10),
-      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.55, c.editor.background),
-      bold = true,
-    },
+    BlinkCmpMenuSelection = float_winBackgroundClear
+        and {
+          bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.5),
+          fg = config.filter == "light" and hp.lighten(c.base.red, -15) or hp.lighten(c.base.yellow, -15),
+          bold = true,
+        }
+      or {
+        fg = config.filter == "light" and hp.lighten(c.base.red, -10) or hp.lighten(c.base.yellow, -10),
+        bg = config.filter == "light" and hp.blend(c.editorSuggestWidget.selectedBackground, 0.45, c.editor.background)
+          or hp.blend(c.editorSuggestWidget.selectedBackground, 0.55, c.editor.background),
+        bold = true,
+      },
 
     BlinkCmpLabelDescription = { fg = hp.lighten(c.base.dimmed1, 3) },
     BlinkCmpLabelDeprecated = { fg = nil, bg = nil, strikethrough = true },

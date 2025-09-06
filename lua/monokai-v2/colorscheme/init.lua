@@ -47,7 +47,7 @@ M.get = function(filter)
     lineHighlightBackground = hp.blend(p.foreground, 0.05, p.background),
     selectionBackground = hp.blend(p.neutral1, 0.15, p.background),
     findMatchBackground = hp.blend(p.foreground, 0.15, p.background),
-    findMatchBorder = p.yellow,
+    findMatchBorder = Config.filter == "light" and p.red or p.yellow,
     findMatchHighlightBackground = hp.blend(p.foreground, 0.15, p.background),
     foldBackground = hp.blend(p.foreground, 0.1, p.background),
     wordHighlightBackground = hp.blend(p.foreground, 0.15, p.background),
@@ -69,7 +69,7 @@ M.get = function(filter)
     background = p.neutral5,
     border = p.neutral5,
     foreground = p.neutral1,
-    highlightForeground = p.yellow,
+    highlightForeground = Config.filter == "light" and p.red or p.yellow,
     selectedBackground = p.neutral3,
   }
 
