@@ -83,9 +83,6 @@ M.setup = function(c, config, hp)
     ModeMsg = {
       link = "Normal",
     }, -- 'showmode' message (e.g., "-- INSERT -- ")
-    MsgArea = {
-      link = "ModeMsg",
-    }, -- Area for messages and cmdline
     MsgSeparator = {
       link = "ModeMsg",
     }, -- Separator for scrolled messages, `msgsep` flag of 'display'
