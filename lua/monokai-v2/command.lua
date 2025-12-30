@@ -57,7 +57,6 @@ M.create_filter_command = function()
   })
 end
 
-
 M.create_cache_commands = function()
   local cmd = vim.api.nvim_create_user_command
 

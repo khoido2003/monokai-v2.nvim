@@ -11,7 +11,11 @@ end
 ---@param hex_color HexColor
 ---@param base? HexColor
 ---@return HexColor?
-local function get_real_color(hex_color, base)
+
+---@param hex_color HexColor
+---@param base? HexColor
+---@return HexColor?
+function M.resolve_color(hex_color, base)
   if hex_color == nil or string.len(hex_color) ~= 9 then
     return hex_color
   end
@@ -29,10 +33,13 @@ local function get_real_color(hex_color, base)
 end
 
 ---@param hl_group_opt HighlightGroupOpt
-local get_highlight_value = function(hl_group_opt)
-  local bg_value = get_real_color(hl_group_opt.bg, hl_group_opt.bg_base)
-  local fg_value = get_real_color(hl_group_opt.fg, hl_group_opt.fg_base)
-  local sp_value = get_real_color(hl_group_opt.sp, bg_value)
+
+---@param hl_group_opt HighlightGroupOpt
+function M.resolve_highlight(hl_group_opt)
+  local bg_value = M.resolve_color(hl_group_opt.bg, hl_group_opt.bg_base)
+  local fg_value = M.resolve_color(hl_group_opt.fg, hl_group_opt.fg_base)
+  local sp_value = M.resolve_color(hl_group_opt.sp, bg_value)
+
   hl_group_opt.bg = bg_value
   hl_group_opt.fg = fg_value
   hl_group_opt.sp = sp_value
@@ -48,8 +55,9 @@ local highlight = function(group, hl_group_opt)
     vim.api.nvim_set_hl(0, group, { link = hl_group_opt.link })
     return
   end
-  
-  local hl_value = get_highlight_value(hl_group_opt)
+
+  local hl_value = M.resolve_highlight(hl_group_opt)
+
   vim.api.nvim_set_hl(0, group, hl_value)
 end
 

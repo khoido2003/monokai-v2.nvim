@@ -19,17 +19,22 @@ local function check_day_night()
       pcall(function()
         require("monokai-v2")._load(target_filter)
         -- Notify user about the switch
-        vim.notify("Monokai-v2: Switched to " .. target_filter .. " (" .. (is_day and "Day" or "Night") .. ") mode", vim.log.levels.INFO)
+        vim.notify(
+          "Monokai-v2: Switched to " .. target_filter .. " (" .. (is_day and "Day" or "Night") .. ") mode",
+          vim.log.levels.INFO
+        )
       end)
     end)
   end
 end
 
 -- Initialize timer linked to the timer variable
-if not timer then
-  timer = vim.loop.new_timer()
-  -- Check every 5 minutes (300000 ms)
-  timer:start(0, 300000, vim.schedule_wrap(check_day_night))
+local config = require("monokai-v2.config")
+local uv = vim.uv or vim.loop
+if config.day_night and config.day_night.enable and not timer then
+  timer = uv.new_timer()
+  -- Check every 1 hour (3600000 ms)
+  timer:start(0, 3600000, vim.schedule_wrap(check_day_night))
 end
 
 return M
