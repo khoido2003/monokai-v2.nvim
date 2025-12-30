@@ -13,7 +13,7 @@ function M.get(c, _, _)
     MiniStatuslineModeVisual = { fg = c.base.black, bg = c.base.purple },
     MiniStatuslineModeReplace = { fg = c.base.black, bg = c.base.red },
     MiniStatuslineModeOther = { fg = c.base.black, bg = c.base.white },
-    
+
     -- mini.files
     MiniFilesFile = { fg = c.base.white },
     MiniFilesDirectory = { fg = c.base.cyan },
@@ -57,7 +57,7 @@ function M.get(c, _, _)
 
     -- mini.surround
     MiniSurround = { bg = c.base.dimmed2 },
-    
+
     -- mini.cursorword
     MiniCursorword = { bg = c.base.dimmed5 },
     MiniCursorwordCurrent = { bg = c.base.dimmed5 },

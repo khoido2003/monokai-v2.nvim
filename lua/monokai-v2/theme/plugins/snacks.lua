@@ -21,7 +21,7 @@ function M.get(c, _, hp)
     SnacksPicker = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksPickerBorder = { bg = c.editor.background, fg = c.tab.unfocusedActiveBorder },
     SnacksPickerTree = { fg = c.editorLineNumber.foreground },
-    
+
     -- Notifier
     SnacksNotifierInfo = { fg = c.base.cyan },
     SnacksNotifierWarn = { fg = c.base.orange },
@@ -43,12 +43,12 @@ function M.get(c, _, hp)
     SnacksNotifierTitleDebug = { fg = c.base.dimmed1 },
     SnacksNotifierTitleError = { fg = c.base.red },
     SnacksNotifierTitleTrace = { fg = c.base.dimmed1 },
-    
+
     -- Input
     SnacksInputNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksInputBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksInputTitle = { fg = c.base.orange },
-    
+
     -- Scratch
     SnacksScratchNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksScratchDesc = { fg = c.base.dimmed1 },

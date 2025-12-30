@@ -6,6 +6,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.2.0] - 2025-12-31
+
+### Added
+- **Performance Compilation System**: The theme now compiles resolved highlights into a static Lua file on first load.
+  - Reduces startup time to **~2-3ms**.
+  - Automatically invalidates cache on config changes or neovim upgrades.
+  - New command `:MonokaiCompile` to manually force compilation.
+  - New command `:MonokaiClear` to clear the cache.
+- **New Plugin Support**:
+  - `barbar.nvim`: Full tabline support.
+  - `grug-far.nvim`: Search/replace UI support.
+  - `render-markdown.nvim`: Headlines, code blocks, tables, and callouts.
+  - `oil.nvim`: Custom directory, socket, and operation highlights.
+  - `avante.nvim`: AI Chat interface support.
+
+### Changed
+- **Architecture**: Refactored codebase to use lazy loading for non-critical modules (`util.theme`, `color_helper`), significantly reducing startup overhead.
+- **Indent Blankline**: Updated to **v3** standards (`@ibl.*`) with rainbow support.
+- **Trouble.nvim**: Updated to **v3** highlight standards.
+- **Snacks.nvim**: Extended support for Notifier, Input, Picker, and Scratch components.
+- **Mini.nvim**: Extended support for `mini.files`, `mini.pick`, `mini.clue`, `mini.hipatterns`, `mini.starter`, `mini.cursorword`, and `mini.surround`.
+- **Neovim 0.11+ Compatibility**: Replaced deprecated `vim.loop` with `vim.uv`.
+
+### Fixed
+- **Cache Naming**: Fixed a bug where `config.lua` serialization failed, ensuring correct cache file names for different filters.
+
 ## [0.1.5] - 2025-09-01
 
 ### Added
