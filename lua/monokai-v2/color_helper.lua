@@ -1,6 +1,9 @@
 ---@class Helper
 local M = {}
 
+local cached_palette = nil
+local cached_filter = nil
+
 ---@param background? HexColor | "NONE"
 local function get_blend_background(background)
   if background ~= nil and background ~= "NONE" then
@@ -8,9 +11,11 @@ local function get_blend_background(background)
   end
 
   local filter = require("monokai-v2.colorscheme").filter
-  ---@type Palette
-  local c = require("monokai-v2.colorscheme.palette." .. filter)
-  return c.background
+  if cached_filter ~= filter then
+    cached_filter = filter
+    cached_palette = require("monokai-v2.colorscheme.palette." .. filter)
+  end
+  return cached_palette.background
 end
 
 ---@param hex HexColor

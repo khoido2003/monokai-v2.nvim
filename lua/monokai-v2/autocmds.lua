@@ -1,37 +1,35 @@
-local util = require("monokai-v2.util")
+-- Monokai-v2 autocmds
+local M = {}
 
-local function augroup(name)
-  return vim.api.nvim_create_augroup("monokaiv2$" .. name, { clear = true })
+local timer = nil
+
+local function check_day_night()
+  local config = require("monokai-v2.config")
+  if not config.day_night or not config.day_night.enable then
+    return
+  end
+
+  local util_extra = require("monokai-v2.util.extra")
+  local is_day = util_extra.is_daytime()
+  local target_filter = is_day and config.day_night.day_filter or config.day_night.night_filter
+  local current_filter = require("monokai-v2.colorscheme").filter
+
+  if target_filter ~= current_filter then
+    vim.schedule(function()
+      pcall(function()
+        require("monokai-v2")._load(target_filter)
+        -- Notify user about the switch
+        vim.notify("Monokai-v2: Switched to " .. target_filter .. " (" .. (is_day and "Day" or "Night") .. ") mode", vim.log.levels.INFO)
+      end)
+    end)
+  end
 end
 
-local bufferline_icon_group = require("monokai-v2.theme.plugins.bufferline").setup_bufferline_icon()
--- draw bufferline icons
-vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
-  group = augroup("bufferline"),
-  pattern = "*",
-  callback = function()
-    local buffers = vim.api.nvim_list_bufs()
-    for _, buf_id in ipairs(buffers) do
-      util.try(function()
-        local buf_name = vim.api.nvim_buf_get_name(buf_id)
-        if buf_name ~= nil and buf_name ~= "" then
-          -- Get extension
-          local filename = vim.fn.fnamemodify(buf_name, ":t")
-          local extension = vim.fn.fnamemodify(buf_name, ":e")
-          local icon = util.devicons.get(filename, extension)
-          if icon == nil then
-            return
-          end
-          bufferline_icon_group =
-            require("monokai-v2.theme.plugins.bufferline").setup_bufferline_icon(icon.hl_name, icon.color)
-          util.theme.draw(bufferline_icon_group)
-        end
-      end, {
-        on_error = function()
-          -- Error after installing a plugin
-          -- do nothing
-        end,
-      })
-    end
-  end,
-})
+-- Initialize timer linked to the timer variable
+if not timer then
+  timer = vim.loop.new_timer()
+  -- Check every 5 minutes (300000 ms)
+  timer:start(0, 300000, vim.schedule_wrap(check_day_night))
+end
+
+return M

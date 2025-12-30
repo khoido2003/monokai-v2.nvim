@@ -57,4 +57,21 @@ M.create_filter_command = function()
   })
 end
 
+
+M.create_cache_commands = function()
+  local cmd = vim.api.nvim_create_user_command
+
+  cmd("MonokaiCompile", function()
+    require("monokai-v2.cache").clear()
+    -- Reloading the theme will trigger generation and caching
+    vim.cmd([[colorscheme monokai-v2]])
+    vim.notify("Monokai-v2: Theme compiled and cached!", vim.log.levels.INFO)
+  end, { nargs = 0 })
+
+  cmd("MonokaiClear", function()
+    require("monokai-v2.cache").clear()
+    vim.notify("Monokai-v2: Cache cleared!", vim.log.levels.INFO)
+  end, { nargs = 0 })
+end
+
 return M

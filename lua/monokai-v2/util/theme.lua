@@ -5,10 +5,7 @@ local Helper = require("monokai-v2.color_helper")
 local M = {}
 
 local function load_autocmds()
-  local ok, _ = pcall(require, "monokai-v2.autocmds")
-  if not ok then
-    Util.log("Failed to load monokai-v2.autocmds", "error")
-  end
+  pcall(require, "monokai-v2.autocmds")
 end
 
 ---@param hex_color HexColor
@@ -47,12 +44,11 @@ end
 ---@param group HighlightGroup
 ---@param hl_group_opt HighlightGroupOpt
 local highlight = function(group, hl_group_opt)
-  local link = hl_group_opt.link
-  if link ~= nil then
-    local cmd = "hi! link " .. group .. " " .. link
-    vim.api.nvim_command(cmd)
+  if hl_group_opt.link then
+    vim.api.nvim_set_hl(0, group, { link = hl_group_opt.link })
     return
   end
+  
   local hl_value = get_highlight_value(hl_group_opt)
   vim.api.nvim_set_hl(0, group, hl_value)
 end
@@ -75,6 +71,12 @@ function M.load(hl_group_tbl)
 
   vim.o.termguicolors = true
   vim.g.colors_name = "monokai-v2"
+
+  if require("monokai-v2.colorscheme").filter == "light" then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
 
   M.draw(hl_group_tbl)
 

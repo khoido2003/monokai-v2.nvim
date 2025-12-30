@@ -4,16 +4,26 @@ local Config = require("monokai-v2.config")
 ---@class ColorschemeOptions
 local cs = {}
 
+local cached_cs = {}
+local cached_filter = nil
+
 ---@class Colorscheme: ColorschemeOptions
-local M = setmetatable({
-  filter = Config.filter,
-}, {
-  __index = function(m, k)
-    local color = rawget(cs or {}, k)
-    if color == nil then
-      cs = m()
+local M = {
+  filter = nil,
+}
+
+setmetatable(M, {
+  __index = function(_, k)
+    if k == "filter" then
+      return cached_filter or require("monokai-v2.config").filter
     end
-    return rawget(cs or {}, k)
+    
+    local current_filter = M.filter or require("monokai-v2.config").filter
+    if cached_filter ~= current_filter or not cached_cs[k] then
+      cached_cs = M.get(current_filter)
+      cached_filter = current_filter
+    end
+    return cached_cs[k]
   end,
   __call = function(t, ...)
     return t.get(...)
