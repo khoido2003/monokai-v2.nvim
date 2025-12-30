@@ -5,10 +5,10 @@ local M = {}
 ---@param hp Helper
 function M.get(c, config, hp)
   return {
-    FlashCurrent = { fg = c.base.yellow, bold = true },
-    FlashMatch = { fg = c.base.green, bold = true },
     FlashBackdrop = { fg = c.base.dimmed4 },
-    FlashLabel = { fg = c.base.orange },
+    FlashMatch = { bg = c.base.dimmed4, fg = c.base.white },
+    FlashCurrent = { bg = c.base.dimmed4, fg = c.base.yellow, bold = true },
+    FlashLabel = { bg = c.base.dimmed4, fg = c.base.red, bold = true },
   }
 end
 

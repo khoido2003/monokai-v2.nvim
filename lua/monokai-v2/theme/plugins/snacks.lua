@@ -21,6 +21,38 @@ function M.get(c, _, hp)
     SnacksPicker = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksPickerBorder = { bg = c.editor.background, fg = c.tab.unfocusedActiveBorder },
     SnacksPickerTree = { fg = c.editorLineNumber.foreground },
+    
+    -- Notifier
+    SnacksNotifierInfo = { fg = c.base.cyan },
+    SnacksNotifierWarn = { fg = c.base.orange },
+    SnacksNotifierDebug = { fg = c.base.dimmed1 },
+    SnacksNotifierError = { fg = c.base.red },
+    SnacksNotifierTrace = { fg = c.base.dimmed1 },
+    SnacksNotifierIconInfo = { fg = c.base.cyan },
+    SnacksNotifierIconWarn = { fg = c.base.orange },
+    SnacksNotifierIconDebug = { fg = c.base.dimmed1 },
+    SnacksNotifierIconError = { fg = c.base.red },
+    SnacksNotifierIconTrace = { fg = c.base.dimmed1 },
+    SnacksNotifierBorderInfo = { fg = c.base.cyan },
+    SnacksNotifierBorderWarn = { fg = c.base.orange },
+    SnacksNotifierBorderDebug = { fg = c.base.dimmed1 },
+    SnacksNotifierBorderError = { fg = c.base.red },
+    SnacksNotifierBorderTrace = { fg = c.base.dimmed1 },
+    SnacksNotifierTitleInfo = { fg = c.base.cyan },
+    SnacksNotifierTitleWarn = { fg = c.base.orange },
+    SnacksNotifierTitleDebug = { fg = c.base.dimmed1 },
+    SnacksNotifierTitleError = { fg = c.base.red },
+    SnacksNotifierTitleTrace = { fg = c.base.dimmed1 },
+    
+    -- Input
+    SnacksInputNormal = { bg = c.editor.background, fg = c.editor.foreground },
+    SnacksInputBorder = { fg = c.tab.unfocusedActiveBorder },
+    SnacksInputTitle = { fg = c.base.orange },
+    
+    -- Scratch
+    SnacksScratchNormal = { bg = c.editor.background, fg = c.editor.foreground },
+    SnacksScratchDesc = { fg = c.base.dimmed1 },
+    SnacksScratchIcon = { fg = c.base.purple },
   }
 end
 
