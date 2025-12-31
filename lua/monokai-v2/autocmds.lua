@@ -2,6 +2,7 @@
 local M = {}
 
 local timer = nil
+local augroup = nil
 
 local function check_day_night()
   local config = require("monokai-v2.config")
@@ -28,13 +29,50 @@ local function check_day_night()
   end
 end
 
--- Initialize timer linked to the timer variable
-local config = require("monokai-v2.config")
-local uv = vim.uv or vim.loop
-if config.day_night and config.day_night.enable and not timer then
-  timer = uv.new_timer()
-  -- Check every 1 hour (3600000 ms)
-  timer:start(0, 3600000, vim.schedule_wrap(check_day_night))
+--- Stop the day/night timer and clean up autocmds
+function M.cleanup()
+  if timer then
+    timer:stop()
+    timer:close()
+    timer = nil
+  end
+  if augroup then
+    pcall(vim.api.nvim_del_augroup_by_id, augroup)
+    augroup = nil
+  end
 end
+
+--- Initialize the day/night timer if enabled
+function M.setup()
+  local config = require("monokai-v2.config")
+  local uv = vim.uv or vim.loop
+
+  -- Clean up any existing timer/autocmds first
+  M.cleanup()
+
+  if config.day_night and config.day_night.enable then
+    -- Create timer
+    timer = uv.new_timer()
+    -- Check every 1 hour (3600000 ms)
+    timer:start(0, 3600000, vim.schedule_wrap(check_day_night))
+
+    -- Create autocmd to clean up when switching colorschemes
+    augroup = vim.api.nvim_create_augroup("MonokaiV2DayNight", { clear = true })
+    vim.api.nvim_create_autocmd("ColorSchemePre", {
+      group = augroup,
+      callback = function()
+        -- Only cleanup if switching away from monokai-v2
+        vim.schedule(function()
+          if vim.g.colors_name ~= "monokai-v2" then
+            M.cleanup()
+          end
+        end)
+      end,
+    })
+  end
+end
+
+-- Auto-initialize when this module is loaded
+M.setup()
 
 return M

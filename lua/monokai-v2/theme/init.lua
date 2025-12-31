@@ -9,7 +9,7 @@ local M = {}
 
 setmetatable(M, {
   __index = function(_, k)
-    local plugin = require("monokai-v2.theme.plugins" .. k)
+    local plugin = require("monokai-v2.theme.plugins." .. k)
     return plugin
   end,
 })

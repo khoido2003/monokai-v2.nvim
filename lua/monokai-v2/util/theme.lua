@@ -11,10 +11,6 @@ end
 ---@param hex_color HexColor
 ---@param base? HexColor
 ---@return HexColor?
-
----@param hex_color HexColor
----@param base? HexColor
----@return HexColor?
 function M.resolve_color(hex_color, base)
   if hex_color == nil or string.len(hex_color) ~= 9 then
     return hex_color
@@ -31,8 +27,6 @@ function M.resolve_color(hex_color, base)
   end
   return Helper.extend_hex(hex_color, base)
 end
-
----@param hl_group_opt HighlightGroupOpt
 
 ---@param hl_group_opt HighlightGroupOpt
 function M.resolve_highlight(hl_group_opt)

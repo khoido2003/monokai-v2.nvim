@@ -76,7 +76,7 @@ end
 
 ---@param options? monokaiv2Options
 M.extend = function(options)
-  config = vim.tbl_deep_extend("force", {}, config or options, options or {})
+  config = vim.tbl_deep_extend("force", config or {}, options or {})
 end
 
 return M

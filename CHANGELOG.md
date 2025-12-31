@@ -6,6 +6,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.2.1] - 2025-12-31
+
+### Added
+- **Comprehensive LSP Semantic Token Support**: Complete rewrite with 130+ token definitions.
+  - All 22 standard LSP types (class, struct, interface, enum, function, method, etc.)
+  - All 10 standard LSP modifiers (static, readonly, deprecated, async, abstract, etc.)
+  - Language-specific extensions for Rust, Python, Go, Java, C#/Unity, C++, TypeScript
+  - Combined type+modifier highlights (60+ typemod combinations)
+- Semantic tokens now respect `config.styles.storageclass.italic` for static/abstract/virtual modifiers
+- Added missing `"light"` filter to type definitions
+
+### Fixed
+- **Memory Leak**: Timer in `autocmds.lua` now properly stops and closes when switching colorschemes
+- **Config Merge Bug**: Fixed `config.extend()` merge logic that was incorrectly combining config and options
+- **Require Path Bug**: Fixed missing dot in plugin require path in `theme/init.lua`
+- **Operator Color**: Fixed `operatorOverloaded` being green instead of red (now links to `@operator`)
+- **Static/Readonly Colors**: Static classes/methods now correctly retain cyan/green colors with italic, instead of turning purple
+- Removed duplicate doc comments in `util/theme.lua`
+
+### Changed
+- Modifiers (`@lsp.mod.*`) now only apply style changes (italic, bold, strikethrough), not color overrides
+- This ensures base type colors are preserved (classes stay cyan, methods stay green)
+
 ## [0.2.0] - 2025-12-31
 
 ### Added
