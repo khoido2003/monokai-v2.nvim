@@ -54,6 +54,7 @@ M.setup = function(c, config, hp)
     ["@lsp.type.number"]                        = { link = "@number" },
     ["@lsp.type.regexp"]                        = { link = "@string.regexp" },
     ["@lsp.type.operator"]                      = { link = "@operator" },
+    ["@lsp.type.constant"]                      = { link = "@constant" },
 
     -- ============================================================================
     -- Extended/Common Types (Used by various language servers)

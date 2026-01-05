@@ -13,6 +13,7 @@ function M.get(c, config, _)
     ["@variable"] = { fg = c.base.white },
     ["@variable.builtin"] = { fg = c.base.dimmed1, italic = treesitter_options.italic },
     ["@variable.parameter"] = { fg = c.base.orange, italic = treesitter_options.italic },
+    ["@variable.parameter.builtin"] = { fg = c.base.dimmed1, italic = treesitter_options.italic },
     ["@variable.member"] = { fg = c.base.white }, -- Fields
 
     ["@constant"] = { fg = c.base.purple },
@@ -69,6 +70,7 @@ function M.get(c, config, _)
     ["@keyword.conditional"] = { fg = c.base.red },
     ["@keyword.directive"] = { fg = c.base.red },
     ["@keyword.directive.define"] = { fg = c.base.red },
+    ["@keyword.storage"] = { fg = c.base.red, italic = styles.keyword.italic },
 
     -- Punctuation
     ["@punctuation.delimiter"] = { fg = c.base.dimmed2 },
