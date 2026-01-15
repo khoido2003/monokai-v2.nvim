@@ -104,14 +104,18 @@ function M.setup()
     local timer = uv.new_timer()
     debounce_timers[bufnr] = timer
 
-    timer:start(delay, 0, vim.schedule_wrap(function()
-      refresh_semantic_tokens(bufnr)
-      if debounce_timers[bufnr] then
-        debounce_timers[bufnr]:stop()
-        debounce_timers[bufnr]:close()
-        debounce_timers[bufnr] = nil
-      end
-    end))
+    timer:start(
+      delay,
+      0,
+      vim.schedule_wrap(function()
+        refresh_semantic_tokens(bufnr)
+        if debounce_timers[bufnr] then
+          debounce_timers[bufnr]:stop()
+          debounce_timers[bufnr]:close()
+          debounce_timers[bufnr] = nil
+        end
+      end)
+    )
   end
 
   vim.api.nvim_create_autocmd("LspAttach", {

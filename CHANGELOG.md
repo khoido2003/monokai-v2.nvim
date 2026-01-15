@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Fixed a bug where autocmds were incorrectly gated behind the `day_night` config option, preventing them from loading for most users.
 - **Commands**: Added `:MonokaiRefreshTokens` command to manually force a semantic token refresh if needed.
 
+## [0.2.2] - 2026-01-06
+- **LSP Semantic Tokens**: Add mising LSP semantic token highlighting definitions for standard types, extended language-specific types, and modifiers.
+
 ## [0.2.1] - 2025-12-31
 
 ### Added
