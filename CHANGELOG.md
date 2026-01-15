@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.3] - 2026-01-15
 
+### Added
+- **Plugin Support**: Added native highlight support for:
+  - **GitHub Copilot** (`copilot.lua` / `copilot-cmp`): Ghost text and annotations.
+  - **LSP Signature** (`lsp_signature.nvim`): Active parameter and hints.
+
 ### Fixed
 - **LSP Semantic Tokens**: Fixed issue where custom types/classes (especially in Unity/C# projects with Roslyn) would lose highlighting or not update immediately.
   - Implemented smart event-driven refresh using `LspProgress` to detect when full project indexing completes.

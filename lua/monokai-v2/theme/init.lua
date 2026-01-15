@@ -88,6 +88,8 @@ local PLUGINS = {
   "todo-comments",
   "yanky",
   "outline",
+  "copilot",
+  "lsp_signature",
 }
 
 -- Get highlight group dictionary
