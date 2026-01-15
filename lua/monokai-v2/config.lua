@@ -7,7 +7,7 @@ local util = require("monokai-v2.util")
 local config = {
   transparent_background = false,
   terminal_colors = true,
-  devicons = false,
+  devicons = true,
   styles = {
     comment = { italic = false },
     keyword = { italic = false }, -- any other keyword

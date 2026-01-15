@@ -53,6 +53,32 @@ use {
 }
 ```
 
+## Optional Dependencies
+
+For the best experience, consider installing these optional plugins:
+
+### nvim-web-devicons
+
+For **Monokai-themed file icons** in file explorers (nvim-tree, neo-tree, telescope, etc.):
+
+```lua
+-- Add to your plugin manager
+{ "nvim-tree/nvim-web-devicons" }
+```
+
+Then enable devicons in the theme config:
+
+```lua
+require("monokai-v2").setup({
+  devicons = true,  -- Enable Monokai colors for file icons
+})
+```
+
+This will colorize 200+ file type icons with Monokai colors. Requires a [Nerd Font](https://www.nerdfonts.com/).
+
+> **Note:** Devicons support is enabled by default. If you don't have nvim-web-devicons installed, it will be safely skipped.
+
+
 ## Configuration
 
 ```lua
@@ -60,7 +86,7 @@ require("monokai-v2").setup({
   -- Basic settings
   transparent_background = false,
   terminal_colors = true,
-  devicons = false,
+  devicons = true,
   
   -- Syntax highlighting styles
   styles = {
