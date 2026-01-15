@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.2.3] - 2026-01-15
+
+### Fixed
+- **LSP Semantic Tokens**: Fixed issue where custom types/classes (especially in Unity/C# projects with Roslyn) would lose highlighting or not update immediately.
+  - Implemented smart event-driven refresh using `LspProgress` to detect when full project indexing completes.
+  - Added debounced `BufEnter` refresh to ensure colors are correct when switching files.
+  - Fixed a bug where autocmds were incorrectly gated behind the `day_night` config option, preventing them from loading for most users.
+- **Commands**: Added `:MonokaiRefreshTokens` command to manually force a semantic token refresh if needed.
+
 ## [0.2.1] - 2025-12-31
 
 ### Added

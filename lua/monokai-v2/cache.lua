@@ -88,10 +88,9 @@ function M.compile(filter, hl_groups, config)
     end
   end
 
-  -- Autocmds
-  if config.day_night and config.day_night.enable then
-    table.insert(lines, '  pcall(require, "monokai-v2.autocmds")')
-  end
+  -- Always load autocmds for LSP semantic token refresh support
+  -- (previously this was only loaded when day_night was enabled, which was a bug)
+  table.insert(lines, '  pcall(require, "monokai-v2.autocmds")')
   table.insert(lines, "  return true")
   table.insert(lines, "end")
 

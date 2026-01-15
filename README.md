@@ -124,6 +124,7 @@ require("monokai-v2").setup({
 - `MonokaiChoose <filter>` - Direct filter selection (e.g., `MonokaiChoose pro`)
 - `MonokaiCompile` - Manually compile the theme highlights to cache
 - `MonokaiClear` - Clear the theme cache
+- `MonokaiRefreshTokens` - Manually refresh semantic tokens (useful for keeping highlights in sync with LSP)
 
 ### Statusline Integration
 

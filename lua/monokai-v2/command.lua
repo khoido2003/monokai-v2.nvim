@@ -71,6 +71,20 @@ M.create_cache_commands = function()
     require("monokai-v2.cache").clear()
     vim.notify("Monokai-v2: Cache cleared!", vim.log.levels.INFO)
   end, { nargs = 0 })
+
+  -- Command to manually refresh semantic tokens for the current buffer
+  cmd("MonokaiRefreshTokens", function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    if vim.api.nvim_buf_is_valid(bufnr) then
+      local ok, err = pcall(vim.lsp.semantic_tokens.force_refresh, bufnr)
+      if ok then
+        vim.notify("Monokai-v2: Semantic tokens refreshed!", vim.log.levels.INFO)
+      else
+        vim.notify("Monokai-v2: Failed to refresh semantic tokens: " .. tostring(err), vim.log.levels.WARN)
+      end
+    end
+  end, { nargs = 0 })
 end
 
 return M
+
