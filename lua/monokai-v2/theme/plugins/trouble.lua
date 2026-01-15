@@ -5,7 +5,7 @@ local M = {}
 ---@param hp Helper
 function M.get(c, config, hp)
   return {
-    TroubleNormal = { bg = c.base.surface0, fg = c.base.white },
+    TroubleNormal = { bg = c.base.dark, fg = c.base.white },
     TroubleNormalNC = { link = "TroubleNormal" },
     TroublePreview = { bg = c.base.dimmed5 },
 

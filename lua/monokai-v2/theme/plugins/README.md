@@ -33,6 +33,7 @@ Each file defines how the **Monokai V2** colorscheme integrates with specific pl
 - **trouble.nvim** – Diagnostics & quickfix list  
 - **mason.nvim** – LSP/DAP installer  
 - **nvim-navic** – Breadcrumbs  
+- **tiny-inline-diagnostic.nvim** – Inline diagnostic messages  
 
 ---
 
@@ -78,6 +79,7 @@ Each file defines how the **Monokai V2** colorscheme integrates with specific pl
 - **rest.nvim** – REST client  
 - **overseer.nvim** – Task runner  
 - **spectre.nvim** – Search & replace  
+- **codecompanion.nvim** – AI coding assistant  
 
 ---
 

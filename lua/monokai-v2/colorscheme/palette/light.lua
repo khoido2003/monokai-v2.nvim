@@ -11,6 +11,7 @@ return {
   green = "#269d69",
   cyan = "#1c8ca8",
   purple = "#7058be",
+  pink = "#d63384",
   delimiter_orange = "#ff7733",
   delimiter_yellow = "#e0b000",
   delimiter_green = "#33aa77",

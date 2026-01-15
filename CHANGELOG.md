@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.4] - 2026-01-16
+
+### Added
+- **Expanded Devicons Support**: ~200 file type icons with Monokai colors
+  - Languages: Rust, Ruby, PHP, Kotlin, Scala, Swift, Dart, Haskell, Elixir, Zig, Nim, Odin, Gleam, Julia, Crystal
+  - Web: Vue, Svelte, Astro, TSX, SCSS/SASS, Less, GraphQL, Prisma
+  - Shell: PowerShell, Fish, Zsh
+  - Game Dev: GDScript, Godot scenes, Unity
+  - Shaders: GLSL, HLSL, WGSL
+  - DevOps: Docker, Terraform, Nix
+  - Media: Images, Audio, Video formats
+  - Documents: PDF, Word, Excel, PowerPoint
+  - Archives: ZIP, TAR, GZ, RAR, 7Z
+  - 3D/CAD: OBJ, STL, FBX, GLTF, Blender
+- **Devicons Fallback System**: Uses Unicode escape sequences for reliable icon encoding. Falls back to built-in icons if nvim-web-devicons isn't available.
+- **New Base Colors**: Added `pink` and `text` to the base colorscheme.
+- **Unique Pink Per Variant**: Each filter now has its own distinct pink color:
+  - Pro: `#ff6ac1`, Classic: `#ff79c6`, Machine: `#ff6d9c`
+  - Spectrum: `#ff6ac1`, Octagon: `#da70d6`, Ristretto: `#ff7eb6`, Light: `#d63384`
+- **Plugin Support**: Added highlight support for:
+  - **tiny-inline-diagnostic.nvim** – Inline diagnostic messages with severity colors
+  - **codecompanion.nvim** – AI coding assistant (chat, inline code, diffs)
+
+### Changed
+- **Devicons Default**: `devicons = true` is now the default (was `false`).
+- **README**: Added "Optional Dependencies" section explaining nvim-web-devicons integration.
+
+### Fixed
+- **theme/init.lua**: Fixed bug passing `Colorscheme` module instead of `colorscheme` instance to devicons.
+- **snacks.lua**: Fixed typo `SnacksPickerGitStatusIngnored` → `SnacksPickerGitStatusIgnored`.
+- **trouble.lua**: Fixed invalid color reference `c.base.surface0` → `c.base.dark`.
 
 ## [0.2.3] - 2026-01-15
 

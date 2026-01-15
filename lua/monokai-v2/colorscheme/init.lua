@@ -213,6 +213,7 @@ M.get = function(filter)
     orange = p.orange,
     purple = p.purple,
     cyan = p.cyan,
+    pink = p.pink,
     white = p.foreground,
     white_dim = p.foreground_dark,
     dimmed1 = p.neutral1,
@@ -220,6 +221,7 @@ M.get = function(filter)
     dimmed3 = p.neutral3,
     dimmed4 = p.neutral4,
     dimmed5 = p.neutral5,
+    text = p.foreground,
   }
 
   cs.punctuation = {

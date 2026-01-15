@@ -90,6 +90,8 @@ local PLUGINS = {
   "outline",
   "copilot",
   "lsp_signature",
+  "tiny_inline_diagnostic",
+  "codecompanion",
 }
 
 -- Get highlight group dictionary
@@ -142,7 +144,7 @@ M.setup = function()
   end
 
   if Config.devicons then
-    devicons.setup(Colorscheme)
+    devicons.setup(colorscheme)
   end
 
   return hl_group_tbl

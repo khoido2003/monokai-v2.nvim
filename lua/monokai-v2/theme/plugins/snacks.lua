@@ -16,7 +16,7 @@ function M.get(c, _, hp)
     SnacksPickerPathHidden = { fg = c.base.dimmed1 },
     SnacksPickerUnselected = { fg = c.base.dimmed1 },
     SnacksPickerPathIgnored = { fg = c.base.dimmed1 },
-    SnacksPickerGitStatusIngnored = { fg = c.base.dimmed1 },
+    SnacksPickerGitStatusIgnored = { fg = c.base.dimmed1 },
     SnacksPickerGitStatusUntracked = { fg = c.base.dimmed1 },
     SnacksPicker = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksPickerBorder = { bg = c.editor.background, fg = c.tab.unfocusedActiveBorder },
