@@ -160,22 +160,11 @@ function M.setup()
     end,
   })
 
-  -- Always refresh semantic tokens when entering a buffer that has LSP attached
-  -- Uses debouncing to prevent performance issues during rapid switching
-  vim.api.nvim_create_autocmd("BufEnter", {
-    group = lsp_augroup,
-    callback = function(args)
-      local bufnr = args.buf
-      local clients = vim.lsp.get_clients({ bufnr = bufnr })
-      for _, client in ipairs(clients) do
-        if client.supports_method("textDocument/semanticTokens/full") then
-          -- Use debounced refresh with 200ms delay
-          debounced_refresh(bufnr, 200)
-          break
-        end
-      end
-    end,
-  })
+  -- Do NOT refresh semantic tokens on BufEnter.
+  -- Neovim already preserves semantic tokens across buffer switches, and
+  -- force-refreshing on every switch causes visible flickering. The LspAttach
+  -- and LspProgress autocmds above are sufficient to handle initial token
+  -- population and slow LSP initialization.
 end
 
 -- Auto-initialize when this module is loaded
