@@ -1,0 +1,11 @@
+
+lua:
+  - "*.lua"
+  - "lua/**/*.lua"
+
+docs:
+  - "README.md"
+  - "doc/**"
+
+ci:
+  - ".github/workflows/**"

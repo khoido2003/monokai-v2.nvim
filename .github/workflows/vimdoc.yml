@@ -1,0 +1,31 @@
+name: Generate Vimdoc
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  vimdoc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Vimdoc
+        uses: kdheepak/panvimdoc@v4
+        with:
+          vimdoc: monokai-v2
+          description: "Monokai Pro V2 colorscheme for Neovim"
+          toc: true
+
+      - name: Commit generated docs
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add doc/
+            git commit -m "docs: update vimdoc"
+            git push
+          fi
