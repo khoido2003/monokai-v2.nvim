@@ -28,7 +28,7 @@ M.setup = function(c, config, hp)
     ["@lsp.type.type"]                          = { link = "@type" },
     ["@lsp.type.class"]                         = { link = "@type" },
     ["@lsp.type.enum"]                          = { link = "@type" },
-    ["@lsp.type.interface"]                     = { fg = hp.lighten(c.base.cyan, 10) },
+    ["@lsp.type.interface"]                     = { fg = hp.lighten(c.base.cyan, 70) },
     ["@lsp.type.struct"]                        = { link = "@type" },
     ["@lsp.type.typeParameter"]                 = { fg = c.base.cyan, italic = type_italic },
 
@@ -178,8 +178,8 @@ M.setup = function(c, config, hp)
     ["@lsp.typemod.struct.readonly"]            = { fg = c.base.cyan },
 
     -- Interfaces with modifiers
-    ["@lsp.typemod.interface.declaration"]      = { fg = hp.lighten(c.base.cyan, 10) },
-    ["@lsp.typemod.interface.defaultLibrary"]   = { fg = hp.lighten(c.base.cyan, 10) },
+    ["@lsp.typemod.interface.declaration"]      = { fg = hp.lighten(c.base.cyan, 70) },
+    ["@lsp.typemod.interface.defaultLibrary"]   = { fg = hp.lighten(c.base.cyan, 70) },
 
     -- Enums with modifiers
     ["@lsp.typemod.enum.declaration"]           = { fg = c.base.cyan },
@@ -297,8 +297,8 @@ M.setup = function(c, config, hp)
     ["@lsp.typemod.struct.static.readonly"]     = { fg = c.base.cyan, italic = static_italic },
 
     -- Interfaces should ALWAYS be light cyan
-    ["@lsp.typemod.interface.readonly"]         = { fg = hp.lighten(c.base.cyan, 10) },
-    ["@lsp.typemod.interface.static"]           = { fg = hp.lighten(c.base.cyan, 10), italic = static_italic },
+    ["@lsp.typemod.interface.readonly"]         = { fg = hp.lighten(c.base.cyan, 70) },
+    ["@lsp.typemod.interface.static"]           = { fg = hp.lighten(c.base.cyan, 70), italic = static_italic },
 
     -- Enums should ALWAYS be cyan
     ["@lsp.typemod.enum.readonly"]              = { fg = c.base.cyan },
