@@ -4,20 +4,25 @@
 </p>
 
 > [!IMPORTANT]
-> **Clear Cache After Updating**
+> **Clear Cache After Updating or Reinstalling the Theme**
 >
-> This colorscheme uses a compiled highlight cache for fast startup performance.  
-> Because of this, you **must clear the cache every time the plugin updates** — including:
-> - After `Lazy sync` or `Lazy update`
-> - After pulling new commits or PRs
-> - After switching branches
-> - After changing filter or style settings
+> This colorscheme uses a compiled highlight cache for fast performance.  
+> Because of that, you **must clear the cache any time the theme files change**, including:
 >
-> Run this command after updating:
+> - After updating via **Lazy**, **Packer**, **vim-plug**, **Pathogen**, or any plugin manager
+> - After pulling new commits or merging PRs
+> - After switching branches or switching filters
+> - After modifying theme settings that affect highlight generation
+> - **After removing and reinstalling the plugin** (old cache still exists)
+>
+> If you do not clear the cache, Neovim may continue using outdated highlights.
+>
+> Run this command after any update or reinstall inside Neovim:
 >
 > ```vim
 > :MonokaiClear
 > ```
+>
 > Exit Neovim
 > 
 > The theme will automatically recompile on the next load.
