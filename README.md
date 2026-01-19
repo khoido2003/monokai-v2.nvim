@@ -3,6 +3,24 @@
   <img src="images/palette.png" alt="Monokai Pro Color Palette" width="600"/>
 </p>
 
+> [!IMPORTANT]
+> **Clear Cache After Updating**
+>
+> This colorscheme uses a compiled highlight cache for fast startup performance.  
+> Because of this, you **must clear the cache every time the plugin updates** — including:
+> - After `Lazy sync` or `Lazy update`
+> - After pulling new commits or PRs
+> - After switching branches
+> - After changing filter or style settings
+>
+> Run this command after updating:
+>
+> ```vim
+> :MonokaiClear
+> ```
+> Exit Neovim
+> 
+> The theme will automatically recompile on the next load.
 
 # Monokai Pro V2
 
