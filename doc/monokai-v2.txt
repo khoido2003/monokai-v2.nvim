@@ -1,109 +1,72 @@
-*monokai-v2.txt*        For Neovim >= 0.10.0       Last change: 2025 August 30
+*monokai-v2.txt*                         Monokai Pro V2 colorscheme for Neovim
 
 ==============================================================================
-Table of Contents                              *monokai-v2-table-of-contents*
+Table of Contents                               *monokai-v2-table-of-contents*
 
-  - Pro                                                      |monokai-v2-pro|
-  - Octagon                                              |monokai-v2-octagon|
-  - Machine                                              |monokai-v2-machine|
-  - Ristretto                                          |monokai-v2-ristretto|
-  - Spectrum                                            |monokai-v2-spectrum|
-  - Classic                                              |monokai-v2-classic|
-  - Light                                                |monokai-v2-light|
-  - Palette                                              |monokai-v2-palette|
-  - Installation                                    |monokai-v2-installation|
-  - Configuration                                  |monokai-v2-configuration|
-  - Usage                                                  |monokai-v2-usage|
-  - Commands                                              |monokai-v2-commands|
-  - Links                                                   |monokai-v2-links|
+1. Monokai Pro V2                                  |monokai-v2-monokai-pro-v2|
+  - About                                    |monokai-v2-monokai-pro-v2-about|
+  - Differences from Original|monokai-v2-monokai-pro-v2-differences-from-original|
+  - Installation                      |monokai-v2-monokai-pro-v2-installation|
+  - Optional Dependencies    |monokai-v2-monokai-pro-v2-optional-dependencies|
+  - Configuration                    |monokai-v2-monokai-pro-v2-configuration|
+  - Usage                                    |monokai-v2-monokai-pro-v2-usage|
+  - Filter Variants                |monokai-v2-monokai-pro-v2-filter-variants|
+  - Gallery:                              |monokai-v2-monokai-pro-v2-gallery:|
+  - Contributing                      |monokai-v2-monokai-pro-v2-contributing|
+  - Credits                                |monokai-v2-monokai-pro-v2-credits|
 
-Find out more here monokai.pro <https://monokai.pro/>
+  [!IMPORTANT] **Clear Cache After Updating or Reinstalling the Theme**
+  This colorscheme uses a compiled highlight cache for fast performance. Because
+  of that, you **must clear the cache any time the theme files change**,
+  including:
+  - After updating via **Lazy**, **Packer**, **vim-plug**, **Pathogen**, or any plugin manager
+  - After pulling new commits or merging PRs
+  - After switching branches or switching filters
+  - After modifying theme settings that affect highlight generation
+  - **After removing and reinstalling the plugin** (old cache still exists)
+  If you do not clear the cache, Neovim may continue using outdated highlights.
+  Run this command after any update or reinstall inside Neovim:
+  >vim
+      :MonokaiClear
+  <
+  Exit Neovim
+  The theme will automatically recompile on the next load.
 
-PRO                                                          *monokai-v2-pro*
+==============================================================================
+1. Monokai Pro V2                                  *monokai-v2-monokai-pro-v2*
 
-OCTAGON                                                  *monokai-v2-octagon*
+A fork of loctvl842/monokai-pro.nvim
+<https://github.com/loctvl842/monokai-pro.nvim> with personal improvements and
+additional plugin support.
 
-MACHINE                                                  *monokai-v2-machine*
 
-RISTRETTO                                              *monokai-v2-ristretto*
+ABOUT                                        *monokai-v2-monokai-pro-v2-about*
 
-SPECTRUM                                                *monokai-v2-spectrum*
+This is a personal fork of the excellent monokai-pro.nvim theme for Neovim.
+While the original theme is already feature-rich and well-maintained, I’ve
+made some improvements to better suit my workflow and preferences.
 
-CLASSIC                                                  *monokai-v2-classic*
 
-LIGHT                                                    *monokai-v2-light*
+DIFFERENCES FROM ORIGINAL*monokai-v2-monokai-pro-v2-differences-from-original*
 
-PLUGIN SUPPORT ~
+This fork introduces several improvements and additional support compared to
+the original:
 
-- alpha-nvim <https://github.com/goolord/alpha-nvim>
-- aerial.nvim <https://github.com/stevearc/aerial.nvim>
-- beacon.nvim <https://github.com/DanilaMihailov/beacon.nvim>
-- blink.nvim <https://github.com/folke/blink.nvim>
-- breadcrumb.nvim <https://github.com/loctvl842/breadcrumb.nvim>
-- bufferline.nvim <https://github.com/akinsho/bufferline.nvim>
-- cmp <https://github.com/hrsh7th/nvim-cmp>
-- coq.nvim <https://github.com/ms-jpq/coq_nvim>
-- dashboard-nvim <https://github.com/glepnir/dashboard-nvim>
-- diffview.nvim <https://github.com/sindrets/diffview.nvim>
-- fidget.nvim <https://github.com/j-hui/fidget.nvim>
-- fzf-lua <https://github.com/ibhagwan/fzf-lua>
-- gitsigns.nvim <https://github.com/lewis6991/gitsigns.nvim>
-- illuminate <https://github.com/RRethy/vim-illuminate>
-- indent-blankline.nvim <https://github.com/lukas-reineke/indent-blankline.nvim>
-- lazy.nvim <https://github.com/folke/lazy.nvim>
-- lsp <https://github.com/neovim/nvim-lspconfig>
-- mason.nvim <https://github.com/williamboman/mason.nvim>
-- mini.nvim <https://github.com/echasnovski/mini.nvim>
-- neo-tree.nvim <https://github.com/nvim-neo-tree/neo-tree.nvim>
-- noice.nvim <https://github.com/folke/noice.nvim>
-- notify.nvim <https://github.com/rcarriga/nvim-notify>
-- nvim-navic <https://github.com/SmiteshP/nvim-navic>
-- nvim-tree.lua <https://github.com/kyazdani42/nvim-tree.lua>
-- nvim-treesitter <https://github.com/nvim-treesitter/nvim-treesitter>
-- nvim-ts-rainbow2 <https://github.com/HiPhish/nvim-ts-rainbow2>
-- packer.nvim <https://github.com/wbthomason/packer.nvim>
-- rainbow-delimiters.nvim <https://gitlab.com/HiPhish/rainbow-delimiters.nvim>
-- renamer.nvim <https://github.com/filipdutescu/renamer.nvim>
-- scrollbar.nvim <https://github.com/Xuyuanp/scrollbar.nvim>
-- snacks.nvim <https://github.com/m4xshen/snacks.nvim>
-- telescope.nvim <https://github.com/nvim-telescope/telescope.nvim>
-- toggleterm.nvim <https://github.com/akinsho/toggleterm.nvim>
-- ufo.nvim <https://github.com/kevinhwang91/nvim-ufo>
-- which-key.nvim <https://github.com/folke/which-key.nvim>
-- wilder.nvim <https://github.com/gelguy/wilder.nvim>
-- lualine.nvim <https://github.com/nvim-lualine/lualine.nvim>
-- lightline.vim <https://github.com/itchyny/lightline.vim>
-- barbecue.nvim <https://github.com/utilyre/barbecue.nvim>
+- **Better Treesitter Support** – More precise syntax highlighting across multiple languages, including fallback colors for C# and other languages without active LSP.
+- **Respect LSP Semantic Tokens** – Ensures colors match LSP token types when available, providing consistent highlighting between Treesitter and LSP.
+- **UI Bug Fixes** – Fixed issues with floating windows, markdown previews, and other elements that didn’t render correctly with the original theme.
+- **Toggle Italics in Treesitter** – Users can easily enable or disable italic styles globally via configuration.
+- **Expanded Plugin Support** – Added styling for popular plugins (Barbar, Oil, Avante, Grug-far, etc.)
+- **Blazing Fast Performance** – Uses a compilation system to statically cache highlights, reducing startup time to ~2ms.
 
-PALETTE                                                  *monokai-v2-palette*
+These improvements aim to make the theme **more consistent, modern, and
+configurable** for Neovim setup.
 
->lua
-    cs.base = {
-      dark = p.surface0,        -- "#19181a"
-      black = p.surface1,       -- "#221f22"
-      red = p.red,              -- "#ff6188"
-      green = p.green,          -- "#a9dc76"
-      yellow = p.yellow,        -- "#ffd866"
-      blue = p.cyan,            -- "#78dce8"
-      orange = p.orange,        -- "#fc9867"
-      purple = p.purple,        -- "#ab9df2"
-      cyan = p.cyan,            -- "#78dce8"
-      white = p.foreground,     -- "#fcfcfa"
-      neutral1 = p.neutral1,    -- "#c1c0c0"
-      neutral2 = p.neutral2,    -- "#939293"
-      neutral3 = p.neutral3,    -- "#727072"
-      neutral4 = p.neutral4,    -- "#5b595c"
-      neutral5 = p.neutral5,    -- "#403e41"
-    }
-<
 
-- **Primary Colors:** `red`, `green`, `yellow`, `blue`, `orange`, `purple`, `cyan`, `white` are your vibrant accent colors.
-- **Neutral Colors:** `neutral1` to `neutral5` are muted shades for less prominent elements.
-- **Background Colors:** `dark` and `black` serve as your primary and secondary background colors.
+INSTALLATION                          *monokai-v2-monokai-pro-v2-installation*
 
-INSTALLATION                                        *monokai-v2-installation*
 
-Lazy.nvim (Recommended) <https://github.com/folke/lazy.nvim>
+LAZY.NVIM (RECOMMENDED) ~
 
 >lua
     {
@@ -116,7 +79,8 @@ Lazy.nvim (Recommended) <https://github.com/folke/lazy.nvim>
     }
 <
 
-Packer <https://github.com/wbthomason/packer.nvim>
+
+PACKER ~
 
 >lua
     use {
@@ -128,32 +92,45 @@ Packer <https://github.com/wbthomason/packer.nvim>
     }
 <
 
-vim-plug <https://github.com/junegunn/vim-plug>
 
->vim
-    Plug 'khoido2003/monokai-v2.nvim'
+OPTIONAL DEPENDENCIES        *monokai-v2-monokai-pro-v2-optional-dependencies*
+
+For the best experience, consider installing these optional plugins:
+
+
+NVIM-WEB-DEVICONS ~
+
+For **Monokai-themed file icons** in file explorers (nvim-tree, neo-tree,
+telescope, etc.):
+
+>lua
+    -- Add to your plugin manager
+    { "nvim-tree/nvim-web-devicons" }
 <
 
-CONFIGURATION                                      *monokai-v2-configuration*
+Then enable devicons in the theme config:
 
-There are 7 filter variants included in this plugin:
+>lua
+    require("monokai-v2").setup({
+      devicons = true,  -- Enable Monokai colors for file icons
+    })
+<
 
-- |monokai-v2-classic| – Monokai Classic _(default for dark background)_
-- |monokai-v2-light| – Monokai Light _(default for light background)_
-- |monokai-v2-machine| – Monokai Machine
-- |monokai-v2-octagon| – Monokai Octagon
-- |monokai-v2-pro| – Monokai Pro
-- |monokai-v2-ristretto| – Monokai Ristretto
-- |monokai-v2-spectrum| – Monokai Spectrum
+This will colorize 200+ file type icons with Monokai colors. Requires a Nerd
+Font <https://www.nerdfonts.com/>.
 
-Example configuration:
+
+  **Note:** Devicons support is enabled by default. If you don’t have
+  nvim-web-devicons installed, it will be safely skipped.
+
+CONFIGURATION                        *monokai-v2-monokai-pro-v2-configuration*
 
 >lua
     require("monokai-v2").setup({
       -- Basic settings
       transparent_background = false,
       terminal_colors = true,
-      devicons = false,
+      devicons = true,
       
       -- Syntax highlighting styles
       styles = {
@@ -172,8 +149,8 @@ Example configuration:
         italic = false,
       },
       
-      -- Filter selection
-      filter = "classic", -- classic | light | machine | octagon | pro | ristretto | spectrum
+      -- Filter selection (default: classic for dark, light for light background)
+      filter = "pro", -- classic | light | machine | octagon | pro | ristretto | spectrum
       
       -- Day/night mode
       day_night = {
@@ -188,7 +165,7 @@ Example configuration:
       -- Background clearing for floating windows
       background_clear = {
         "toggleterm",
-        "telescope",
+        "telescope", 
         "renamer",
         "notify",
       },
@@ -209,145 +186,87 @@ Example configuration:
     })
 <
 
-Background Clearing Examples ~
 
-Float Windows ~
+USAGE                                        *monokai-v2-monokai-pro-v2-usage*
 
->lua
-    require("monokai-v2").setup({
-        background_clear = { "float_win" }
-    })
-    
-    require("cmp").setup({
-        window = {
-          border = "rounded",
-        }
-    })
-<
 
-Telescope ~
+COMMANDS ~
+
+- `MonokaiThemeSelect` - Interactive menu to select filter variant
+- `MonokaiChoose <filter>` - Direct filter selection (e.g., `MonokaiChoose pro`)
+- `MonokaiCompile` - Manually compile the theme highlights to cache
+- `MonokaiClear` - Clear the theme cache
+- `MonokaiRefreshTokens` - Manually refresh semantic tokens (useful for keeping highlights in sync with LSP)
+
+
+STATUSLINE INTEGRATION ~
 
 >lua
-    require("monokai-v2").setup({
-        background_clear = { "telescope" }
-    })
-    
-    require("telescope").setup({
-        defaults = {
-          borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
-        }
-    })
-<
-
-USAGE                                                      *monokai-v2-usage*
-
-Enable the colorscheme:
-
->vim
-    colorscheme monokai-v2
-<
-
->lua
-    vim.cmd([[colorscheme monokai-v2]])
-<
-
-Statusline Integration ~
-
-Lualine ~
-
->lua
+    -- Lualine
     require('lualine').setup({
       options = {
         theme = 'monokai-v2'
       }
     })
-<
-
-Barbecue ~
-
->lua
+    
+    -- Barbecue
     require('barbecue').setup({
       theme = 'monokai-v2'
     })
-<
-
-Lightline ~
-
->vim
+    
+    -- Lightline
     let g:lightline = {'colorscheme': 'monokaiv2'}
 <
 
-Customization ~
 
-Override specific highlight groups:
+FILTER VARIANTS                    *monokai-v2-monokai-pro-v2-filter-variants*
 
->lua
-    require("monokai-v2").setup({
-        override = function(c)
-          return {
-              Normal = { bg = "#000000" }
-          }
-        end
-    })
-<
+Each filter provides a unique take on the Monokai Pro theme:
 
-Override palette colors:
+- **Classic** - The original Monokai theme
+- **Light** - Light variant for bright environments
+- **Pro** - The signature Monokai Pro look
+- **Machine** - Industrial, high-contrast variant
+- **Octagon** - Geometric, structured appearance
+- **Ristretto** - Muted, coffee-inspired tones
+- **Spectrum** - Vibrant, colorful variant
 
->lua
-    require("monokai-v2").setup({
-        overridePalette = function(filter)
-          return {
-            surface0 = "#101014",
-            surface1 = "#16161E",
-            background = "#1A1B26",
-            foreground = "#C0CAF5",
-            red = "#f7768e",
-            orange = "#7aa2f7",
-            yellow = "#e0af68",
-            green = "#9ece6a",
-            cyan = "#0DB9D7",
-            purple = "#9d7cd8",
-            neutral1 = "#737aa2",
-            neutral2 = "#787c99",
-            neutral3 = "#363b54",
-            neutral4 = "#363b54",
-            neutral5 = "#16161e",
-          }
-        end
-    })
-<
 
-Override the entire scheme:
+GALLERY:                                  *monokai-v2-monokai-pro-v2-gallery:*
 
->lua
-    require("monokai-v2").setup({
-        overrideScheme = function(cs, p, config, hp)
-          local cs_override = {}
-          local calc_bg = hp.blend(p.background, 0.75, '#000000')
-    
-          cs_override.editor = {
-            background = calc_bg,
-          }
-          return cs_override
-        end
-    })
-<
+  Filter      Preview
+  ----------- -------------------
+  Classic     [Classic Filter]
+  Pro         [Pro Filter]
+  Machine     [Machine Filter]
+  Octagon     [Octagon Filter]
+  Ristretto   [Octagon Filter]
+  Spectrum    [Spectrum Filter]
+  Light       [Spectrum Filter]
 
-COMMANDS                                              *monokai-v2-commands*
+CONTRIBUTING                          *monokai-v2-monokai-pro-v2-contributing*
 
-- `MonokaiThemeSelect` - Launch interactive menu to choose theme filter
-- `MonokaiChoose <filter>` - Direct filter selection (e.g., `MonokaiChoose pro`)
+If you’d like to help improve this theme:
 
-Available filters: classic, light, machine, octagon, pro, ristretto, spectrum
+- Open an issue if you find any bugs
+- Submit a PR if you have any improvements
+- Share your ideas through discussions
 
-==============================================================================
-Links                                                   *monokai-v2-links*
+Feel free to:
 
-- Repository: https://github.com/khoido2003/monokai-v2.nvim
-- Original theme: https://github.com/loctvl842/monokai-pro.nvim
-- Monokai Pro: https://monokai.pro/
+- Report issues
+- Suggest improvements
+- Submit pull requests
+
+
+CREDITS                                    *monokai-v2-monokai-pro-v2-credits*
+
+- **Original theme**: loctvl842/monokai-pro.nvim <https://github.com/loctvl842/monokai-pro.nvim> by Loc <https://github.com/loctvl842>
+- **Monokai Pro**: monokai.pro <https://monokai.pro/>
+
+This is a personal fork with personal improvements and preferences. For the
+original, well-maintained theme, please check out the source repository.
 
 Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
 
 vim:tw=78:ts=8:noet:ft=help:norl:
-
