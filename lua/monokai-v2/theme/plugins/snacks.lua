@@ -4,7 +4,6 @@ local M = {}
 --- @param config Config
 --- @param hp Helper
 function M.get(c, config, hp)
-  -- Check for transparent background settings
   local isPickerBackgroundClear = vim.tbl_contains(config.background_clear, "snacks")
     or vim.tbl_contains(config.background_clear, "telescope")
   local isExplorerBackgroundClear = vim.tbl_contains(config.background_clear, "snacks")
@@ -13,18 +12,20 @@ function M.get(c, config, hp)
 
   local transparent_bg = c.base.black
   local transparent_bg_border = c.base.dimmed2
-  -- Darker backgrounds (same as telescope)
+
+  -- Darker backgrounds
   local preview_bg = c.base.dimmed5
   local prompt_bg = hp.lighten(c.base.dimmed5, 10)
   local result_bg = c.base.dimmed5
   local picker_fg = hp.lighten(c.sideBar.foreground, 30)
-  -- Selection background for picker (same as telescope)
+
+  -- Picker selection background
   local picker_selection_bg = isPickerBackgroundClear
       and hp.blend(c.editorSuggestWidget.selectedBackground, 0.3, transparent_bg)
     or hp.blend(c.base.green, 0.2, result_bg)
 
   local sidebar_bg = isExplorerBackgroundClear and c.editor.background or c.sideBar.background
-  -- Selection background for explorer (same as nvim-tree)
+  -- Explorer selection background
   local explorer_selection_bg = c.list.activeSelectionBackground
 
   return {
@@ -37,11 +38,11 @@ function M.get(c, config, hp)
     SnacksWinBar = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksWinBarNC = { bg = c.editor.background, fg = c.base.dimmed2 },
 
-    -- Win component
+    -- Windows
     SnacksWinKey = { fg = c.base.yellow, bold = true },
     SnacksWinKeySep = { fg = c.base.dimmed1 },
 
-    -- Line numbers (to match picker background)
+    -- Picker
     SnacksPickerLineNr = isPickerBackgroundClear and {
       bg = transparent_bg,
       fg = c.editorLineNumber.foreground,
@@ -82,7 +83,7 @@ function M.get(c, config, hp)
       bg = picker_selection_bg,
     },
 
-    -- Main picker window (same as TelescopeNormal)
+    -- Main picker window
     SnacksPicker = isPickerBackgroundClear and {
       bg = transparent_bg,
       fg = picker_fg,
@@ -91,7 +92,7 @@ function M.get(c, config, hp)
       fg = picker_fg,
     },
 
-    -- Border (same as TelescopeBorder)
+    -- Border
     SnacksPickerBorder = isPickerBackgroundClear and {
       bg = transparent_bg,
       fg = c.tab.unfocusedActiveBorder,
@@ -100,14 +101,14 @@ function M.get(c, config, hp)
       fg = c.editorHoverWidget.background,
     },
 
-    -- Title (same as TelescopePromptTitle)
+    -- Title
     SnacksPickerTitle = {
       bg = config.filter == "light" and c.base.red or c.base.yellow,
       fg = c.base.black,
       bold = true,
     },
 
-    -- Prompt (same as TelescopePrompt*)
+    -- Prompt
     SnacksPickerPrompt = { fg = c.base.yellow },
     SnacksPickerPromptNormal = isPickerBackgroundClear and {
       bg = transparent_bg,
@@ -151,7 +152,7 @@ function M.get(c, config, hp)
       bold = true,
     },
 
-    -- Preview (same as TelescopePreview*)
+    -- Preview
     SnacksPickerPreview = isPickerBackgroundClear and {
       bg = transparent_bg,
       fg = picker_fg,
@@ -186,7 +187,7 @@ function M.get(c, config, hp)
       bold = true,
     },
 
-    -- List/Results (same as TelescopeResults*)
+    -- List / Results
     SnacksPickerList = isPickerBackgroundClear and {
       bg = transparent_bg,
       fg = picker_fg,
@@ -221,7 +222,7 @@ function M.get(c, config, hp)
       bold = true,
     },
 
-    -- Selection (same as TelescopeSelection)
+    -- Selection
     SnacksPickerSelection = isPickerBackgroundClear and {
       bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.3, transparent_bg),
       bold = true,
@@ -238,7 +239,7 @@ function M.get(c, config, hp)
       fg = c.base.green,
     },
 
-    -- Matching (same as TelescopeMatching)
+    -- Matching
     SnacksPickerMatch = {
       fg = config.filter == "light" and c.base.red or c.base.yellow,
       bold = true,
@@ -326,11 +327,9 @@ function M.get(c, config, hp)
     SnacksPickerGitStatusRenamed = { fg = c.gitDecoration.untrackedResourceForeground },
     SnacksPickerGitStatusUntracked = { fg = c.base.green, bold = true },
     SnacksPickerGitStatusCopied = { fg = c.base.purple },
-    -- Untracked should be GREEN like nvim-tree (not dimmed)
     SnacksPickerGitStatusIgnored = { fg = c.gitDecoration.ignoredResourceForeground },
     SnacksPickerGitStatusUnmerged = { fg = c.gitDecoration.conflictingResourceForeground },
     SnacksPickerGitStatusStaged = { fg = c.gitDecoration.stageModifiedResourceForeground },
-    -- Git NEW file (green like nvim-tree)
     SnacksPickerGitNew = { fg = c.gitDecoration.untrackedResourceForeground },
     SnacksPickerGitFileNew = { fg = c.gitDecoration.untrackedResourceForeground },
     SnacksPickerGitFileNewHL = { fg = c.base.green },
@@ -383,7 +382,7 @@ function M.get(c, config, hp)
     SnacksPickerIconTypeParameter = { fg = c.base.cyan },
     SnacksPickerIconVariable = { fg = c.base.white },
 
-    -- Folder/Directory icons with proper background (for explorer)
+    -- Folder/Directory
     SnacksPickerIconDirectory = isPickerBackgroundClear and {
       bg = transparent_bg,
       fg = c.sideBar.foreground,
@@ -399,14 +398,14 @@ function M.get(c, config, hp)
       fg = c.sideBar.foreground,
     },
 
-    -- Main explorer window (same as NvimTreeNormal / NeoTreeNormal)
+    -- Explorer
     SnacksExplorerNormal = { bg = sidebar_bg, fg = c.sideBar.foreground },
     SnacksExplorerNormalNC = { bg = sidebar_bg, fg = c.sideBar.foreground },
     SnacksExplorerEndOfBuffer = { bg = sidebar_bg, fg = sidebar_bg },
     SnacksExplorerSignColumn = { bg = sidebar_bg, fg = c.sideBar.foreground },
     SnacksExplorerStatusLine = { bg = sidebar_bg, fg = sidebar_bg },
 
-    -- Border (same as NvimTreeWinSeparator / NeoTreeWinSeparator)
+    -- Border
     SnacksExplorerBorder = {
       bg = sidebar_bg,
       fg = isExplorerBackgroundClear and c.base.black or sidebar_bg,
@@ -423,7 +422,7 @@ function M.get(c, config, hp)
       bold = true,
     },
 
-    -- Cursor/Selection (same as NvimTreeCursorLine / NeoTreeCursorLine)
+    -- Cursor / Selection
     SnacksExplorerCursor = {
       bg = c.list.activeSelectionBackground,
       bg_base = sidebar_bg,
@@ -438,16 +437,15 @@ function M.get(c, config, hp)
       bg_base = sidebar_bg,
     },
 
-    -- Directory/Files (same as NvimTreeFolderName / NeoTreeDirectoryName)
-    -- Explicit background to ensure consistent sidebar appearance
+    -- Directory / Files
     SnacksExplorerRootName = {
       bg = sidebar_bg,
       fg = c.sideBarSectionHeader.foreground,
       bold = true,
     },
-    SnacksExplorerDirectoryIcon = { bg = sidebar_bg, fg = c.sideBar.foreground, default = true },
+    SnacksExplorerDirectoryIcon = { bg = sidebar_bg, default = true },
     SnacksExplorerDirectoryName = { bg = sidebar_bg, fg = c.sideBar.foreground },
-    SnacksExplorerFolderIcon = { bg = sidebar_bg, fg = c.sideBar.foreground, default = true },
+    SnacksExplorerFolderIcon = { bg = sidebar_bg, default = true },
     SnacksExplorerFolderName = { bg = sidebar_bg, fg = c.sideBar.foreground },
     SnacksExplorerOpenedFolderName = { bg = sidebar_bg, fg = c.sideBar.foreground, bold = true },
     SnacksExplorerEmptyFolderName = { bg = sidebar_bg, fg = c.sideBar.foreground },
@@ -461,17 +459,6 @@ function M.get(c, config, hp)
     SnacksExplorerSymlink = { bg = sidebar_bg, fg = c.base.white },
     SnacksExplorerExecFile = { bg = sidebar_bg, fg = c.base.green },
 
-    -- Cursor line variants (so icons follow selection highlight)
-    SnacksExplorerCursorLineFolderIcon = {
-      bg = explorer_selection_bg,
-      bg_base = sidebar_bg,
-      fg = c.sideBar.foreground,
-    },
-    SnacksExplorerCursorLineDirectoryIcon = {
-      bg = explorer_selection_bg,
-      bg_base = sidebar_bg,
-      fg = c.sideBar.foreground,
-    },
     SnacksExplorerCursorLineFileName = {
       bg = explorer_selection_bg,
       bg_base = sidebar_bg,
@@ -485,7 +472,7 @@ function M.get(c, config, hp)
       bold = true,
     },
 
-    -- Explorer line numbers - explicit bg to match sidebar
+    -- Explorer line numbers
     SnacksExplorerLineNr = {
       bg = sidebar_bg,
       fg = c.editorLineNumber.foreground,
@@ -500,13 +487,13 @@ function M.get(c, config, hp)
       bg = sidebar_bg,
       fg = c.editorLineNumber.foreground,
     },
-    -- Indent/Tree (same as NvimTreeIndentMarker)
+
+    -- Indent / Tree
     SnacksExplorerIndentMarker = { bg = sidebar_bg, link = "IndentBlanklineChar" },
     SnacksExplorerExpander = { bg = sidebar_bg, fg = c.sideBar.foreground },
     SnacksExplorerTree = { bg = sidebar_bg, fg = c.editorLineNumber.foreground },
 
-    -- Git decorations (same as NvimTreeGit* / NeoTreeGit*)
-    -- Green color for new/untracked files (like nvim-tree)
+    -- Git decorations
     SnacksGitNew = { fg = c.base.green },
     SnacksGitUntracked = { fg = c.base.green },
     SnacksExplorerGitAdded = { bg = sidebar_bg, fg = c.gitDecoration.addedResourceForeground },
@@ -527,7 +514,7 @@ function M.get(c, config, hp)
     SnacksExplorerGitFolderNew = { bg = sidebar_bg, fg = c.base.green },
     SnacksExplorerGitFolderUntracked = { bg = sidebar_bg, fg = c.base.green },
 
-    -- Float (same as NeoTreeFloat*)
+    -- Float
     SnacksExplorerFloatNormal = {
       bg = c.editorSuggestWidget.background,
       fg = c.editorSuggestWidget.foreground,
@@ -542,7 +529,7 @@ function M.get(c, config, hp)
       bold = true,
     },
 
-    -- Tabs (same as NeoTreeTab*)
+    -- Tabs
     SnacksExplorerTabActive = {
       bg = c.button.hoverBackground,
       fg = c.button.foreground,
@@ -621,9 +608,7 @@ function M.get(c, config, hp)
     SnacksNotifierTitleTrace = { fg = c.base.dimmed1, bold = true },
     SnacksNotifierFooterTrace = { fg = c.base.dimmed2 },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                              INPUT                                   ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Input
     SnacksInputNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksInputBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksInputTitle = { fg = c.base.yellow, bold = true },
@@ -631,9 +616,7 @@ function M.get(c, config, hp)
     SnacksInputPrompt = { fg = c.base.yellow },
     SnacksInputCursor = { bg = c.base.white, fg = c.editor.background },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                             SCRATCH                                  ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Scratch
     SnacksScratchNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksScratchBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksScratchDesc = { fg = c.base.dimmed1 },
@@ -642,52 +625,36 @@ function M.get(c, config, hp)
     SnacksScratchKey = { fg = c.base.yellow, bold = true },
     SnacksScratchFooter = { fg = c.base.dimmed2 },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                            TERMINAL                                  ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Terminal
     SnacksTerminalNormal = { bg = c.terminal.background, fg = c.terminal.foreground },
     SnacksTerminalBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksTerminalTitle = { fg = c.base.green, bold = true },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                             LAZYGIT                                  ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Lazygit
     SnacksLazygitNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksLazygitBorder = { fg = c.base.purple },
     SnacksLazygitTitle = { fg = c.base.purple, bold = true },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                               DIM                                    ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Dim
     SnacksDim = { fg = c.base.dimmed3 },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                              WORDS                                   ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Words
     SnacksWordsCurrent = { bg = c.editor.wordHighlightBackground },
     SnacksWords = { bg = c.editor.wordHighlightBackground },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                              SCROLL                                  ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Scroll
     SnacksScrollBar = { fg = c.scrollbarSlider.hoverBackground },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                               ZEN                                    ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Zen
     SnacksZenNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksZenBorder = { fg = c.editor.background },
     SnacksZenBackdrop = { bg = c.base.dark },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                             TOGGLE                                   ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Toggle
     SnacksToggleOn = { fg = c.base.green },
     SnacksToggleOff = { fg = c.base.dimmed3 },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                            PROFILER                                  ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Profiler
     SnacksProfilerNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksProfilerBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksProfilerTitle = { fg = c.base.purple, bold = true },
@@ -696,15 +663,11 @@ function M.get(c, config, hp)
     SnacksProfilerH1 = { fg = c.base.yellow, bold = true },
     SnacksProfilerH2 = { fg = c.base.purple, bold = true },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                             IMAGE                                    ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Image
     SnacksImageLoading = { fg = c.base.dimmed1 },
     SnacksImageError = { fg = c.base.red },
 
-    -- ╔══════════════════════════════════════════════════════════════════════╗
-    -- ║                           STATUS COLUMN                              ║
-    -- ╚══════════════════════════════════════════════════════════════════════╝
+    -- Status Column
     SnacksStatusColumnMark = { fg = c.base.yellow },
   }
 end
