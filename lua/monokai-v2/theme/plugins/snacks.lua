@@ -263,7 +263,7 @@ function M.get(c, config, hp)
     SnacksPickerPromptCounter = { fg = c.base.white, bold = true },
     SnacksPickerSpinner = { fg = c.base.yellow },
     SnacksPickerToggle = { fg = c.base.cyan, bg = hp.blend(c.base.cyan, 0.1, c.editor.background) },
-    SnacksPickerDimmed = { fg = c.base.dimmed3 },
+    SnacksPickerDimmed = { fg = c.base.dimmed2 },
     SnacksPickerSelected = { fg = c.base.yellow },
     SnacksPickerUnselected = { fg = c.base.dimmed1 },
     SnacksPickerIdx = { fg = c.base.yellow },
@@ -636,7 +636,7 @@ function M.get(c, config, hp)
     SnacksLazygitTitle = { fg = c.base.purple, bold = true },
 
     -- Dim
-    SnacksDim = { fg = c.base.dimmed3 },
+    SnacksDim = { fg = c.base.dimmed2 },
 
     -- Words
     SnacksWordsCurrent = { bg = c.editor.wordHighlightBackground },
@@ -652,7 +652,7 @@ function M.get(c, config, hp)
 
     -- Toggle
     SnacksToggleOn = { fg = c.base.green },
-    SnacksToggleOff = { fg = c.base.dimmed3 },
+    SnacksToggleOff = { fg = c.base.dimmed2 },
 
     -- Profiler
     SnacksProfilerNormal = { bg = c.editor.background, fg = c.editor.foreground },

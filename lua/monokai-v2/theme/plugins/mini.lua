@@ -50,7 +50,7 @@ function M.get(c, _, _)
     MiniStarterHeader = { fg = c.base.orange },
     MiniStarterInactive = { fg = c.base.dimmed3 },
     MiniStarterItem = { fg = c.base.white },
-    MiniStarterItemBullet = { fg = c.base.dimmed4 },
+    MiniStarterItemBullet = { fg = c.base.dimmed3 },
     MiniStarterItemPrefix = { fg = c.base.cyan },
     MiniStarterSection = { fg = c.base.purple },
     MiniStarterQuery = { fg = c.base.green },

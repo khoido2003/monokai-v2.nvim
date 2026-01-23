@@ -27,6 +27,9 @@ function M.get(c, config, hp)
     NotifyDEBUGBody = { link = "Normal" },
     NotifyTRACEBody = { link = "Normal" },
     NotifyBackground = { link = "Normal" },
+    NotifyLogTitle = { fg = c.base.yellow },
+    NotifyLogTime = { fg = c.base.dimmed2 },
+    NotifyLogBody = { link = "Normal" },
   }
   if not isBackgroundClear then
     local BORDER = "Border"

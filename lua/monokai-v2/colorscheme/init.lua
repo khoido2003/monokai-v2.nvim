@@ -199,7 +199,7 @@ M.get = function(filter)
     modifiedForeground = hp.blend(p.orange, 0.65, cs.diffEditor.modifiedLineBackground),
   }
 
-  cs.notifications = { background = p.neutral5, border = p.neutral5, foreground = p.neutral1 }
+  cs.notifications = { background = p.neutral5, border = p.neutral5, foreground = p.foreground }
   cs.notificationsErrorIcon = { foreground = p.red }
   cs.notificationsInfoIcon = { foreground = p.cyan }
   cs.notificationsWarningIcon = { foreground = p.orange }
