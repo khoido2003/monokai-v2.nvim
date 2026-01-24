@@ -4,8 +4,13 @@ local M = {}
 --- @param config Config
 function M.get(c, config, _)
   -- pro | default
-  local isContextPro = config.plugins.indent_blankline.context_highlight == "pro"
-  local isContextStartUnderline = config.plugins.indent_blankline.context_start_underline
+  local indent_config = config.plugins and config.plugins.indent_blankline
+    or {
+      context_highlight = "default",
+      context_start_underline = false,
+    }
+  local isContextPro = indent_config.context_highlight == "pro"
+  local isContextStartUnderline = indent_config.context_start_underline
   return {
     ["@ibl.indent.char.1"] = { fg = c.base.red },
     ["@ibl.indent.char.2"] = { fg = c.base.orange },

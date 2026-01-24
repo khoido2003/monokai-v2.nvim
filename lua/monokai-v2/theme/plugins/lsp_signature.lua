@@ -4,7 +4,7 @@ local M = {}
 --- @param config Config
 --- @param hp Helper
 function M.get(c, config, hp)
-  local isBackgroundClear = vim.tbl_contains(config.background_clear, "float_win")
+  local isBackgroundClear = config.background_clear and vim.tbl_contains(config.background_clear, "float_win") or false
   local transparent_bg = c.base.black
 
   return {

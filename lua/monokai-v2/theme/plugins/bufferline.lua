@@ -34,7 +34,13 @@ end
 --- @param config Config
 --- @param hp Helper
 function M.get(c, config, hp)
-  local bufferline_config = config.plugins.bufferline
+  local bufferline_config = config.plugins and config.plugins.bufferline
+    or {
+      underline_selected = false,
+      underline_visible = false,
+      underline_fill = false,
+      bold = true,
+    }
 
   M.underline_selected = bufferline_config.underline_selected
   M.underline_visible = bufferline_config.underline_visible
@@ -54,7 +60,7 @@ function M.get(c, config, hp)
   }
 
   local isBold = bufferline_config.bold
-  local isBackgroundClear = vim.tbl_contains(config.background_clear, "bufferline")
+  local isBackgroundClear = config.background_clear and vim.tbl_contains(config.background_clear, "bufferline") or false
 
   local tabsBackground = isBackgroundClear and c.editor.background or c.editorGroupHeader.tabsBackground
   local amt = 10

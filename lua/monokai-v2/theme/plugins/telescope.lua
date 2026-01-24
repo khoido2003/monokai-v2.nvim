@@ -4,7 +4,7 @@ local M = {}
 --- @param config Config
 --- @param hp Helper
 function M.get(c, config, hp)
-  local isBackgroundClear = vim.tbl_contains(config.background_clear, "telescope")
+  local isBackgroundClear = config.background_clear and vim.tbl_contains(config.background_clear, "telescope") or false
 
   local transparent_bg = c.base.black
   local transparent_bg_border = c.base.dimmed2

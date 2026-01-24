@@ -4,7 +4,7 @@ local M = {}
 --- @param config Config
 --- @param hp Helper
 function M.get(c, config, hp)
-  local isBackgroundClear = vim.tbl_contains(config.background_clear, "notify")
+  local isBackgroundClear = config.background_clear and vim.tbl_contains(config.background_clear, "notify") or false
   local notify_groups = {
     NotifyERRORBorder = { fg = hp.blend(c.inputValidation.errorBorder, 0.3) },
     NotifyWARNBorder = { fg = hp.blend(c.inputValidation.warningBorder, 0.3) },

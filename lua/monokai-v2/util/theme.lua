@@ -82,8 +82,16 @@ function M.load(hl_group_tbl)
 
   M.draw(hl_group_tbl)
 
-  local bufferline_icon_hl_group_tbl = require("monokai-v2.theme.plugins.bufferline").setup_bufferline_icon()
-  M.draw(bufferline_icon_hl_group_tbl)
+  -- Note: setup_bufferline_icon() is called by bufferline plugin itself with icon info
+  -- This is safe but will return nil/{} since no icon info is provided
+  -- The bufferline plugin will call this function directly when it needs icon highlights
+  local bufferline_module = require("monokai-v2.theme.plugins.bufferline")
+  if bufferline_module.setup_bufferline_icon then
+    local bufferline_icon_hl_group_tbl = bufferline_module.setup_bufferline_icon()
+    if bufferline_icon_hl_group_tbl then
+      M.draw(bufferline_icon_hl_group_tbl)
+    end
+  end
   load_autocmds()
 end
 

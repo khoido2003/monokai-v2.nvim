@@ -4,11 +4,11 @@ local M = {}
 --- @param config Config
 --- @param hp Helper
 function M.get(c, config, hp)
-  local isPickerBackgroundClear = vim.tbl_contains(config.background_clear, "snacks")
-    or vim.tbl_contains(config.background_clear, "telescope")
-  local isExplorerBackgroundClear = vim.tbl_contains(config.background_clear, "snacks")
-    or vim.tbl_contains(config.background_clear, "nvim-tree")
-    or vim.tbl_contains(config.background_clear, "neo-tree")
+  local bg_clear = config.background_clear or {}
+  local isPickerBackgroundClear = vim.tbl_contains(bg_clear, "snacks") or vim.tbl_contains(bg_clear, "telescope")
+  local isExplorerBackgroundClear = vim.tbl_contains(bg_clear, "snacks")
+    or vim.tbl_contains(bg_clear, "nvim-tree")
+    or vim.tbl_contains(bg_clear, "neo-tree")
 
   local transparent_bg = c.base.black
   local transparent_bg_border = c.base.dimmed2

@@ -27,7 +27,10 @@ M.load = function()
   local hl_groups = theme.setup()
 
   -- Merge bufferline icons into the simplified highlight table
-  local bufferline_icons = require("monokai-v2.theme.plugins.bufferline").setup_bufferline_icon() or {}
+  -- Note: setup_bufferline_icon() is called by bufferline plugin itself with icon info
+  -- This call here is safe but will return nil/{} since no icon info is provided
+  local bufferline_module = require("monokai-v2.theme.plugins.bufferline")
+  local bufferline_icons = (bufferline_module.setup_bufferline_icon and bufferline_module.setup_bufferline_icon()) or {}
   hl_groups = vim.tbl_deep_extend("force", hl_groups, bufferline_icons)
 
   cache.compile(config.filter, hl_groups, config)

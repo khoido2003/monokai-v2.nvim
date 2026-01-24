@@ -4,7 +4,8 @@ local M = {}
 --- @param config Config
 --- @param hp Helper
 function M.get(c, config, hp)
-  local float_winBackgroundClear = vim.tbl_contains(config.background_clear, "float_win")
+  local float_winBackgroundClear = config.background_clear and vim.tbl_contains(config.background_clear, "float_win")
+    or false
   return {
     BlinkCmpMenu = { bg = c.editorSuggestWidget.background, fg = hp.lighten(c.editorSuggestWidget.foreground, -15) },
 
