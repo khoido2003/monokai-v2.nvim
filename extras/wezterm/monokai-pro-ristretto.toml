@@ -1,0 +1,30 @@
+# Monokai Pro Ristretto - WezTerm Configuration
+
+[colors]
+foreground = "#fff1f3"
+background = "#2c2525"
+cursor_bg = "#fff1f3"
+cursor_border = "#fff1f3"
+cursor_fg = "#2c2525"
+selection_bg = "#403838"
+selection_fg = "#fff1f3"
+
+[colors.ansi]
+black = "#2c2525"
+red = "#fd6883"
+green = "#adda78"
+yellow = "#f9cc6c"
+blue = "#85dacc"
+magenta = "#a8a9eb"
+cyan = "#85dacc"
+white = "#fff1f3"
+
+[colors.brights]
+black = "#403838"
+red = "#fd6883"
+green = "#adda78"
+yellow = "#f9cc6c"
+blue = "#85dacc"
+magenta = "#a8a9eb"
+cyan = "#85dacc"
+white = "#fff1f3"

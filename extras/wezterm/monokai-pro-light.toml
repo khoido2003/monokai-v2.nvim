@@ -1,0 +1,30 @@
+# Monokai Pro Light - WezTerm Configuration
+
+[colors]
+foreground = "#3c353a"
+background = "#faf4f2"
+cursor_bg = "#3c353a"
+cursor_border = "#3c353a"
+cursor_fg = "#faf4f2"
+selection_bg = "#d8d1d3"
+selection_fg = "#3c353a"
+
+[colors.ansi]
+black = "#faf4f2"
+red = "#e14775"
+green = "#269d69"
+yellow = "#cc7a0a"
+blue = "#1c8ca8"
+magenta = "#7058be"
+cyan = "#1c8ca8"
+white = "#3c353a"
+
+[colors.brights]
+black = "#d8d1d3"
+red = "#e14775"
+green = "#269d69"
+yellow = "#cc7a0a"
+blue = "#1c8ca8"
+magenta = "#7058be"
+cyan = "#1c8ca8"
+white = "#3c353a"

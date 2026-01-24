@@ -1,0 +1,30 @@
+# Monokai Pro Octagon - WezTerm Configuration
+
+[colors]
+foreground = "#eaf2f1"
+background = "#282a3a"
+cursor_bg = "#eaf2f1"
+cursor_border = "#eaf2f1"
+cursor_fg = "#282a3a"
+selection_bg = "#3a3d4b"
+selection_fg = "#eaf2f1"
+
+[colors.ansi]
+black = "#282a3a"
+red = "#ff657a"
+green = "#bad761"
+yellow = "#ffd76d"
+blue = "#9cd1bb"
+magenta = "#c39ac9"
+cyan = "#9cd1bb"
+white = "#eaf2f1"
+
+[colors.brights]
+black = "#3a3d4b"
+red = "#ff657a"
+green = "#bad761"
+yellow = "#ffd76d"
+blue = "#9cd1bb"
+magenta = "#c39ac9"
+cyan = "#9cd1bb"
+white = "#eaf2f1"

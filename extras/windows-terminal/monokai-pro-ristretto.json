@@ -1,0 +1,23 @@
+{
+  "name": "Monokai Pro Ristretto",
+  "background": "#2c2525",
+  "foreground": "#fff1f3",
+  "cursorColor": "#fff1f3",
+  "selectionBackground": "#403838",
+  "black": "#2c2525",
+  "red": "#fd6883",
+  "green": "#adda78",
+  "yellow": "#f9cc6c",
+  "blue": "#85dacc",
+  "purple": "#a8a9eb",
+  "cyan": "#85dacc",
+  "white": "#fff1f3",
+  "brightBlack": "#403838",
+  "brightRed": "#fd6883",
+  "brightGreen": "#adda78",
+  "brightYellow": "#f9cc6c",
+  "brightBlue": "#85dacc",
+  "brightPurple": "#a8a9eb",
+  "brightCyan": "#85dacc",
+  "brightWhite": "#fff1f3"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Monokai Pro Classic",
+  "background": "#272822",
+  "foreground": "#F8F8F2",
+  "cursorColor": "#F8F8F2",
+  "selectionBackground": "#49483E",
+  "black": "#272822",
+  "red": "#f92672",
+  "green": "#a6e22e",
+  "yellow": "#e6db74",
+  "blue": "#66d9ef",
+  "purple": "#ae81ff",
+  "cyan": "#66d9ef",
+  "white": "#F8F8F2",
+  "brightBlack": "#49483E",
+  "brightRed": "#f92672",
+  "brightGreen": "#a6e22e",
+  "brightYellow": "#e6db74",
+  "brightBlue": "#66d9ef",
+  "brightPurple": "#ae81ff",
+  "brightCyan": "#66d9ef",
+  "brightWhite": "#F8F8F2"
+}

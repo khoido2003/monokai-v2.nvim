@@ -1,0 +1,34 @@
+# Monokai Pro Machine - Alacritty Configuration
+
+colors:
+  primary:
+    background: '#273136'
+    foreground: '#f2fffc'
+  
+  cursor:
+    text: '#273136'
+    cursor: '#f2fffc'
+  
+  selection:
+    text: '#f2fffc'
+    background: '#3a4449'
+  
+  normal:
+    black:   '#273136'
+    red:     '#ff6d7e'
+    green:   '#a2e57b'
+    yellow:  '#ffed72'
+    blue:    '#7cd5f1'
+    magenta: '#baa0f8'
+    cyan:    '#7cd5f1'
+    white:   '#f2fffc'
+  
+  bright:
+    black:   '#3a4449'
+    red:     '#ff6d7e'
+    green:   '#a2e57b'
+    yellow:  '#ffed72'
+    blue:    '#7cd5f1'
+    magenta: '#baa0f8'
+    cyan:    '#7cd5f1'
+    white:   '#f2fffc'

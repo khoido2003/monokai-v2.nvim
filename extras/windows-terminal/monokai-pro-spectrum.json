@@ -1,0 +1,23 @@
+{
+  "name": "Monokai Pro Spectrum",
+  "background": "#222222",
+  "foreground": "#f7f1ff",
+  "cursorColor": "#f7f1ff",
+  "selectionBackground": "#363537",
+  "black": "#222222",
+  "red": "#fc618d",
+  "green": "#7bd88f",
+  "yellow": "#fce566",
+  "blue": "#5ad4e6",
+  "purple": "#948ae3",
+  "cyan": "#5ad4e6",
+  "white": "#f7f1ff",
+  "brightBlack": "#363537",
+  "brightRed": "#fc618d",
+  "brightGreen": "#7bd88f",
+  "brightYellow": "#fce566",
+  "brightBlue": "#5ad4e6",
+  "brightPurple": "#948ae3",
+  "brightCyan": "#5ad4e6",
+  "brightWhite": "#f7f1ff"
+}

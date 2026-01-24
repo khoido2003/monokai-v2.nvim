@@ -1,0 +1,34 @@
+# Monokai Pro Ristretto - Alacritty Configuration
+
+colors:
+  primary:
+    background: '#2c2525'
+    foreground: '#fff1f3'
+  
+  cursor:
+    text: '#2c2525'
+    cursor: '#fff1f3'
+  
+  selection:
+    text: '#fff1f3'
+    background: '#403838'
+  
+  normal:
+    black:   '#2c2525'
+    red:     '#fd6883'
+    green:   '#adda78'
+    yellow:  '#f9cc6c'
+    blue:    '#85dacc'
+    magenta: '#a8a9eb'
+    cyan:    '#85dacc'
+    white:   '#fff1f3'
+  
+  bright:
+    black:   '#403838'
+    red:     '#fd6883'
+    green:   '#adda78'
+    yellow:  '#f9cc6c'
+    blue:    '#85dacc'
+    magenta: '#a8a9eb'
+    cyan:    '#85dacc'
+    white:   '#fff1f3'

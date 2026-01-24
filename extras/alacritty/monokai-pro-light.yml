@@ -1,0 +1,34 @@
+# Monokai Pro Light - Alacritty Configuration
+
+colors:
+  primary:
+    background: '#faf4f2'
+    foreground: '#3c353a'
+  
+  cursor:
+    text: '#faf4f2'
+    cursor: '#3c353a'
+  
+  selection:
+    text: '#3c353a'
+    background: '#d8d1d3'
+  
+  normal:
+    black:   '#faf4f2'
+    red:     '#e14775'
+    green:   '#269d69'
+    yellow:  '#cc7a0a'
+    blue:    '#1c8ca8'
+    magenta: '#7058be'
+    cyan:    '#1c8ca8'
+    white:   '#3c353a'
+  
+  bright:
+    black:   '#d8d1d3'
+    red:     '#e14775'
+    green:   '#269d69'
+    yellow:  '#cc7a0a'
+    blue:    '#1c8ca8'
+    magenta: '#7058be'
+    cyan:    '#1c8ca8'
+    white:   '#3c353a'

@@ -1,0 +1,34 @@
+# Monokai Pro Spectrum - Alacritty Configuration
+
+colors:
+  primary:
+    background: '#222222'
+    foreground: '#f7f1ff'
+  
+  cursor:
+    text: '#222222'
+    cursor: '#f7f1ff'
+  
+  selection:
+    text: '#f7f1ff'
+    background: '#363537'
+  
+  normal:
+    black:   '#222222'
+    red:     '#fc618d'
+    green:   '#7bd88f'
+    yellow:  '#fce566'
+    blue:    '#5ad4e6'
+    magenta: '#948ae3'
+    cyan:    '#5ad4e6'
+    white:   '#f7f1ff'
+  
+  bright:
+    black:   '#363537'
+    red:     '#fc618d'
+    green:   '#7bd88f'
+    yellow:  '#fce566'
+    blue:    '#5ad4e6'
+    magenta: '#948ae3'
+    cyan:    '#5ad4e6'
+    white:   '#f7f1ff'

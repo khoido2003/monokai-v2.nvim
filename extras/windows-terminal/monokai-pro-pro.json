@@ -1,0 +1,23 @@
+{
+  "name": "Monokai Pro Pro",
+  "background": "#2d2a2e",
+  "foreground": "#fcfcfa",
+  "cursorColor": "#fcfcfa",
+  "selectionBackground": "#49483E",
+  "black": "#2d2a2e",
+  "red": "#ff6188",
+  "green": "#a9dc76",
+  "yellow": "#ffd866",
+  "blue": "#78dce8",
+  "purple": "#ab9df2",
+  "cyan": "#78dce8",
+  "white": "#fcfcfa",
+  "brightBlack": "#403e41",
+  "brightRed": "#ff6188",
+  "brightGreen": "#a9dc76",
+  "brightYellow": "#ffd866",
+  "brightBlue": "#78dce8",
+  "brightPurple": "#ab9df2",
+  "brightCyan": "#78dce8",
+  "brightWhite": "#fcfcfa"
+}

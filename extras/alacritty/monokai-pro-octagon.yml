@@ -1,0 +1,34 @@
+# Monokai Pro Octagon - Alacritty Configuration
+
+colors:
+  primary:
+    background: '#282a3a'
+    foreground: '#eaf2f1'
+  
+  cursor:
+    text: '#282a3a'
+    cursor: '#eaf2f1'
+  
+  selection:
+    text: '#eaf2f1'
+    background: '#3a3d4b'
+  
+  normal:
+    black:   '#282a3a'
+    red:     '#ff657a'
+    green:   '#bad761'
+    yellow:  '#ffd76d'
+    blue:    '#9cd1bb'
+    magenta: '#c39ac9'
+    cyan:    '#9cd1bb'
+    white:   '#eaf2f1'
+  
+  bright:
+    black:   '#3a3d4b'
+    red:     '#ff657a'
+    green:   '#bad761'
+    yellow:  '#ffd76d'
+    blue:    '#9cd1bb'
+    magenta: '#c39ac9'
+    cyan:    '#9cd1bb'
+    white:   '#eaf2f1'
