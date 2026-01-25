@@ -16,82 +16,131 @@ setmetatable(M, {
 
 ---@enum SupportedPlugins
 local PLUGINS = {
+  -- ========================================================================
+  -- Core / Framework
+  -- ========================================================================
   "mini",
-  "aerial",
-  "alpha",
-  "beacon",
-  "barbar",
-  "blink",
-  "grug_far",
-  "render_markdown",
-  "oil",
-  "avante",
-  "breadcrumb",
-  "bufferline",
-  "cmp",
-  "coc",
-  "dashboard",
-  "fidget",
-  "fzf-lua",
-  "gitsign",
-  "illuminate",
-  "indent_blankline",
   "lazy",
-  "lsp",
-  "mason",
+
+  -- ========================================================================
+  -- UI / Navigation / Layout
+  -- ========================================================================
+  "alpha",
+  "dashboard",
+  "bufferline",
+  "barbar",
   "neo-tree",
-  "noice",
-  "notify",
-  "nvim-navic",
   "nvim-tree",
-  "nvim-treesitter",
-  "nvim-ts-rainbow2",
-  "packer",
-  "rainbow-delimiters",
-  "renamer",
-  "scrollbar",
-  "snacks",
+  "oil",
   "telescope",
-  "toggleterm",
-  "ufo",
+  "fzf-lua",
   "which-key",
   "wilder",
-
-  "symbols_outline",
-  "neogit",
+  "dropbar",
+  "breadcrumb",
+  "incline",
+  "scrollbar",
   "zen_mode",
+
+  -- ========================================================================
+  -- Code Structure / Outline / Symbols
+  -- ========================================================================
+  "aerial",
+  "outline",
+  "nvim-navic",
+
+  -- ========================================================================
+  -- Completion / LSP / Diagnostics
+  -- ========================================================================
+  "cmp",
+  "blink",
+  "coc",
+  "lsp",
+  "mason",
+  "lspsaga",
+  "trouble",
+  "lsp_signature",
+  "tiny_inline_diagnostic",
+  "fidget",
+
+  -- ========================================================================
+  -- Syntax / Highlighting / Text Objects
+  -- ========================================================================
+  "nvim-treesitter",
+  "indent_blankline",
+  "rainbow-delimiters",
+  "illuminate",
+  "vim_matchup",
+  "hlslens",
+  "render_markdown",
+
+  -- ========================================================================
+  -- Editing / Motions / Productivity
+  -- ========================================================================
   "leap",
   "flash",
   "nvim_surround",
   "nvim_autopairs",
-  "vim_matchup",
-  "dap",
-  "lspsaga",
-  "trouble",
-
-  "dapui",
-  "diffview",
-  "dropbar",
-  "git_conflict",
-  "glow",
   "harpoon",
-  "hlslens",
-  "incline",
-  "lazygit",
   "marks",
-  "neorg",
-  "neotest",
-  "octo",
-  "overseer",
-  "rest",
-  "spectre",
-  "todo-comments",
   "yanky",
-  "outline",
+  "renamer",
+  "snacks",
+  "todo-comments",
+
+  -- ========================================================================
+  -- Git / Version Control
+  -- ========================================================================
+  "gitsign",
+  "git_conflict",
+  "diffview",
+  "neogit",
+  "lazygit",
+  "octo",
+
+  -- ========================================================================
+  -- Debugging / Testing
+  -- ========================================================================
+  "dap",
+  "dapui",
+  "neotest",
+
+  -- ========================================================================
+  -- Tasks / Automation / Search
+  -- ========================================================================
+  "overseer",
+  "spectre",
+  "grug_far",
+
+  -- ========================================================================
+  -- Terminal / Notifications / UX Polish
+  -- ========================================================================
+  "toggleterm",
+  "notify",
+  "noice",
+  "beacon",
+  "ufo",
+  "glow",
+
+  -- ========================================================================
+  -- Docs / Notes / REST
+  -- ========================================================================
+  "neorg",
+  "rest",
+
+  -- ========================================================================
+  -- AI / Assistants
+  -- ========================================================================
   "copilot",
-  "lsp_signature",
-  "tiny_inline_diagnostic",
   "codecompanion",
+  "avante",
+
+  -- ========================================================================
+  -- DEPRECATED / LEGACY
+  -- ========================================================================
+  "packer",
+  -- "symbols_outline",
+  -- "nvim-ts-rainbow2",
 }
 
 -- Get highlight group dictionary
