@@ -24,6 +24,4 @@ return {
   neutral3 = "#93888d",
   neutral4 = "#b5acb0",
   neutral5 = "#d8d1d3",
-  panel = "#fefaf9",
-  light = "#ffffff",
 }

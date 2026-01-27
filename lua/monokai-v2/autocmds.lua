@@ -118,6 +118,19 @@ function M.setup()
     )
   end
 
+  -- Clean up debounce timers when buffer is deleted to prevent memory leak
+  vim.api.nvim_create_autocmd("BufDelete", {
+    group = lsp_augroup,
+    callback = function(args)
+      local bufnr = args.buf
+      if debounce_timers[bufnr] then
+        debounce_timers[bufnr]:stop()
+        debounce_timers[bufnr]:close()
+        debounce_timers[bufnr] = nil
+      end
+    end,
+  })
+
   vim.api.nvim_create_autocmd("LspAttach", {
     group = lsp_augroup,
     callback = function(args)

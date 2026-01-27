@@ -47,14 +47,6 @@ M.setup = function(c, config, _)
       bold = true,
     }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     javaAnnotation = { fg = c.base.dimmed2 },
-
-    FloatBorder = { fg = c.base.dimmed2, bg = c.base.black },
-    NormalFloat = { bg = c.base.black },
-
-    DiagnosticFloatingError = { fg = c.inputValidation.errorBorder, bg = c.base.black },
-    DiagnosticFloatingWarn = { fg = c.inputValidation.warningBorder, bg = c.base.black },
-    DiagnosticFloatingInfo = { fg = c.inputValidation.infoBorder, bg = c.base.black },
-    DiagnosticFloatingHint = { fg = c.inputValidation.hintBorder, bg = c.base.black },
   }
 end
 

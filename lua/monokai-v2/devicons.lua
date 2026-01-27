@@ -730,7 +730,7 @@ M.setup = function(c)
     cyan = c.base.cyan,
     purple = c.base.purple,
     pink = c.base.pink,
-    dimmed = c.base.dimmed,
+    dimmed = c.base.dimmed2,
     text = c.base.text,
   }
 

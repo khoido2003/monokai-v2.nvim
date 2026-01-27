@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.9] - 2026-01-27
+
+### Refactor
+- **Plugin Naming**: Renamed 12 plugin support files to match their official repository names for consistency:
+  - `gitsign` -> `gitsigns`
+  - `blink` -> `blink-cmp`
+  - `cmp` -> `nvim-cmp`
+  - `indent_blankline` -> `indent-blankline`
+  - `vim_matchup` -> `vim-matchup`
+  - `nvim_surround` -> `nvim-surround`
+  - `nvim_autopairs` -> `nvim-autopairs`
+  - `git_conflict` -> `git-conflict`
+  - `zen_mode` -> `zen-mode`
+  - `grug_far` -> `grug-far`
+  - `tiny_inline_diagnostic` -> `tiny-inline-diagnostic`
+  - `render_markdown` -> `render-markdown`
+
+### Fixed
+- **Memory Leak**: Added cleanup for debounce timers in `autocmds.lua` when buffers are deleted.
+- **Devicons**: Fixed crash/bug where `dimmed` color key was missing (replaced with `dimmed2`).
+- **Syntax**: Removed duplicate `FloatBorder`, `NormalFloat` highlights that conflicted with editor theme.
+- **Palette**: Cleaned up unused keys (`panel`, `light`) from the light palette.
+- **Code Quality**: Removed unused legacy `class.lua` utility.
+
 ## [0.2.4] - 2026-01-16
 
 ### Added

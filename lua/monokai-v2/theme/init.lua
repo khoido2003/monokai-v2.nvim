@@ -40,7 +40,7 @@ local PLUGINS = {
   "breadcrumb",
   "incline",
   "scrollbar",
-  "zen_mode",
+  "zen-mode",
 
   -- ========================================================================
   -- Code Structure / Outline / Symbols
@@ -52,35 +52,35 @@ local PLUGINS = {
   -- ========================================================================
   -- Completion / LSP / Diagnostics
   -- ========================================================================
-  "cmp",
-  "blink",
+  "nvim-cmp",
+  "blink-cmp",
   "coc",
   "lsp",
   "mason",
   "lspsaga",
   "trouble",
   "lsp_signature",
-  "tiny_inline_diagnostic",
+  "tiny-inline-diagnostic",
   "fidget",
 
   -- ========================================================================
   -- Syntax / Highlighting / Text Objects
   -- ========================================================================
   "nvim-treesitter",
-  "indent_blankline",
+  "indent-blankline",
   "rainbow-delimiters",
   "illuminate",
-  "vim_matchup",
+  "vim-matchup",
   "hlslens",
-  "render_markdown",
+  "render-markdown",
 
   -- ========================================================================
   -- Editing / Motions / Productivity
   -- ========================================================================
   "leap",
   "flash",
-  "nvim_surround",
-  "nvim_autopairs",
+  "nvim-surround",
+  "nvim-autopairs",
   "harpoon",
   "marks",
   "yanky",
@@ -91,8 +91,8 @@ local PLUGINS = {
   -- ========================================================================
   -- Git / Version Control
   -- ========================================================================
-  "gitsign",
-  "git_conflict",
+  "gitsigns",
+  "git-conflict",
   "diffview",
   "neogit",
   "lazygit",
@@ -110,7 +110,7 @@ local PLUGINS = {
   -- ========================================================================
   "overseer",
   "spectre",
-  "grug_far",
+  "grug-far",
 
   -- ========================================================================
   -- Terminal / Notifications / UX Polish
