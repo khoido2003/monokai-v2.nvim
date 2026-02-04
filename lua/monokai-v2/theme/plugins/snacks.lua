@@ -25,83 +25,33 @@ function M.get(c, config, hp)
     or hp.blend(c.base.green, 0.2, result_bg)
 
   local sidebar_bg = isExplorerBackgroundClear and c.editor.background or c.sideBar.background
-  -- Explorer selection background
   local explorer_selection_bg = c.list.activeSelectionBackground
 
-  return {
+  -- Common picker backgrounds based on transparency setting
+  local picker_bg = isPickerBackgroundClear and transparent_bg or result_bg
+  local picker_border_bg = transparent_bg
+  local picker_border_fg = isPickerBackgroundClear and transparent_bg_border or result_bg
 
+  return {
+    -- ══════════════════════════════════════════════════════════════════════
+    -- Base / Global
+    -- ══════════════════════════════════════════════════════════════════════
     SnacksNormal = { bg = c.editor.background, fg = c.editor.foreground },
-    SnacksNormalNC = { bg = c.editor.background, fg = c.editor.foreground },
+    SnacksNormalNC = { link = "SnacksNormal" },
     SnacksBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksFooter = { fg = c.base.dimmed2 },
     SnacksBackdrop = { bg = c.base.dark },
-    SnacksWinBar = { bg = c.editor.background, fg = c.editor.foreground },
+    SnacksWinBar = { link = "SnacksNormal" },
     SnacksWinBarNC = { bg = c.editor.background, fg = c.base.dimmed2 },
-
-    -- Windows
     SnacksWinKey = { fg = c.base.yellow, bold = true },
     SnacksWinKeySep = { fg = c.base.dimmed1 },
 
-    -- Picker
-    SnacksPickerLineNr = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = c.editorLineNumber.foreground,
-    } or {
-      bg = result_bg,
-      fg = c.editorLineNumber.foreground,
-    },
-    SnacksPickerCursorLineNr = {
-      bg = picker_selection_bg,
-      fg = c.editorLineNumber.activeForeground,
-      bold = true,
-    },
-    SnacksPickerSignColumn = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = c.editorLineNumber.foreground,
-    } or {
-      bg = result_bg,
-      fg = c.editorLineNumber.foreground,
-    },
-    -- FoldColumn to match picker background
-    SnacksPickerFoldColumn = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = c.editorLineNumber.foreground,
-    } or {
-      bg = result_bg,
-      fg = c.editorLineNumber.foreground,
-    },
-    -- EndOfBuffer to match picker background
-    SnacksPickerEndOfBuffer = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = transparent_bg,
-    } or {
-      bg = result_bg,
-      fg = result_bg,
-    },
-    -- CursorLine for full row highlight
-    SnacksPickerCursorLine = {
-      bg = picker_selection_bg,
-    },
-
-    -- Main picker window
-    SnacksPicker = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = picker_fg,
-    } or {
-      bg = c.editorHoverWidget.background,
-      fg = picker_fg,
-    },
-
-    -- Border
-    SnacksPickerBorder = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = c.tab.unfocusedActiveBorder,
-    } or {
-      bg = c.editor.background,
-      fg = c.editorHoverWidget.background,
-    },
-
-    -- Title
+    -- ══════════════════════════════════════════════════════════════════════
+    -- Picker - Windows
+    -- ══════════════════════════════════════════════════════════════════════
+    SnacksPicker = { bg = picker_bg, fg = picker_fg },
+    SnacksPickerBorder = isPickerBackgroundClear and { bg = transparent_bg, fg = c.tab.unfocusedActiveBorder }
+      or { bg = c.editor.background, fg = c.editorHoverWidget.background },
     SnacksPickerTitle = {
       bg = config.filter == "light" and c.base.red or c.base.yellow,
       fg = c.base.black,
@@ -110,150 +60,58 @@ function M.get(c, config, hp)
 
     -- Prompt
     SnacksPickerPrompt = { fg = c.base.yellow },
-    SnacksPickerPromptNormal = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = picker_fg,
-    } or {
-      bg = prompt_bg,
-      fg = picker_fg,
+    SnacksPickerPromptNormal = { bg = isPickerBackgroundClear and transparent_bg or prompt_bg, fg = picker_fg },
+    SnacksPickerPromptBorder = {
+      bg = picker_border_bg,
+      fg = isPickerBackgroundClear and transparent_bg_border or prompt_bg,
     },
-    SnacksPickerPromptBorder = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = transparent_bg_border,
-    } or {
-      bg = transparent_bg,
-      fg = prompt_bg,
-    },
-    SnacksPickerPromptTitle = {
-      bg = config.filter == "light" and c.base.red or c.base.yellow,
-      fg = c.base.black,
-      bold = true,
-    },
+    SnacksPickerPromptTitle = { link = "SnacksPickerTitle" },
     SnacksPickerPromptPrefix = { fg = c.base.white },
 
-    -- Input (same background as prompt for consistency)
-    SnacksPickerInput = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = picker_fg,
-    } or {
-      bg = prompt_bg,
-      fg = picker_fg,
-    },
-    SnacksPickerInputBorder = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = transparent_bg_border,
-    } or {
-      bg = transparent_bg,
-      fg = prompt_bg,
-    },
-    SnacksPickerInputTitle = {
-      bg = config.filter == "light" and c.base.red or c.base.yellow,
-      fg = c.base.black,
-      bold = true,
-    },
+    -- Input
+    SnacksPickerInput = { link = "SnacksPickerPromptNormal" },
+    SnacksPickerInputBorder = { link = "SnacksPickerPromptBorder" },
+    SnacksPickerInputTitle = { link = "SnacksPickerTitle" },
 
     -- Preview
-    SnacksPickerPreview = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = picker_fg,
-    } or {
-      bg = preview_bg,
-      fg = picker_fg,
+    SnacksPickerPreview = { bg = isPickerBackgroundClear and transparent_bg or preview_bg, fg = picker_fg },
+    SnacksPickerPreviewNormal = { link = "SnacksPickerPreview" },
+    SnacksPickerPreviewBorder = {
+      bg = picker_border_bg,
+      fg = isPickerBackgroundClear and transparent_bg_border or preview_bg,
     },
-    SnacksPickerPreviewNormal = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = picker_fg,
-    } or {
-      bg = preview_bg,
-      fg = picker_fg,
-    },
-    SnacksPickerPreviewBorder = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = transparent_bg_border,
-    } or {
-      bg = transparent_bg,
-      fg = preview_bg,
-    },
-    SnacksPickerPreviewTitle = {
-      bg = config.filter == "light" and c.base.red or c.base.yellow,
-      fg = c.base.black,
-      bold = true,
-    },
-    SnacksPickerPreviewLine = isPickerBackgroundClear and {
-      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.3, transparent_bg),
-      bold = true,
-    } or {
-      bg = hp.blend(c.base.green, 0.2, result_bg),
-      bold = true,
-    },
+    SnacksPickerPreviewTitle = { link = "SnacksPickerTitle" },
+    SnacksPickerPreviewLine = { bg = picker_selection_bg, bold = true },
 
     -- List / Results
-    SnacksPickerList = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = picker_fg,
-    } or {
-      bg = result_bg,
-      fg = picker_fg,
-    },
-    SnacksPickerListNormal = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = picker_fg,
-    } or {
-      bg = result_bg,
-      fg = picker_fg,
-    },
-    SnacksPickerListBorder = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = transparent_bg_border,
-    } or {
-      bg = transparent_bg,
-      fg = result_bg,
-    },
-    SnacksPickerListTitle = {
-      bg = config.filter == "light" and c.base.red or c.base.yellow,
-      fg = c.base.black,
-      bold = true,
-    },
-    SnacksPickerListCursorLine = isPickerBackgroundClear and {
-      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.3, transparent_bg),
-      bold = true,
-    } or {
-      bg = hp.blend(c.base.green, 0.2, result_bg),
-      bold = true,
-    },
+    SnacksPickerList = { bg = picker_bg, fg = picker_fg },
+    SnacksPickerListNormal = { link = "SnacksPickerList" },
+    SnacksPickerListBorder = { bg = picker_border_bg, fg = picker_border_fg },
+    SnacksPickerListTitle = { link = "SnacksPickerTitle" },
+    SnacksPickerListCursorLine = { bg = picker_selection_bg, bold = true },
 
-    -- Selection
-    SnacksPickerSelection = isPickerBackgroundClear and {
-      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.3, transparent_bg),
-      bold = true,
-    } or {
-      bg = hp.blend(c.base.green, 0.2, result_bg),
-      bold = true,
-    },
-    SnacksPickerSelectionCaret = isPickerBackgroundClear and {
-      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.3, transparent_bg),
-      fg = c.base.green,
-      bold = true,
-    } or {
-      bg = hp.blend(c.base.green, 0.2, result_bg),
-      fg = c.base.green,
-    },
+    -- Selection & Cursor
+    SnacksPickerSelection = { bg = picker_selection_bg, bold = true },
+    SnacksPickerSelectionCaret = { bg = picker_selection_bg, fg = c.base.green, bold = true },
+    SnacksPickerCursorLine = { bg = picker_selection_bg },
+    SnacksPickerCursorLineNr = { bg = picker_selection_bg, fg = c.editorLineNumber.activeForeground, bold = true },
 
-    -- Matching
-    SnacksPickerMatch = {
-      fg = config.filter == "light" and c.base.red or c.base.yellow,
-      bold = true,
-    },
+    -- Line numbers / columns (inherit bg from picker)
+    SnacksPickerLineNr = { fg = c.editorLineNumber.foreground },
+    SnacksPickerSignColumn = { fg = c.editorLineNumber.foreground },
+    SnacksPickerFoldColumn = { fg = c.editorLineNumber.foreground },
+    SnacksPickerEndOfBuffer = { fg = picker_bg },
+
+    -- ══════════════════════════════════════════════════════════════════════
+    -- Picker - Content styling
+    -- ══════════════════════════════════════════════════════════════════════
+    SnacksPickerMatch = { fg = config.filter == "light" and c.base.red or c.base.yellow, bold = true },
     SnacksPickerSearch = { link = "Search" },
-
-    -- Files/Paths
     SnacksPickerFile = { fg = c.base.white },
     SnacksPickerDir = { fg = c.base.dimmed1 },
     SnacksPickerDirectory = { fg = c.sideBar.foreground },
     SnacksPickerLink = { fg = c.base.cyan, italic = true },
     SnacksPickerLinkBroken = { fg = c.base.red, italic = true },
-
-    -- Code locations
     SnacksPickerRow = { fg = c.base.green },
     SnacksPickerCol = { fg = c.editorLineNumber.foreground },
     SnacksPickerTree = { fg = c.editorLineNumber.foreground },
@@ -331,9 +189,9 @@ function M.get(c, config, hp)
     SnacksPickerGitStatusUnmerged = { fg = c.gitDecoration.conflictingResourceForeground },
     SnacksPickerGitStatusStaged = { fg = c.gitDecoration.stageModifiedResourceForeground },
     SnacksPickerGitNew = { fg = c.gitDecoration.untrackedResourceForeground },
-    SnacksPickerGitFileNew = { fg = c.gitDecoration.untrackedResourceForeground },
+    SnacksPickerGitFileNew = { link = "SnacksPickerGitNew" },
     SnacksPickerGitFileNewHL = { fg = c.base.green },
-    SnacksPickerGitFolderNewHL = { fg = c.base.green },
+    SnacksPickerGitFolderNewHL = { link = "SnacksPickerGitFileNewHL" },
 
     -- Man pages
     SnacksPickerManSection = { fg = c.base.yellow },
@@ -350,62 +208,50 @@ function M.get(c, config, hp)
     SnacksPickerLspAttachedBuf = { fg = c.base.cyan },
     SnacksPickerLspUnavailable = { fg = c.base.red },
 
-    -- Icons (LSP Symbol Kinds)
+    -- Icons - base groups (using links to reduce redundancy)
     SnacksPickerIcon = { fg = c.base.purple },
-    SnacksPickerIconSource = { fg = c.base.purple },
+    SnacksPickerIconSource = { link = "SnacksPickerIcon" },
     SnacksPickerIconName = { fg = c.base.yellow },
     SnacksPickerIconCategory = { fg = c.base.cyan },
-    SnacksPickerIconArray = { fg = c.base.orange },
-    SnacksPickerIconBoolean = { fg = c.base.purple },
-    SnacksPickerIconClass = { fg = c.base.cyan },
-    SnacksPickerIconConstant = { fg = c.base.purple },
-    SnacksPickerIconConstructor = { fg = c.base.cyan },
-    SnacksPickerIconEnum = { fg = c.base.cyan },
-    SnacksPickerIconEnumMember = { fg = c.base.purple },
-    SnacksPickerIconEvent = { fg = c.base.purple },
-    SnacksPickerIconField = { fg = c.base.white },
+    SnacksPickerIconDirectory = { fg = c.sideBar.foreground },
+    SnacksPickerIconFolder = { link = "SnacksPickerIconDirectory" },
+
+    -- Icons - LSP Kinds (link to corresponding BlinkCmpKind groups for consistency)
+    SnacksPickerIconArray = { link = "BlinkCmpKindArray" },
+    SnacksPickerIconBoolean = { link = "BlinkCmpKindBoolean" },
+    SnacksPickerIconClass = { link = "BlinkCmpKindClass" },
+    SnacksPickerIconConstant = { link = "BlinkCmpKindConstant" },
+    SnacksPickerIconConstructor = { link = "BlinkCmpKindConstructor" },
+    SnacksPickerIconEnum = { link = "BlinkCmpKindEnum" },
+    SnacksPickerIconEnumMember = { link = "BlinkCmpKindEnumMember" },
+    SnacksPickerIconEvent = { link = "BlinkCmpKindEvent" },
+    SnacksPickerIconField = { link = "BlinkCmpKindField" },
     SnacksPickerIconFile = { fg = c.editor.foreground },
-    SnacksPickerIconFunction = { fg = c.base.green },
-    SnacksPickerIconInterface = { fg = c.base.cyan },
-    SnacksPickerIconKey = { fg = c.base.yellow },
-    SnacksPickerIconMethod = { fg = c.base.green },
-    SnacksPickerIconModule = { fg = c.base.cyan },
-    SnacksPickerIconNamespace = { fg = c.base.cyan },
-    SnacksPickerIconNull = { fg = c.base.purple },
-    SnacksPickerIconNumber = { fg = c.base.purple },
-    SnacksPickerIconObject = { fg = c.base.purple },
-    SnacksPickerIconOperator = { fg = c.base.red },
-    SnacksPickerIconPackage = { fg = c.base.cyan },
-    SnacksPickerIconProperty = { fg = c.base.white },
-    SnacksPickerIconString = { fg = c.base.yellow },
-    SnacksPickerIconStruct = { fg = c.base.cyan },
-    SnacksPickerIconTypeParameter = { fg = c.base.cyan },
-    SnacksPickerIconVariable = { fg = c.base.white },
+    SnacksPickerIconFunction = { link = "BlinkCmpKindFunction" },
+    SnacksPickerIconInterface = { link = "BlinkCmpKindInterface" },
+    SnacksPickerIconKey = { link = "BlinkCmpKindKey" },
+    SnacksPickerIconMethod = { link = "BlinkCmpKindMethod" },
+    SnacksPickerIconModule = { link = "BlinkCmpKindModule" },
+    SnacksPickerIconNamespace = { link = "BlinkCmpKindNamespace" },
+    SnacksPickerIconNull = { link = "BlinkCmpKindNull" },
+    SnacksPickerIconNumber = { link = "BlinkCmpKindNumber" },
+    SnacksPickerIconObject = { link = "BlinkCmpKindObject" },
+    SnacksPickerIconOperator = { link = "BlinkCmpKindOperator" },
+    SnacksPickerIconPackage = { link = "BlinkCmpKindPackage" },
+    SnacksPickerIconProperty = { link = "BlinkCmpKindProperty" },
+    SnacksPickerIconString = { link = "BlinkCmpKindString" },
+    SnacksPickerIconStruct = { link = "BlinkCmpKindStruct" },
+    SnacksPickerIconTypeParameter = { link = "BlinkCmpKindTypeParameter" },
+    SnacksPickerIconVariable = { link = "BlinkCmpKindVariable" },
 
-    -- Folder/Directory
-    SnacksPickerIconDirectory = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = c.sideBar.foreground,
-    } or {
-      bg = result_bg,
-      fg = c.sideBar.foreground,
-    },
-    SnacksPickerIconFolder = isPickerBackgroundClear and {
-      bg = transparent_bg,
-      fg = c.sideBar.foreground,
-    } or {
-      bg = result_bg,
-      fg = c.sideBar.foreground,
-    },
-
+    -- ══════════════════════════════════════════════════════════════════════
     -- Explorer
+    -- ══════════════════════════════════════════════════════════════════════
     SnacksExplorerNormal = { bg = sidebar_bg, fg = c.sideBar.foreground },
-    SnacksExplorerNormalNC = { bg = sidebar_bg, fg = c.sideBar.foreground },
+    SnacksExplorerNormalNC = { link = "SnacksExplorerNormal" },
     SnacksExplorerEndOfBuffer = { bg = sidebar_bg, fg = sidebar_bg },
     SnacksExplorerSignColumn = { bg = sidebar_bg, fg = c.sideBar.foreground },
     SnacksExplorerStatusLine = { bg = sidebar_bg, fg = sidebar_bg },
-
-    -- Border
     SnacksExplorerBorder = {
       bg = sidebar_bg,
       fg = isExplorerBackgroundClear and c.base.black or sidebar_bg,
@@ -414,49 +260,25 @@ function M.get(c, config, hp)
       bg = c.editor.background,
       fg = isExplorerBackgroundClear and c.base.black or c.editor.background,
     },
-
-    -- Title
-    SnacksExplorerTitle = {
-      bg = c.base.yellow,
-      fg = sidebar_bg,
-      bold = true,
-    },
+    SnacksExplorerTitle = { bg = c.base.yellow, fg = sidebar_bg, bold = true },
 
     -- Cursor / Selection
-    SnacksExplorerCursor = {
-      bg = c.list.activeSelectionBackground,
-      bg_base = sidebar_bg,
-    },
-    SnacksExplorerCursorLine = {
-      bg = c.list.activeSelectionBackground,
-      bg_base = sidebar_bg,
-      bold = true,
-    },
-    SnacksExplorerCursorLineSign = {
-      bg = c.list.activeSelectionBackground,
-      bg_base = sidebar_bg,
-    },
+    SnacksExplorerCursor = { bg = c.list.activeSelectionBackground, bg_base = sidebar_bg },
+    SnacksExplorerCursorLine = { bg = c.list.activeSelectionBackground, bg_base = sidebar_bg, bold = true },
+    SnacksExplorerCursorLineSign = { bg = c.list.activeSelectionBackground, bg_base = sidebar_bg },
 
     -- Directory / Files
-    SnacksExplorerRootName = {
-      bg = sidebar_bg,
-      fg = c.sideBarSectionHeader.foreground,
-      bold = true,
-    },
+    SnacksExplorerRootName = { bg = sidebar_bg, fg = c.sideBarSectionHeader.foreground, bold = true },
     SnacksExplorerDirectoryIcon = { bg = sidebar_bg, default = true },
     SnacksExplorerDirectoryName = { bg = sidebar_bg, fg = c.sideBar.foreground },
-    SnacksExplorerFolderIcon = { bg = sidebar_bg, default = true },
-    SnacksExplorerFolderName = { bg = sidebar_bg, fg = c.sideBar.foreground },
+    SnacksExplorerFolderIcon = { link = "SnacksExplorerDirectoryIcon" },
+    SnacksExplorerFolderName = { link = "SnacksExplorerDirectoryName" },
     SnacksExplorerOpenedFolderName = { bg = sidebar_bg, fg = c.sideBar.foreground, bold = true },
-    SnacksExplorerEmptyFolderName = { bg = sidebar_bg, fg = c.sideBar.foreground },
-    SnacksExplorerFileName = {
-      bg = sidebar_bg,
-      fg = c.sideBar.foreground,
-      default = true,
-    },
+    SnacksExplorerEmptyFolderName = { link = "SnacksExplorerDirectoryName" },
+    SnacksExplorerFileName = { bg = sidebar_bg, fg = c.sideBar.foreground, default = true },
     SnacksExplorerImageFile = { bg = sidebar_bg, fg = c.base.white },
-    SnacksExplorerSpecialFile = { bg = sidebar_bg, fg = c.base.white },
-    SnacksExplorerSymlink = { bg = sidebar_bg, fg = c.base.white },
+    SnacksExplorerSpecialFile = { link = "SnacksExplorerImageFile" },
+    SnacksExplorerSymlink = { link = "SnacksExplorerImageFile" },
     SnacksExplorerExecFile = { bg = sidebar_bg, fg = c.base.green },
 
     SnacksExplorerCursorLineFileName = {
@@ -465,86 +287,56 @@ function M.get(c, config, hp)
       fg = c.sideBar.foreground,
       bold = true,
     },
-    SnacksExplorerCursorLineFolderName = {
-      bg = explorer_selection_bg,
-      bg_base = sidebar_bg,
-      fg = c.sideBar.foreground,
-      bold = true,
-    },
+    SnacksExplorerCursorLineFolderName = { link = "SnacksExplorerCursorLineFileName" },
 
-    -- Explorer line numbers
-    SnacksExplorerLineNr = {
-      bg = sidebar_bg,
-      fg = c.editorLineNumber.foreground,
-    },
+    -- Line numbers
+    SnacksExplorerLineNr = { bg = sidebar_bg, fg = c.editorLineNumber.foreground },
     SnacksExplorerCursorLineNr = {
       bg = explorer_selection_bg,
       bg_base = sidebar_bg,
       fg = c.editorLineNumber.activeForeground,
       bold = true,
     },
-    SnacksExplorerFoldColumn = {
-      bg = sidebar_bg,
-      fg = c.editorLineNumber.foreground,
-    },
+    SnacksExplorerFoldColumn = { bg = sidebar_bg, fg = c.editorLineNumber.foreground },
 
     -- Indent / Tree
     SnacksExplorerIndentMarker = { bg = sidebar_bg, link = "IndentBlanklineChar" },
     SnacksExplorerExpander = { bg = sidebar_bg, fg = c.sideBar.foreground },
     SnacksExplorerTree = { bg = sidebar_bg, fg = c.editorLineNumber.foreground },
 
-    -- Git decorations
+    -- Git decorations (base groups)
     SnacksGitNew = { fg = c.base.green },
-    SnacksGitUntracked = { fg = c.base.green },
+    SnacksGitUntracked = { link = "SnacksGitNew" },
     SnacksExplorerGitAdded = { bg = sidebar_bg, fg = c.gitDecoration.addedResourceForeground },
     SnacksExplorerGitNew = { bg = sidebar_bg, fg = c.base.green },
     SnacksExplorerGitModified = { bg = sidebar_bg, fg = c.gitDecoration.modifiedResourceForeground },
     SnacksExplorerGitDeleted = { bg = sidebar_bg, fg = c.gitDecoration.deletedResourceForeground },
     SnacksExplorerGitRenamed = { bg = sidebar_bg, fg = c.gitDecoration.untrackedResourceForeground },
-    SnacksExplorerGitUntracked = { bg = sidebar_bg, fg = c.base.green },
+    SnacksExplorerGitUntracked = { link = "SnacksExplorerGitNew" },
     SnacksExplorerGitIgnored = { bg = sidebar_bg, fg = c.gitDecoration.ignoredResourceForeground },
     SnacksExplorerGitStaged = { bg = sidebar_bg, fg = c.gitDecoration.stageModifiedResourceForeground },
     SnacksExplorerGitConflict = { bg = sidebar_bg, fg = c.gitDecoration.conflictingResourceForeground },
-    SnacksExplorerGitDirty = { bg = sidebar_bg, fg = c.gitDecoration.modifiedResourceForeground },
-    SnacksExplorerGitMerge = { bg = sidebar_bg, fg = c.gitDecoration.conflictingResourceForeground },
-
-    -- Additional git file highlight groups for new/untracked files (GREEN)
-    SnacksExplorerGitFileNew = { bg = sidebar_bg, fg = c.base.green },
-    SnacksExplorerGitFileUntracked = { bg = sidebar_bg, fg = c.base.green },
-    SnacksExplorerGitFolderNew = { bg = sidebar_bg, fg = c.base.green },
-    SnacksExplorerGitFolderUntracked = { bg = sidebar_bg, fg = c.base.green },
+    SnacksExplorerGitDirty = { link = "SnacksExplorerGitModified" },
+    SnacksExplorerGitMerge = { link = "SnacksExplorerGitConflict" },
+    SnacksExplorerGitFileNew = { link = "SnacksExplorerGitNew" },
+    SnacksExplorerGitFileUntracked = { link = "SnacksExplorerGitNew" },
+    SnacksExplorerGitFolderNew = { link = "SnacksExplorerGitNew" },
+    SnacksExplorerGitFolderUntracked = { link = "SnacksExplorerGitNew" },
 
     -- Float
-    SnacksExplorerFloatNormal = {
-      bg = c.editorSuggestWidget.background,
-      fg = c.editorSuggestWidget.foreground,
-    },
-    SnacksExplorerFloatBorder = {
-      bg = sidebar_bg,
-      fg = c.editorSuggestWidget.background,
-    },
-    SnacksExplorerFloatTitle = {
-      bg = c.base.yellow,
-      fg = sidebar_bg,
-      bold = true,
-    },
+    SnacksExplorerFloatNormal = { bg = c.editorSuggestWidget.background, fg = c.editorSuggestWidget.foreground },
+    SnacksExplorerFloatBorder = { bg = sidebar_bg, fg = c.editorSuggestWidget.background },
+    SnacksExplorerFloatTitle = { bg = c.base.yellow, fg = sidebar_bg, bold = true },
 
     -- Tabs
-    SnacksExplorerTabActive = {
-      bg = c.button.hoverBackground,
-      fg = c.button.foreground,
-      bold = true,
-    },
+    SnacksExplorerTabActive = { bg = c.button.hoverBackground, fg = c.button.foreground, bold = true },
     SnacksExplorerTabInactive = { bg = c.button.background, fg = c.button.foreground },
-    SnacksExplorerTabSeparatorActive = {
-      bg = c.button.hoverBackground,
-      fg = c.button.separator,
-    },
-    SnacksExplorerTabSeparatorInactive = {
-      bg = c.button.background,
-      fg = c.button.separator,
-    },
+    SnacksExplorerTabSeparatorActive = { bg = c.button.hoverBackground, fg = c.button.separator },
+    SnacksExplorerTabSeparatorInactive = { bg = c.button.background, fg = c.button.separator },
 
+    -- ══════════════════════════════════════════════════════════════════════
+    -- Dashboard
+    -- ══════════════════════════════════════════════════════════════════════
     SnacksDashboardNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksDashboardDesc = { fg = c.base.dimmed1 },
     SnacksDashboardIcon = { fg = c.base.orange },
@@ -557,58 +349,66 @@ function M.get(c, config, hp)
     SnacksDashboardFile = { fg = c.base.white },
     SnacksDashboardTerminal = { fg = c.base.green },
 
-    SnacksIndent = { fg = c.editorIndentGuide.background },
-    SnacksIndentBlank = { fg = c.editorIndentGuide.background },
-    SnacksIndentScope = { fg = c.editorIndentGuide.activeBackground },
-    SnacksIndentChunk = { fg = c.editorIndentGuide.activeBackground },
+    -- ══════════════════════════════════════════════════════════════════════
+    -- Indent
+    -- ══════════════════════════════════════════════════════════════════════
+    SnacksIndent = { fg = c.editorIndentGuide.background, nocombine = true },
+    SnacksIndentBlank = { link = "SnacksIndent" },
+    SnacksIndentScope = { fg = c.editorIndentGuide.activeBackground, nocombine = true },
+    SnacksIndentChunk = { link = "SnacksIndentScope" },
     -- Rainbow indent levels
-    SnacksIndent1 = { fg = c.base.cyan },
-    SnacksIndent2 = { fg = c.base.green },
-    SnacksIndent3 = { fg = c.base.orange },
-    SnacksIndent4 = { fg = c.base.red },
-    SnacksIndent5 = { fg = c.base.cyan },
-    SnacksIndent6 = { fg = c.base.green },
-    SnacksIndent7 = { fg = c.base.orange },
-    SnacksIndent8 = { fg = c.base.red },
+    SnacksIndent1 = { fg = c.base.cyan, nocombine = true },
+    SnacksIndent2 = { fg = c.base.green, nocombine = true },
+    SnacksIndent3 = { fg = c.base.orange, nocombine = true },
+    SnacksIndent4 = { fg = c.base.red, nocombine = true },
+    SnacksIndent5 = { link = "SnacksIndent1" },
+    SnacksIndent6 = { link = "SnacksIndent2" },
+    SnacksIndent7 = { link = "SnacksIndent3" },
+    SnacksIndent8 = { link = "SnacksIndent4" },
 
+    -- ══════════════════════════════════════════════════════════════════════
+    -- Notifier
+    -- ══════════════════════════════════════════════════════════════════════
     SnacksNotifierHistory = { bg = c.editor.background, fg = c.editor.foreground },
 
     -- Info
     SnacksNotifierInfo = { fg = c.base.cyan },
-    SnacksNotifierIconInfo = { fg = c.base.cyan },
-    SnacksNotifierBorderInfo = { fg = c.base.cyan },
+    SnacksNotifierIconInfo = { link = "SnacksNotifierInfo" },
+    SnacksNotifierBorderInfo = { link = "SnacksNotifierInfo" },
     SnacksNotifierTitleInfo = { fg = c.base.cyan, bold = true },
     SnacksNotifierFooterInfo = { fg = c.base.dimmed2 },
 
     -- Warn
     SnacksNotifierWarn = { fg = c.base.orange },
-    SnacksNotifierIconWarn = { fg = c.base.orange },
-    SnacksNotifierBorderWarn = { fg = c.base.orange },
+    SnacksNotifierIconWarn = { link = "SnacksNotifierWarn" },
+    SnacksNotifierBorderWarn = { link = "SnacksNotifierWarn" },
     SnacksNotifierTitleWarn = { fg = c.base.orange, bold = true },
     SnacksNotifierFooterWarn = { fg = c.base.dimmed2 },
 
     -- Error
     SnacksNotifierError = { fg = c.base.red },
-    SnacksNotifierIconError = { fg = c.base.red },
-    SnacksNotifierBorderError = { fg = c.base.red },
+    SnacksNotifierIconError = { link = "SnacksNotifierError" },
+    SnacksNotifierBorderError = { link = "SnacksNotifierError" },
     SnacksNotifierTitleError = { fg = c.base.red, bold = true },
     SnacksNotifierFooterError = { fg = c.base.dimmed2 },
 
     -- Debug
     SnacksNotifierDebug = { fg = c.base.dimmed1 },
-    SnacksNotifierIconDebug = { fg = c.base.dimmed1 },
-    SnacksNotifierBorderDebug = { fg = c.base.dimmed1 },
+    SnacksNotifierIconDebug = { link = "SnacksNotifierDebug" },
+    SnacksNotifierBorderDebug = { link = "SnacksNotifierDebug" },
     SnacksNotifierTitleDebug = { fg = c.base.dimmed1, bold = true },
     SnacksNotifierFooterDebug = { fg = c.base.dimmed2 },
 
     -- Trace
     SnacksNotifierTrace = { fg = c.base.dimmed1 },
-    SnacksNotifierIconTrace = { fg = c.base.dimmed1 },
-    SnacksNotifierBorderTrace = { fg = c.base.dimmed1 },
+    SnacksNotifierIconTrace = { link = "SnacksNotifierTrace" },
+    SnacksNotifierBorderTrace = { link = "SnacksNotifierTrace" },
     SnacksNotifierTitleTrace = { fg = c.base.dimmed1, bold = true },
     SnacksNotifierFooterTrace = { fg = c.base.dimmed2 },
 
+    -- ══════════════════════════════════════════════════════════════════════
     -- Input
+    -- ══════════════════════════════════════════════════════════════════════
     SnacksInputNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksInputBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksInputTitle = { fg = c.base.yellow, bold = true },
@@ -616,7 +416,9 @@ function M.get(c, config, hp)
     SnacksInputPrompt = { fg = c.base.yellow },
     SnacksInputCursor = { bg = c.base.white, fg = c.editor.background },
 
+    -- ══════════════════════════════════════════════════════════════════════
     -- Scratch
+    -- ══════════════════════════════════════════════════════════════════════
     SnacksScratchNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksScratchBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksScratchDesc = { fg = c.base.dimmed1 },
@@ -625,30 +427,29 @@ function M.get(c, config, hp)
     SnacksScratchKey = { fg = c.base.yellow, bold = true },
     SnacksScratchFooter = { fg = c.base.dimmed2 },
 
-    -- Terminal
+    -- ══════════════════════════════════════════════════════════════════════
+    -- Terminal & Lazygit
+    -- ══════════════════════════════════════════════════════════════════════
     SnacksTerminalNormal = { bg = c.terminal.background, fg = c.terminal.foreground },
     SnacksTerminalBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksTerminalTitle = { fg = c.base.green, bold = true },
-
-    -- Lazygit
     SnacksLazygitNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksLazygitBorder = { fg = c.base.purple },
     SnacksLazygitTitle = { fg = c.base.purple, bold = true },
 
-    -- Dim
+    -- ══════════════════════════════════════════════════════════════════════
+    -- Miscellaneous
+    -- ══════════════════════════════════════════════════════════════════════
     SnacksDim = { fg = c.base.dimmed2 },
-
-    -- Words
     SnacksWordsCurrent = { bg = c.editor.wordHighlightBackground },
-    SnacksWords = { bg = c.editor.wordHighlightBackground },
-
-    -- Scroll
+    SnacksWords = { link = "SnacksWordsCurrent" },
     SnacksScrollBar = { fg = c.scrollbarSlider.hoverBackground },
 
     -- Zen
     SnacksZenNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksZenBorder = { fg = c.editor.background },
     SnacksZenBackdrop = { bg = c.base.dark },
+    SnacksZenIcon = { fg = c.base.purple },
 
     -- Toggle
     SnacksToggleOn = { fg = c.base.green },
@@ -658,10 +459,15 @@ function M.get(c, config, hp)
     SnacksProfilerNormal = { bg = c.editor.background, fg = c.editor.foreground },
     SnacksProfilerBorder = { fg = c.tab.unfocusedActiveBorder },
     SnacksProfilerTitle = { fg = c.base.purple, bold = true },
-    SnacksProfilerIconInfo = { fg = c.base.cyan },
+    SnacksProfilerIconInfo = { bg = hp.blend(c.base.cyan, 0.3), fg = c.base.cyan },
+    SnacksProfilerBadgeInfo = { bg = hp.blend(c.base.cyan, 0.1), fg = c.base.cyan },
+    SnacksProfilerIconTrace = { bg = hp.blend(c.base.dimmed3, 0.3), fg = c.base.dimmed3 },
+    SnacksProfilerBadgeTrace = { bg = hp.blend(c.base.dimmed3, 0.1), fg = c.base.dimmed3 },
     SnacksProfilerBadge = { bg = c.base.dimmed5, fg = c.base.white },
     SnacksProfilerH1 = { fg = c.base.yellow, bold = true },
     SnacksProfilerH2 = { fg = c.base.purple, bold = true },
+    SnacksFooterKey = { link = "SnacksProfilerIconInfo" },
+    SnacksFooterDesc = { link = "SnacksProfilerBadgeInfo" },
 
     -- Image
     SnacksImageLoading = { fg = c.base.dimmed1 },
@@ -669,6 +475,10 @@ function M.get(c, config, hp)
 
     -- Status Column
     SnacksStatusColumnMark = { fg = c.base.yellow },
+
+    -- GitHub (for picker)
+    SnacksGhLabel = { fg = c.base.cyan, bold = true },
+    SnacksGhDiffHeader = { bg = hp.blend(c.base.cyan, 0.1), fg = c.base.cyan },
   }
 end
 
