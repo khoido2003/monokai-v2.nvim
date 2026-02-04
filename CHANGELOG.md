@@ -22,6 +22,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added missing highlight groups for GitHub picker and detailed cursor line styling.
   - Added new `SnacksExplorerCursorLine*` groups to ensure icons and text properly inherit selection backgrounds.
 
+### Performance
+
+- **Startup Time**: Reduced startup overhead by deferring `nvim-web-devicons` initialization using `vim.schedule`. This prevents the icon setup from blocking the critical path during colorscheme loading.
+
 ## [0.2.9] - 2026-01-27
 
 ### Refactor

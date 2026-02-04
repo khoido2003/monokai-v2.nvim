@@ -15,9 +15,11 @@ M.load = function()
   -- Try to load from compiled cache first
   if cache.load_compiled(config.filter, config) then
     if config.devicons then
-      local colorscheme = require("monokai-v2.colorscheme")
-      local devicons = require("monokai-v2.devicons")
-      devicons.setup(colorscheme(config.filter))
+      vim.schedule(function()
+        local colorscheme = require("monokai-v2.colorscheme")
+        local devicons = require("monokai-v2.devicons")
+        devicons.setup(colorscheme(config.filter))
+      end)
     end
     return
   end

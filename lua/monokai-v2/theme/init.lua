@@ -193,7 +193,9 @@ M.setup = function()
   end
 
   if Config.devicons then
-    devicons.setup(colorscheme)
+    vim.schedule(function()
+      devicons.setup(colorscheme)
+    end)
   end
 
   return hl_group_tbl
