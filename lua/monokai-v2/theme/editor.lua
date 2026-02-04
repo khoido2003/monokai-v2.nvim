@@ -65,8 +65,7 @@ M.setup = function(c, config, hp)
     FoldColumn = {
       fg = c.editorLineNumber.activeForeground,
     }, -- 'foldcolumn'
-    SignColumn = {
-    }, -- column where |signs| are displayed
+    SignColumn = {}, -- column where |signs| are displayed
     -- Substitute = { bg = C.yellow, fg = C.bg }, -- |:substitute| replacement text highlighting
     LineNr = {
       fg = c.editorLineNumber.foreground,
