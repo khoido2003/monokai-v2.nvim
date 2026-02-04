@@ -8,6 +8,7 @@ Table of Contents                               *monokai-v2-table-of-contents*
   - Differences from Original|monokai-v2-monokai-pro-v2-differences-from-original|
   - Installation                      |monokai-v2-monokai-pro-v2-installation|
   - Optional Dependencies    |monokai-v2-monokai-pro-v2-optional-dependencies|
+  - Important Plugin Configuration|monokai-v2-monokai-pro-v2-important-plugin-configuration|
   - Configuration                    |monokai-v2-monokai-pro-v2-configuration|
   - Usage                                    |monokai-v2-monokai-pro-v2-usage|
   - Filter Variants                |monokai-v2-monokai-pro-v2-filter-variants|
@@ -122,6 +123,25 @@ Font <https://www.nerdfonts.com/>.
 
   **Note:** Devicons support is enabled by default. If you don’t have
   nvim-web-devicons installed, it will be safely skipped.
+
+IMPORTANT PLUGIN CONFIGURATION*monokai-v2-monokai-pro-v2-important-plugin-configuration*
+
+
+FZF-LUA ~
+
+For `fzf-lua` to use the theme’s highlight groups (border, cursor, matches)
+instead of standard ANSI colors, you **must enable fzf_colors** in your fzf-lua
+setup:
+
+>lua
+    require('fzf-lua').setup({
+      fzf_colors = true
+    })
+<
+
+Without this setting, fzf-lua may show incorrect colors (like cyan paths or red
+matches) because it falls back to its default ANSI coloring.
+
 
 CONFIGURATION                        *monokai-v2-monokai-pro-v2-configuration*
 
