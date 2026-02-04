@@ -24,7 +24,6 @@ M.setup = function(c, config, hp)
       bg = c.editor.lineHighlightBackground,
     }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorLineNr = {
-      bg = c.editor.background,
       fg = c.editorLineNumber.activeForeground,
       bold = true,
     }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -64,15 +63,12 @@ M.setup = function(c, config, hp)
       bg = c.editor.foldBackground,
     }, -- line used for closed folds
     FoldColumn = {
-      bg = c.editor.background,
       fg = c.editorLineNumber.activeForeground,
     }, -- 'foldcolumn'
     SignColumn = {
-      bg = c.editor.background,
     }, -- column where |signs| are displayed
     -- Substitute = { bg = C.yellow, fg = C.bg }, -- |:substitute| replacement text highlighting
     LineNr = {
-      bg = c.editor.background,
       fg = c.editorLineNumber.foreground,
     }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     MatchParen = {

@@ -3,7 +3,24 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).## 
+
+[0.2.10] - 2026-02-04
+
+### Fixes
+
+- **blink-cmp**: Fixed invisible borders on documentation and signature help windows by updating highlight groups to consistently use `c.editorSuggestWidget.background` and ensuring `FloatBorder` has a visible foreground color.
+- **Floating Windows**: Fixed invisible `FloatBorder` in standard floating windows (LSP hover, diagnostics) by ensuring it has a visible foreground color (`c.base.dimmed1`) even when opaque.
+- **Snacks Explorer**: Fixed persistent background color on folder icons in the explorer (which looked bad when the line was selected) by removing the hardcoded `bg` from the global `Directory` highlight group.
+- **Snacks Picker**: Fixed mismatched background on line numbers, fold columns, and sign columns in the picker by removing hardcoded backgrounds from global `LineNr`, `SignColumn`, and `FoldColumn` groups (making them transparent).
+
+### Refactoring
+
+- **snacks.lua**: Massively refactored and slimmed down configuration.
+  - Removed hundreds of redundant highlight definitions by utilizing `link` to base groups.
+  - Consolidating duplicate background color logic.
+  - Added missing highlight groups for GitHub picker and detailed cursor line styling.
+  - Added new `SnacksExplorerCursorLine*` groups to ensure icons and text properly inherit selection backgrounds.
 
 ## [0.2.9] - 2026-01-27
 

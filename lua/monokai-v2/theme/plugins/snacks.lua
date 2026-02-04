@@ -97,9 +97,9 @@ function M.get(c, config, hp)
     SnacksPickerCursorLineNr = { bg = picker_selection_bg, fg = c.editorLineNumber.activeForeground, bold = true },
 
     -- Line numbers / columns (inherit bg from picker)
-    SnacksPickerLineNr = { fg = c.editorLineNumber.foreground },
-    SnacksPickerSignColumn = { fg = c.editorLineNumber.foreground },
-    SnacksPickerFoldColumn = { fg = c.editorLineNumber.foreground },
+    SnacksPickerLineNr = { bg = picker_bg, fg = c.editorLineNumber.foreground },
+    SnacksPickerSignColumn = { bg = picker_bg, fg = c.editorLineNumber.foreground },
+    SnacksPickerFoldColumn = { bg = picker_bg, fg = c.editorLineNumber.foreground },
     SnacksPickerEndOfBuffer = { fg = picker_bg },
 
     -- ══════════════════════════════════════════════════════════════════════
