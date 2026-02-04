@@ -4,7 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
- 
+
+## [0.2.11] - 2026-02-05
+
+### Changed
+
+- **fzf-lua**: Major styling overhaul to match Telescope's aesthetic.
+  - Implemented cohesive border, background, and cursor matching `Telescope` theme.
+  - Improved visibility: Selected items are now bright white, and active buffer paths are highlighted in yellow.
+  - Fixed visual bugs: Removed white block artifacts in search preview.
+  - Added `fzf_colors` support: Now uses theme highlights for precise color control of matches and paths.
+
 ## [0.2.10] - 2026-02-04
 
 ### Fixes

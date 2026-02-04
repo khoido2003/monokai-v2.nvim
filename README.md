@@ -99,7 +99,23 @@ require("monokai-v2").setup({
 
 This will colorize 200+ file type icons with Monokai colors. Requires a [Nerd Font](https://www.nerdfonts.com/).
 
+
 > **Note:** Devicons support is enabled by default. If you don't have nvim-web-devicons installed, it will be safely skipped.
+
+
+## Important Plugin Configuration
+
+### fzf-lua
+
+For `fzf-lua` to use the theme's highlight groups (border, cursor, matches) instead of standard ANSI colors, you **must enable `fzf_colors`** in your fzf-lua setup:
+
+```lua
+require('fzf-lua').setup({
+  fzf_colors = true
+})
+```
+
+Without this setting, fzf-lua may show incorrect colors (like cyan paths or red matches) because it falls back to its default ANSI coloring.
 
 
 ## Configuration
