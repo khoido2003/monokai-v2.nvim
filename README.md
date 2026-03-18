@@ -20,7 +20,7 @@
 > Run this command after any update or reinstall inside Neovim:
 >
 > ```vim
-> :MonokaiClear
+> :MonokaiCache clear
 > ```
 >
 > Exit Neovim
@@ -43,7 +43,7 @@ This fork introduces several improvements and additional support compared to the
 - **Respect LSP Semantic Tokens** – Ensures colors match LSP token types when available, providing consistent highlighting between Treesitter and LSP.  
 - **UI Bug Fixes** – Fixed issues with floating windows, markdown previews, and other elements that didn’t render correctly with the original theme.  
 - **Toggle Italics in Treesitter** – Users can easily enable or disable italic styles globally via configuration.  
-- **Expanded Plugin Support** – Added styling for popular plugins (Barbar, Oil, Avante, Grug-far, etc.)
+- **Expanded Plugin Support** – Added styling for popular plugins (Snacks, Heirline, nvim-dap-virtual-text, Barbar, Oil, Avante, Grug-far, etc.)
 - **Blazing Fast Performance** – Uses a compilation system to statically cache highlights, reducing startup time to ~2ms. 
 
 These improvements aim to make the theme **more consistent, modern, and configurable** for Neovim setup.
@@ -185,11 +185,10 @@ require("monokai-v2").setup({
 
 ### Commands
 
-- `MonokaiThemeSelect` - Interactive menu to select filter variant
-- `MonokaiChoose <filter>` - Direct filter selection (e.g., `MonokaiChoose pro`)
-- `MonokaiCompile` - Manually compile the theme highlights to cache
-- `MonokaiClear` - Clear the theme cache
-- `MonokaiRefreshTokens` - Manually refresh semantic tokens (useful for keeping highlights in sync with LSP)
+- `:MonokaiFilter` - Interactive menu to select a filter variant
+- `:MonokaiFilter <filter>` - Direct filter selection (e.g. `:MonokaiFilter pro`)
+- `:MonokaiCache clear` - Clear the compiled highlight cache
+- `:MonokaiCache compile` - Clear cache and recompile by reloading the colorscheme
 
 ### Statusline Integration
 
