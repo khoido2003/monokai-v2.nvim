@@ -38,10 +38,10 @@ function M.get(c, config, hp)
     local BODY = "Body"
     for group, hlValue in pairs(notify_groups) do
       if string.match(group, BORDER) then
-        notify_groups[group] = {
+        -- Keep per-level border colors (ERROR/WARN/INFO/...) and only normalize bg
+        notify_groups[group] = vim.tbl_deep_extend("force", hlValue or {}, {
           bg = c.notifications.background,
-          fg = c.notifications.border,
-        }
+        })
       end
       if string.match(group, ICON) or string.match(group, TITLE) then
         notify_groups[group] = vim.tbl_deep_extend("force", hlValue or {}, {

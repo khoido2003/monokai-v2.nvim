@@ -3,87 +3,88 @@ local config = require("monokai-v2.config")
 
 local M = {}
 
-M.create_filter_command = function()
-  local cmd = vim.api.nvim_create_user_command
+local FILTERS = {
+  "classic",
+  "light",
+  "machine",
+  "octagon",
+  "pro",
+  "ristretto",
+  "spectrum",
+}
 
-  cmd("MonokaiThemeSelect", function()
-    local filters = {
-      "classic",
-      "light",
-      "machine",
-      "octagon",
-      "pro",
-      "ristretto",
-      "spectrum",
-    }
-    local menu = util.ui.create_menu("Set monokai filter", filters, function(item)
-      local value = item and (item.value or item)
-      if not value then
-        return
-      end
-      config.extend({ filter = value })
-      vim.cmd([[colorscheme monokai-v2]])
-    end)
-    if menu then
-      menu:mount()
-    else
-      vim.ui.select(filters, { prompt = "Monokai theme filter" }, function(choice)
-        if not choice then
-          return
-        end
-        config.extend({ filter = choice })
-        vim.cmd([[colorscheme monokai-v2]])
-      end)
-    end
-  end, { nargs = 0 })
-
-  cmd("MonokaiChoose", function(opts)
-    local filter = opts.args
-    config.extend({ filter = filter })
-    vim.cmd([[colorscheme monokai-v2]])
-  end, {
-    nargs = 1,
-    complete = function()
-      return {
-        "classic",
-        "light",
-        "machine",
-        "octagon",
-        "pro",
-        "ristretto",
-        "spectrum",
-      }
-    end,
-  })
+local function apply_filter(filter)
+  if not filter or filter == "" then
+    return
+  end
+  config.extend({ filter = filter })
+  vim.cmd([[colorscheme monokai-v2]])
 end
 
-M.create_cache_commands = function()
+local function open_filter_picker()
+  local menu = util.ui.create_menu("Set monokai filter", FILTERS, function(item)
+    local value = item and (item.value or item)
+    apply_filter(value)
+  end)
+  if menu then
+    menu:mount()
+    return
+  end
+  vim.ui.select(FILTERS, { prompt = "Monokai theme filter" }, function(choice)
+    apply_filter(choice)
+  end)
+end
+
+local function complete_filter_arg()
+  return FILTERS
+end
+
+local function complete_cache_action()
+  return { "compile", "clear" }
+end
+
+function M.create_commands()
   local cmd = vim.api.nvim_create_user_command
 
-  cmd("MonokaiCompile", function()
-    require("monokai-v2.cache").clear()
-    -- Reloading the theme will trigger generation and caching
-    vim.cmd([[colorscheme monokai-v2]])
-    vim.notify("Monokai-v2: Theme compiled and cached!", vim.log.levels.INFO)
-  end, { nargs = 0 })
-
-  cmd("MonokaiClear", function()
-    require("monokai-v2.cache").clear()
-    vim.notify("Monokai-v2: Cache cleared!", vim.log.levels.INFO)
-  end, { nargs = 0 })
-
-  -- Command to manually refresh semantic tokens for the current buffer
-  cmd("MonokaiRefreshTokens", function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    if vim.api.nvim_buf_is_valid(bufnr) then
-      local ok, err = pcall(vim.lsp.semantic_tokens.force_refresh, bufnr)
-      if ok then
-        vim.notify("Monokai-v2: Semantic tokens refreshed!", vim.log.levels.INFO)
-      else
-        vim.notify("Monokai-v2: Failed to refresh semantic tokens: " .. tostring(err), vim.log.levels.WARN)
-      end
+  cmd("MonokaiFilter", function(opts)
+    if not opts.args or opts.args == "" then
+      open_filter_picker()
+      return
     end
-  end, { nargs = 0 })
+    apply_filter(opts.args)
+  end, {
+    nargs = "?",
+    complete = complete_filter_arg,
+    desc = "monokai-v2: pick or set a filter",
+  })
+
+  cmd("MonokaiCache", function(opts)
+    local action = (opts.args or ""):lower()
+    if action == "" then
+      vim.notify("monokai-v2: usage: :MonokaiCache [compile|clear]", vim.log.levels.INFO)
+      return
+    end
+
+    local cache = require("monokai-v2.cache")
+    if action == "clear" then
+      cache.clear()
+      vim.notify("Monokai-v2: Cache cleared!", vim.log.levels.INFO)
+      return
+    end
+
+    if action == "compile" then
+      cache.clear()
+      vim.cmd([[colorscheme monokai-v2]])
+      vim.notify("Monokai-v2: Theme compiled and cached!", vim.log.levels.INFO)
+      return
+    end
+
+    vim.notify("monokai-v2: unknown action: " .. action .. " (expected compile|clear)", vim.log.levels.WARN)
+  end, {
+    nargs = 1,
+    complete = complete_cache_action,
+    desc = "monokai-v2: manage highlight cache",
+  })
 end
 
 return M
