@@ -81,7 +81,7 @@ function M.create_commands()
 
     vim.notify("monokai-v2: unknown action: " .. action .. " (expected compile|clear)", vim.log.levels.WARN)
   end, {
-    nargs = 1,
+    nargs = "?",
     complete = complete_cache_action,
     desc = "monokai-v2: manage highlight cache",
   })
