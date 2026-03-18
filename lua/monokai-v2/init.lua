@@ -4,8 +4,7 @@ M.setup = function(opts)
   require("monokai-v2.config").setup(opts)
   -- Create commands early so they are available even before loading cache
   local command = require("monokai-v2.command")
-  command.create_filter_command()
-  command.create_cache_commands()
+  command.create_commands()
 end
 
 M.load = function()
