@@ -14,10 +14,15 @@ local FILTERS = {
 }
 
 local function apply_filter(filter)
-  if not filter or filter == "" then
+  local normalized = (filter or ""):lower()
+  if normalized == "" then
     return
   end
-  config.extend({ filter = filter })
+  if not vim.tbl_contains(FILTERS, normalized) then
+    vim.notify("monokai-v2: unknown filter: " .. normalized, vim.log.levels.WARN)
+    return
+  end
+  config.extend({ filter = normalized })
   vim.cmd([[colorscheme monokai-v2]])
 end
 
@@ -74,7 +79,11 @@ function M.create_commands()
 
     if action == "compile" then
       cache.clear()
-      vim.cmd([[colorscheme monokai-v2]])
+      local ok, err = pcall(vim.cmd, [[colorscheme monokai-v2]])
+      if not ok then
+        vim.notify("monokai-v2: compile failed: " .. tostring(err), vim.log.levels.ERROR)
+        return
+      end
       vim.notify("Monokai-v2: Theme compiled and cached!", vim.log.levels.INFO)
       return
     end
