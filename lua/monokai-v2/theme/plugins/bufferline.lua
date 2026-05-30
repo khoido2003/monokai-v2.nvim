@@ -341,4 +341,44 @@ M.setup_bufferline_icon = function(icon_hl_name, icon_color)
   return skeleton
 end
 
+--- Set up autocmds to create bufferline icon highlights for all buffers.
+--- This ensures icon backgrounds match tab backgrounds since bufferline.nvim
+--- derives its own internal colors that may not match the theme's highlights.
+M.setup_icon_autocmds = function()
+  if not M.setup_bufferline_icon then
+    return
+  end
+
+  local group = vim.api.nvim_create_augroup("MonokaiV2BufferlineIcons", { clear = true })
+  vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
+    group = group,
+    callback = function()
+      local icon_ok, web_devicons = pcall(require, "nvim-web-devicons")
+      if not icon_ok then
+        return
+      end
+
+      local theme_util = require("monokai-v2.util.theme")
+      for _, buf_id in ipairs(vim.api.nvim_list_bufs()) do
+        pcall(function()
+          local buf_name = vim.api.nvim_buf_get_name(buf_id)
+          if buf_name and buf_name ~= "" then
+            local filename = vim.fn.fnamemodify(buf_name, ":t")
+            local extension = vim.fn.fnamemodify(buf_name, ":e")
+            local _, icon_hl = web_devicons.get_icon(filename, extension, { default = true })
+            local _, icon_color = web_devicons.get_icon_color(filename, extension, { default = true })
+
+            if icon_hl then
+              local icon_highlights = M.setup_bufferline_icon(icon_hl, icon_color)
+              if icon_highlights then
+                theme_util.draw(icon_highlights)
+              end
+            end
+          end
+        end)
+      end
+    end,
+  })
+end
+
 return M
