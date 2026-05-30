@@ -353,6 +353,15 @@ M.setup_icon_autocmds = function()
   vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
     group = group,
     callback = function()
+      -- Ensure tab colors are initialized (needed when loading from cache,
+      -- since M.get() may not have been called yet).
+      if M.get_tab == nil and M.get then
+        local colorscheme = require("monokai-v2.colorscheme")
+        local config = require("monokai-v2.config")
+        local helper = require("monokai-v2.color_helper")
+        M.get(colorscheme(config.filter), config, helper)
+      end
+
       local icon_ok, web_devicons = pcall(require, "nvim-web-devicons")
       if not icon_ok then
         return
