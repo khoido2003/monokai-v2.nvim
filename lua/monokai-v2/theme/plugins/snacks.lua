@@ -120,10 +120,7 @@ function M.get(c, config, hp)
     SnacksPickerTotals = { fg = c.base.dimmed1 },
     SnacksPickerPromptCounter = { fg = c.base.white, bold = true },
     SnacksPickerSpinner = { fg = c.base.yellow },
-    SnacksPickerToggle = {
-      bg = config.filter == "light" and c.base.red or c.base.yellow,
-      fg = c.base.black,
-    },
+    SnacksPickerToggle = { fg = c.base.cyan, bg = hp.blend(c.base.cyan, 0.1, c.editor.background) },
     SnacksPickerDimmed = { fg = c.base.dimmed2 },
     SnacksPickerSelected = { fg = c.base.yellow },
     SnacksPickerUnselected = { fg = c.base.dimmed1 },
