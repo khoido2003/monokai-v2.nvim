@@ -20,6 +20,13 @@ M.load = function()
         devicons.setup(colorscheme(config.filter))
       end)
     end
+
+    -- Bufferline icon autocmds are normally set up in theme_util.load(),
+    -- but the cached path skips that. Register them here explicitly.
+    local bufferline_module = require("monokai-v2.theme.plugins.bufferline")
+    if bufferline_module.setup_icon_autocmds then
+      bufferline_module.setup_icon_autocmds()
+    end
     return
   end
 
