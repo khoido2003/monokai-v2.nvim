@@ -367,6 +367,9 @@ M.register_icon_handler = function()
 
     for _, buf_id in ipairs(bufs) do
       pcall(function()
+        if not vim.api.nvim_buf_is_valid(buf_id) then
+          return
+        end
         local buf_name = vim.api.nvim_buf_get_name(buf_id)
         if buf_name and buf_name ~= "" then
           local filename = vim.fn.fnamemodify(buf_name, ":t")
