@@ -46,6 +46,15 @@ function M.setup_plugin_icon_autocmds()
       end)
     end,
   })
+
+  -- Backfill already-open buffers so icons are corrected immediately.
+  vim.schedule(function()
+    if vim.g.colors_name == "monokai-v2" then
+      for _, handler in pairs(plugin_icon_handlers) do
+        pcall(handler, "ColorScheme", vim.api.nvim_list_bufs())
+      end
+    end
+  end)
 end
 
 ---@param hex_color HexColor
