@@ -21,12 +21,14 @@ M.load = function()
       end)
     end
 
-    -- Bufferline icon autocmds are normally set up in theme_util.load(),
-    -- but the cached path skips that. Register them here explicitly.
+    -- Register plugin icon handlers and set up centralized autocmds.
+    -- The cached path skips theme_util.load(), so we do it here.
     local bufferline_module = require("monokai-v2.theme.plugins.bufferline")
-    if bufferline_module.setup_icon_autocmds then
-      bufferline_module.setup_icon_autocmds()
+    if bufferline_module.register_icon_handler then
+      bufferline_module.register_icon_handler()
     end
+    local theme_util = require("monokai-v2.util.theme")
+    theme_util.setup_plugin_icon_autocmds()
     return
   end
 
@@ -36,6 +38,14 @@ M.load = function()
 
   cache.compile(config.filter, hl_groups, config)
   cache.load_compiled(config.filter, config)
+
+  -- Register plugin icon handlers in the non-cached path as well.
+  local bufferline_module = require("monokai-v2.theme.plugins.bufferline")
+  if bufferline_module.register_icon_handler then
+    bufferline_module.register_icon_handler()
+  end
+  local theme_util = require("monokai-v2.util.theme")
+  theme_util.setup_plugin_icon_autocmds()
 end
 M._load = function(filter)
   require("monokai-v2.config").extend({ filter = filter })

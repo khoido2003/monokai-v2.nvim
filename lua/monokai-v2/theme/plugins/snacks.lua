@@ -31,6 +31,7 @@ function M.get(c, config, hp)
   local picker_bg = isPickerBackgroundClear and transparent_bg or result_bg
   local picker_border_bg = transparent_bg
   local picker_border_fg = isPickerBackgroundClear and transparent_bg_border or result_bg
+  local title_accent_bg = config.filter == "light" and c.base.red or c.base.yellow
 
   return {
     -- ══════════════════════════════════════════════════════════════════════
@@ -53,7 +54,7 @@ function M.get(c, config, hp)
     SnacksPickerBorder = isPickerBackgroundClear and { bg = transparent_bg, fg = c.tab.unfocusedActiveBorder }
       or { bg = c.editor.background, fg = c.editorHoverWidget.background },
     SnacksPickerTitle = {
-      bg = config.filter == "light" and c.base.red or c.base.yellow,
+      bg = title_accent_bg,
       fg = c.base.black,
       bold = true,
     },
@@ -105,7 +106,7 @@ function M.get(c, config, hp)
     -- ══════════════════════════════════════════════════════════════════════
     -- Picker - Content styling
     -- ══════════════════════════════════════════════════════════════════════
-    SnacksPickerMatch = { fg = config.filter == "light" and c.base.red or c.base.yellow, bold = true },
+    SnacksPickerMatch = { fg = title_accent_bg, bold = true },
     SnacksPickerSearch = { link = "Search" },
     SnacksPickerFile = { fg = c.base.white },
     SnacksPickerDir = { fg = c.base.dimmed1 },
