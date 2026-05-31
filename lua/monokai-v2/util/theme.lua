@@ -8,6 +8,46 @@ local function load_autocmds()
   pcall(require, "monokai-v2.autocmds")
 end
 
+-- Plugin icon handlers for fixing dynamically-derived devicon backgrounds.
+-- Each handler is a function(event: string, bufs: integer[]) that updates
+-- highlight groups for the given buffers.
+local plugin_icon_handlers = {}
+local plugin_icon_autocmd_registered = false
+
+--- Register a plugin-specific icon background fix handler.
+--- @param name string
+--- @param handler fun(event: string, bufs: integer[])
+function M.register_plugin_icon_handler(name, handler)
+  plugin_icon_handlers[name] = handler
+end
+
+--- Set up a single centralized autocmd that dispatches to all registered
+--- plugin icon handlers. BufEnter scopes to the entered buffer only;
+--- ColorScheme sweeps all buffers since highlights were cleared.
+function M.setup_plugin_icon_autocmds()
+  if plugin_icon_autocmd_registered or vim.tbl_isempty(plugin_icon_handlers) then
+    return
+  end
+  plugin_icon_autocmd_registered = true
+
+  local group = vim.api.nvim_create_augroup("MonokaiV2PluginIcons", { clear = true })
+  vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
+    group = group,
+    callback = function(args)
+      if vim.g.colors_name ~= "monokai-v2" then
+        return
+      end
+
+      vim.schedule(function()
+        local bufs = args.event == "BufEnter" and { args.buf } or vim.api.nvim_list_bufs()
+        for _, handler in pairs(plugin_icon_handlers) do
+          pcall(handler, args.event, bufs)
+        end
+      end)
+    end,
+  })
+end
+
 ---@param hex_color HexColor
 ---@param base? HexColor
 ---@return HexColor?
@@ -82,13 +122,13 @@ function M.load(hl_group_tbl)
 
   M.draw(hl_group_tbl)
 
-  -- Set up bufferline icon highlights so icon backgrounds match tab backgrounds.
-  -- Bufferline.nvim creates icon highlights dynamically using derived colors
-  -- that may not match the theme's explicit highlights.
+  -- Set up plugin icon autocmds so dynamically-derived devicon backgrounds
+  -- (e.g. BufferLineDevIcon*) are corrected for all registered plugins.
   local bufferline_module = require("monokai-v2.theme.plugins.bufferline")
-  if bufferline_module.setup_icon_autocmds then
-    bufferline_module.setup_icon_autocmds()
+  if bufferline_module.register_icon_handler then
+    bufferline_module.register_icon_handler()
   end
+  M.setup_plugin_icon_autocmds()
   load_autocmds()
 end
 
