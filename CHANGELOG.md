@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.13] - 2026-05-31
+### Changed
+
+* fix: bufferline icon background inconsistency by @Zeppelinpp in https://github.com/khoido2003/monokai-v2.nvim/pull/16
+
+## [0.2.12] - 2026-03-18
+### Changed
+
+* refactor: consolidate command creation and remove unused LSP semantic token handling by @khoido2003 in https://github.com/khoido2003/monokai-v2.nvim/pull/14
+
 ## [0.2.11] - 2026-02-05
 
 ### Changed
