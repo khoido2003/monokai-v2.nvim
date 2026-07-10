@@ -190,16 +190,6 @@ M.setup = function()
   -- } or {})
   -- print(vim.inspect(M.temp))
 
-  if Config.terminal_colors then
-    Util.extra.terminal(Colorscheme)
-  end
-
-  if Config.devicons then
-    vim.schedule(function()
-      devicons.setup(colorscheme)
-    end)
-  end
-
   return hl_group_tbl
 end
 

@@ -706,10 +706,11 @@ local color_mappings = {
 }
 
 ---@param c Colorscheme
-M.setup = function(c)
+---@return table|nil
+M.get_icons = function(c)
   local status_ok, webDevicons = pcall(require, "nvim-web-devicons")
   if not status_ok then
-    return
+    return nil
   end
 
   -- Try to get default icons from nvim-web-devicons
@@ -771,7 +772,18 @@ M.setup = function(c)
     end
   end
 
-  webDevicons.set_icon(icons)
+  return icons
+end
+
+---@param c Colorscheme
+M.setup = function(c)
+  local icons = M.get_icons(c)
+  if icons then
+    local status_ok, webDevicons = pcall(require, "nvim-web-devicons")
+    if status_ok then
+      webDevicons.set_icon(icons)
+    end
+  end
 end
 
 return M
