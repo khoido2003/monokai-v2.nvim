@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.15] - 2026-07-10
+### Changed
+* [fix: resolve colorscheme metatable performance leak and defer theme autocmds](https://github.com/khoido2003/monokai-v2.nvim/commit/e3e6dcbfcbadb5d6c46fcf244388f8ea7160be9d)
+* [perf: reduction in startup overhead and cache optimization](https://github.com/khoido2003/monokai-v2.nvim/commit/dbb92d80c3b48d794d03f4fa612ab70fe5bfa68b)
+
 ## [0.2.13] - 2026-05-31
 ### Changed
 
