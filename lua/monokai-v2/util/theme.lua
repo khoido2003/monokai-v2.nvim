@@ -5,7 +5,9 @@ local Helper = require("monokai-v2.color_helper")
 local M = {}
 
 local function load_autocmds()
-  pcall(require, "monokai-v2.autocmds")
+  vim.schedule(function()
+    pcall(require, "monokai-v2.autocmds")
+  end)
 end
 
 ---@param hex_color HexColor

@@ -19,7 +19,7 @@ setmetatable(M, {
     end
 
     local current_filter = require("monokai-v2.config").filter
-    if cached_filter ~= current_filter or not cached_cs[k] then
+    if cached_filter ~= current_filter then
       cached_cs = M.get(current_filter)
       cached_filter = current_filter
     end
